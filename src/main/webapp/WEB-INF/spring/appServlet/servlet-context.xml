@@ -10,8 +10,8 @@
 	
 	<annotation-driven />
 	
-	<context:annotation-config></context:annotation-config>
-	
+	<!-- component-scan 사용시  annotation설정 필요없읍니다 -->
+	<!-- <context:annotation-config></context:annotation-config> -->	
 	<default-servlet-handler/>
 	
 	<view-controller path="/" view-name="main"/>
