@@ -62,7 +62,7 @@
 				</div><br>
 			<%  if(userId.equals("admin")){ // 이중 if문%>	
 				<li><a href="#" id="logout">Logout</a></li>
-				<li><a href="ManageListServlet">management</a></li>
+				<li><a href="loginCheck/managementMember">management</a></li>
 				<%  } else{ %>
 				<li><a href="#" id="logout">Logout</a></li>
 			<%	}} else{ %>
@@ -199,7 +199,7 @@ $(".nav-item").find("a").each(function() {
   	$("#logout").click(function() {
   		kakaoLogout();
   		naverLogout();
-	  	window.location.href='loginCheck/Logout';
+	  	window.location.href='loginCheck/logout';
   	}); 
  
  // 프로그래스바
@@ -263,10 +263,10 @@ var toggleBtn = document.querySelector('.navbar-menu-Btn');
 var menu = document.querySelector('#nav_Menu');
 var login = document.querySelector('#nav_login');
 
-toggleBtn.addEventListener("click", () => { //클릭시 이벤트
-  menu.classList.toggle("navActive");
-  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
-});
+toggleBtn.addEventListener("click", function() { //클릭시 이벤트
+	  menu.classList.toggle("navActive");
+	  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
+	});
 </script>
 
 
