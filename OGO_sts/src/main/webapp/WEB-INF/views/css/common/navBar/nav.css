@@ -30,6 +30,7 @@
     align-items: flex-start;
     min-width: 300px;
   }
+  .navbar #nav_logo img{margin: 5px;}
   .navbar #nav_Menu{
   	font-size: 25px;
     display: none;
@@ -38,6 +39,7 @@
     justify-content: center;
     align-items: center;
     min-width: 300px;
+    margin-top: 100px;
   }
   .navbar #nav_Menu li{ padding: 10px 0;}
   .navbar #nav_login {  
@@ -53,7 +55,7 @@
     font-size: 25px;
     position: absolute;
     right: 30px;
-    top: 30px;
+    top: 15px;
     
   }
   .navbar .navActive { display: flex !important;}
@@ -115,12 +117,11 @@
 }
 
 #login_modalbody {
-	font-family: 'Noto Sans KR', sans-serif;	/* 구글폰트에서 글자스타일 가져옴 */	
-	
+	font-family: 'Noto Sans KR', sans-serif;	/* 구글폰트에서 글자스타일 가져옴 */		
 	margin: auto;	
 } 
+
 #login_modalcontent {
-	/* 보라색 */
 	background: linear-gradient(black,rgb(80,80,150),rgb(160,80,100),#17141d);  
 	border-radius: 20px;  
 }
