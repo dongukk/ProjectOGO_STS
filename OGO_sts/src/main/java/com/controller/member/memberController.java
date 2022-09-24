@@ -43,7 +43,6 @@ public class memberController {
 	}
 	
 // 회원관리 페이지
-	
 	@RequestMapping(value = "/loginCheck/managementMember")
 	private String managementMember() {
 		return "member/manageMember/managementMember";
