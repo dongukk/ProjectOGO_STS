@@ -7,10 +7,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
-	
+<!-- 1. jdbc.properties -->	
 	<context:property-placeholder location="classpath:com/config/jdbc.properties" />
 	
-	
+<!-- 2. DBCP2 -->	
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="${oracle.driver}"></property>
 		<property name="url" value="${oracle.url}"></property>
@@ -18,37 +18,39 @@
 		<property name="password" value="${oracle.passwd}"></property>
 	</bean>
 	
-	
+<!-- transaction의 시작 -->		
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	
+<!-- transaction 처리 종료 -->		
+
+<!-- 3. SqlSessionFactoryBean -->	
 	<bean id="SessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mapperLocations">
 			<list>
-			<value>classpath:com/config/MainMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassImgMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassOrderMapper.xml</value>
-			<value>classpath:com/config/classpage/ContentMapper.xml</value>
-			<value>classpath:com/config/classpage/HeartMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassImgMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassOrderMapper.xml</value>
+				<value>classpath:com/config/classpage/ContentMapper.xml</value>
+				<value>classpath:com/config/classpage/HeartMapper.xml</value>
+				<value>classpath:com/config/member/MemberMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
 			<list>
-			<value>com.dto.MainDTO</value>
-			<value>com.dto.classpage.ClassDTO</value>
-			<value>com.dto.classpage.ClassImgDTO</value>
-			<value>com.dto.classpage.ClassOrderDTO</value>
-			<value>com.dto.classpage.ContentDTO</value>
+				<value>com.dto.classpage.ClassDTO</value>
+				<value>com.dto.classpage.ClassImgDTO</value>
+				<value>com.dto.classpage.ClassOrderDTO</value>
+				<value>com.dto.classpage.ContentDTO</value>
+				<value>com.dto.member.MemberDTO</value>
+				<value>com.dto.member.PageDTO</value>
 			</list>
 		</property>
 	</bean>
 	
-	
+<!-- 4. SqlSessionTemplate : SqlSsession기능 -->	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg name="sqlSessionFactory" ref="SessionFactory"></constructor-arg>
 	</bean>

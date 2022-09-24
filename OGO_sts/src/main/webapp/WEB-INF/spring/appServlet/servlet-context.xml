@@ -8,14 +8,31 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 	
-	<annotation-driven />
+	<annotation-driven /><!-- RedirectAttribute 사용시 필요 -->
+	<default-servlet-handler/><!-- html 파일 사용시 필요 -->
 	
-	<!-- component-scan 사용시  annotation설정 필요없읍니다 -->
-	<!-- <context:annotation-config></context:annotation-config> -->	
-	<default-servlet-handler/>
+<!-- component-scan 사용시  annotation-config 설정 필요없습니다 -->
+	<!-- <context:annotation-config></context:annotation-config> -->
 	
-	<view-controller path="/" view-name="main"/>
+<!-- view페이지 설정 -->
+	<view-controller path="/" view-name="MainForm"/>
+	<view-controller path="/MainForm" view-name="MainForm"/>
 
+<!-- WEB-INF 폴더는 반드시 리소스 등록 후 사용 -->
+	<resources location="/WEB-INF/views/images/" mapping="/images/**"></resources>
+	<resources location="/WEB-INF/views/css/" mapping="/css/**"></resources>
+	<resources location="/WEB-INF/views/js/" mapping="/js/**"></resources>
+	
+<!-- Interceptor 빈 생성 -->
+	<beans:bean id="LoginCheckInterceptor" class="com.interceptor.LoginCheckInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/loginCheck/**"/>
+			<beans:ref bean="LoginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+<!-- el, jstl 태그 디펜던시 추가 없이 사용 가능 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
