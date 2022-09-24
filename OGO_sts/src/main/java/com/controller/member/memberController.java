@@ -15,21 +15,9 @@ import com.service.member.MemberService;
 
 @Controller
 public class memberController {
+	
 	@Autowired
 	MemberService service;
-	
-	@RequestMapping(value = "/")
-	public String Main() {
-		
-		return "/MainForm";
-	}
-	
-	@RequestMapping(value = "/MainForm")
-	public String MainForm() {
-		
-		return "/MainForm";
-	}
-	
 
 // 로그인 처리
 	@RequestMapping(value = "/login")

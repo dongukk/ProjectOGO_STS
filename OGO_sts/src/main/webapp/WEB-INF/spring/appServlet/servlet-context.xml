@@ -15,7 +15,8 @@
 	<!-- <context:annotation-config></context:annotation-config> -->
 	
 <!-- view페이지 설정 -->
-	<view-controller path="/" view-name="main"/>
+	<view-controller path="/" view-name="MainForm"/>
+	<view-controller path="/MainForm" view-name="MainForm"/>
 
 <!-- WEB-INF 폴더는 반드시 리소스 등록 후 사용 -->
 	<resources location="/WEB-INF/views/images/" mapping="/images/**"></resources>

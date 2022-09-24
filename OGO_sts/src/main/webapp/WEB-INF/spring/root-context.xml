@@ -30,25 +30,22 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mapperLocations">
 			<list>
-			<value>classpath:com/config/MainMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassImgMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassMapper.xml</value>
-			<value>classpath:com/config/classpage/ClassOrderMapper.xml</value>
-			<value>classpath:com/config/classpage/ContentMapper.xml</value>
-			<value>classpath:com/config/classpage/HeartMapper.xml</value>
-			<value>classpath:com/config/MainMapper.xml</value>
-			<value>classpath:com/config/member/MemberMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassImgMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassMapper.xml</value>
+				<value>classpath:com/config/classpage/ClassOrderMapper.xml</value>
+				<value>classpath:com/config/classpage/ContentMapper.xml</value>
+				<value>classpath:com/config/classpage/HeartMapper.xml</value>
+				<value>classpath:com/config/member/MemberMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
 			<list>
-			<value>com.dto.MainDTO</value>
-			<value>com.dto.classpage.ClassDTO</value>
-			<value>com.dto.classpage.ClassImgDTO</value>
-			<value>com.dto.classpage.ClassOrderDTO</value>
-			<value>com.dto.classpage.ContentDTO</value>
-			<value>com.dto.member.MemberDTO</value>
-			<value>com.dto.member.PageDTO</value>
+				<value>com.dto.classpage.ClassDTO</value>
+				<value>com.dto.classpage.ClassImgDTO</value>
+				<value>com.dto.classpage.ClassOrderDTO</value>
+				<value>com.dto.classpage.ContentDTO</value>
+				<value>com.dto.member.MemberDTO</value>
+				<value>com.dto.member.PageDTO</value>
 			</list>
 		</property>
 	</bean>

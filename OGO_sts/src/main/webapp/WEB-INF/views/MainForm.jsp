@@ -27,7 +27,7 @@
    <%--  <jsp:include page="common/mainPage/ScrollAni.jsp" flush="false"/>
 	<jsp:include page="common/mainPage/MainPage.html" flush="false"/>  --%>
 
-	<br><br><br><br><br><h1>로그인하면 session저장한 login정보 출력 </h1>
+	<br><br><br><br><br><h1>로그인 test</h1>
 	${ login }
 </body>
 </html>
