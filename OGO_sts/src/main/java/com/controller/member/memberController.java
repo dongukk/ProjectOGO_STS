@@ -22,7 +22,7 @@ public class memberController {
 // 로그인 처리
 	@RequestMapping(value = "/login")
 	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) {
-		System.out.println(map);
+		//System.out.println(map);
 		
 		MemberDTO dto = service.login(map);
 		System.out.println(dto);		
@@ -36,10 +36,16 @@ public class memberController {
 	}
 	
 // 로그아웃 처리	
-	@RequestMapping(value = "/loginCheck/Logout")
+	@RequestMapping(value = "/loginCheck/logout")
 	private String logout(HttpSession session) {
-		System.out.println("로그아웃 됨");
 		session.invalidate();
 		return "redirect:../";
+	}
+	
+// 회원관리 페이지
+	
+	@RequestMapping(value = "/loginCheck/managementMember")
+	private String managementMember() {
+		return "member/manageMember/managementMember";
 	}
 }

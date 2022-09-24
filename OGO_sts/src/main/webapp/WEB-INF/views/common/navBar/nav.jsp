@@ -62,7 +62,7 @@
 				</div><br>
 			<%  if(userId.equals("admin")){ // 이중 if문%>	
 				<li><a href="#" id="logout">Logout</a></li>
-				<li><a href="ManageListServlet">management</a></li>
+				<li><a href="loginCheck/managementMember">management</a></li>
 				<%  } else{ %>
 				<li><a href="#" id="logout">Logout</a></li>
 			<%	}} else{ %>
@@ -199,7 +199,7 @@ $(".nav-item").find("a").each(function() {
   	$("#logout").click(function() {
   		kakaoLogout();
   		naverLogout();
-	  	window.location.href='loginCheck/Logout';
+	  	window.location.href='loginCheck/logout';
   	}); 
  
  // 프로그래스바
