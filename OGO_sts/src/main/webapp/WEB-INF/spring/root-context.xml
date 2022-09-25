@@ -36,6 +36,7 @@
 				<value>classpath:com/config/classpage/ContentMapper.xml</value>
 				<value>classpath:com/config/classpage/HeartMapper.xml</value>
 				<value>classpath:com/config/member/MemberMapper.xml</value>
+				<value>classpath:com/config/notice/NoticeMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -46,6 +47,8 @@
 				<value>com.dto.classpage.ContentDTO</value>
 				<value>com.dto.member.MemberDTO</value>
 				<value>com.dto.member.PageDTO</value>
+				<value>com.dto.notice.NoticeTableDTO</value>
+				<value>com.dto.notice.FAQ_DTO</value>
 			</list>
 		</property>
 	</bean>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-		<tr> <td>No.</td><td>제목</td><td>작성일</td><td>작성자</td> </tr>
-	</table>
+
+
+
+<jsp:include page="notice_faq/noticeTable.jsp"></jsp:include>
+<jsp:include page="notice_faq/noticeFAQ.jsp"></jsp:include>
 </body>
 </html>

@@ -36,7 +36,7 @@
 			<a class="nav_menu" href="MyPageServlet"><span>MY SPACE</span></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav_menu" href="NoticeListServlet"><span>공지사항&FAQ</span></a>
+			<a class="nav_menu" href="notice"><span>공지사항&FAQ</span></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav_menu" href="ClassPage"><span>Class</span></a>
