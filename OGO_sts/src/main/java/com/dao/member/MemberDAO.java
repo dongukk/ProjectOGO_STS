@@ -17,4 +17,14 @@ public class MemberDAO {
 		MemberDTO dto = template.selectOne("MemberMapper.login", map);
 		return dto;
 	}
+
+	public String idCheck(String userId) {
+		String n = template.selectOne("MemberMapper.idCheck", userId);
+		return n;
+	}
+
+	public String nicknameCheck(String nickname) {
+		String n = template.selectOne("MemberMapper.nicknameCheck", nickname);
+		return n;
+	}
 }

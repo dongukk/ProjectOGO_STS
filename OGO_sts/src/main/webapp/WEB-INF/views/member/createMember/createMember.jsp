@@ -48,7 +48,7 @@ $("input[name=tservise]").click(function() {
 });
 
 // 이용약관 동의 이벤트
-<!-- check Box 이벤트처리를 위한 Script -->
+// check Box 이벤트처리를 위한 Script
 $("#tserviceOK").click(function(){
 	event.preventDefault();
 	   if ( ! $("#tservise1").is(":checked")) {
@@ -97,9 +97,9 @@ $("#nicknameCheckBtn").click(function(){
 	}
 	// 비동기 처리
 	$.ajax({
-		url: '../MemberNicknameCheckServlet',
+		url: 'MemberNicknameCheck',
 		type: 'get',
-		dataType: 'json',
+		dataType: 'text',
 		data: {nickname:nickname},
 		success: function(data, status, xhr) {
 			if(data > 0) {
@@ -115,6 +115,7 @@ $("#nicknameCheckBtn").click(function(){
 		}			
 	}); // end ajax
 });	// end nicknameCheck
+
 // 닉네임 중복시 회원가입 이벤트 중지
 $("form").submit(function () {
 	var result2 = $("#result2").text();
@@ -149,7 +150,7 @@ $(function(){
 	function idCheckWindowOpen(){
 		// window.open() - window객체로 창은 여는 메서드
 		// open(url, name, option)
-		window.open("idCheck1.jsp", "", "width=600, height=300, top=100, left=400");
+		window.open("idCheck", "", "width=600, height=300, top=100, left=400");
 	}
 });
 
@@ -226,12 +227,12 @@ $(function(){
 <body>
 <div id="div_top"></div>
 <div id="div_right">
-	<img src="../LoginImg/b.jpg" id="img_b">
+	<img src="images/login/b.jpg" id="img_b">
 </div>
 <div id="div_left">
 <h1>회원 가입</h1>
 <div style="text-align: right; color: red;">* 항목은 필수입력 사항입니다.</div>
-	<form action="../MemberAddServlet" method="post" enctype="multipart/form-data">	<!-- enctype: 파일업로드 필수형식 -->
+	<form action="MemberAdd" method="post" enctype="multipart/form-data">	<!-- enctype: 파일업로드 필수형식 -->
 		<div class="form-group">					<!-- div태그 : 각각 스타일 지정할수있게 지정 -->
 			<label for="userId">아이디(*)</label>			<!-- label태그 : input과 같은기능이라 생각하면 된다. -->
 			<div class="input-group">
@@ -370,7 +371,7 @@ $(function(){
         <!-- Modal body -->
         <div class="modal-body">
 <div id="d1" style="text-align: center;">
- <img src="../LoginImg/logo.jpg" width="400" height="200">
+ <img src="images/login/logo.jpg" width="400" height="200">
  <h2 align="center">회원가입을 환영합니다.</h2><br/><br/>
   <tr>
 	  <div id="d2">
