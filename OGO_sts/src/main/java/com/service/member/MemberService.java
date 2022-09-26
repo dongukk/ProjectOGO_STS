@@ -18,5 +18,20 @@ public class MemberService {
 		return dto;
 	}
 
+	public String idCheck(String userId) {
+		String n = dao.idCheck(userId);
+		return n;
+	}
+
+	public String nicknameCheck(String nickname) {
+		String n = dao.nicknameCheck(nickname);
+		return n;
+	}
+
+	public int memberAdd(MemberDTO dto) {
+		int n = dao.memberAdd(dto);
+		return n;
+	}
+
 	
 }
