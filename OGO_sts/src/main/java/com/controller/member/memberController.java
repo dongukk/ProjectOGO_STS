@@ -83,12 +83,9 @@ public class memberController {
 		return n;
 	}
 	
-// 회원가입 
-@RequestMapping(value = "/MemberAdd")
-@ResponseBody
-private MemberDTO MemberAdd(MemberDTO dto) {
-	System.out.println(dto);
 
-	return dto;
-}
+			
+
+	
+
 }

@@ -354,7 +354,7 @@ $(function(){
 		<div class="div_submit">
 			<button class="btn btn-default" type="submit">가입</button>
 			<button class="btn btn-default" type="reset">새로고침</button>
-			<button class="btn btn-default closeBtn" type="button" onclick="location.href='../MainFormServlet'" id="close">닫기</button>
+			<button class="btn btn-default closeBtn" type="button" onclick="location.href='MainForm'" id="close">닫기</button>
 		</div>
 		
 		

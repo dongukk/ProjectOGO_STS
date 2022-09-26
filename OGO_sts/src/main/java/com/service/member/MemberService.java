@@ -28,5 +28,10 @@ public class MemberService {
 		return n;
 	}
 
+	public int memberAdd(MemberDTO dto) {
+		int n = dao.memberAdd(dto);
+		return n;
+	}
+
 	
 }

@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	from member
     	where userId = #{userId} and userPasswd = #{userPasswd}
     </select>
-	<insert id="insertByMember" parameterType="MemberDTO">
+	<insert id="memberAdd" parameterType="MemberDTO">
 	   insert into member 
 	   values( #{userId} , #{userPasswd} , #{userName} , #{nickname}, #{gender} , #{birth}, #{phone1}, #{phone2}, #{phone3}, #{post}, #{address1}, #{address2}, #{email1}, #{email2}, #{profilePhoto}, #{hobby} )
     </insert>

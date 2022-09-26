@@ -27,4 +27,9 @@ public class MemberDAO {
 		String n = template.selectOne("MemberMapper.nicknameCheck", nickname);
 		return n;
 	}
+
+	public int memberAdd(MemberDTO dto) {
+		int n = template.insert("MemberMapper.memberAdd", dto);
+		return n;
+	}
 }
