@@ -200,7 +200,7 @@ $(function(){
 	    margin-left: 0%;
 	    width: 100%;
 	  } 
-	  
+	 }
 	.checkbox-group{
 		border:1px solid; 
 		padding:10px;

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -22,7 +24,7 @@ public class memberAdd {
 	MemberService service;
 	
 // 회원가입 
-	@RequestMapping(value = "/MemberAdd")
+	@RequestMapping(value = "/MemberAdd" , method = RequestMethod.POST)
 	private String MemberAdd(MultipartHttpServletRequest multi) {
 		
 		// 1. 전송받은 파일 및 파일설명 값 가져오기	
@@ -43,45 +45,7 @@ public class memberAdd {
 		String[] hobby = multi.getParameterValues("hobby");
 		MultipartFile upload = multi.getFile("profilePhoto");
 
-		// 2. 저장할 경로 가져오기
-//		String path = request.getSession().getServletContext().getRealPath("views");
-		String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
-		System.out.println("path : " + realPath);
-		String root = realPath + "\\upload\\member";
-		
-		File file = new File(root);
-		
-		// 만약 uploadFiles 폴더가 없으면 생성해라 라는뜻
-		if(!file.exists()) file.mkdirs();
-				
-		// 업로드할 폴더 설정
-		String originFileName = upload.getOriginalFilename();
-		String ext = originFileName.substring(originFileName.lastIndexOf("."));
-		String ranFileName = UUID.randomUUID().toString() + ext;
-		File changeFile = new File(root + "\\" + ranFileName);
-		
-		// 파일업로드
-		try {
-			upload.transferTo(changeFile);
-			System.out.println("파일 업로드 성공");
-		} catch (IllegalStateException | IOException e) {
-			System.out.println("파일 업로드 실패");
-			e.printStackTrace();
-		}
-		System.out.println("originFileName : "+originFileName);
-		System.out.println("ext : "+ext);
-		System.out.println("ranFileName : "+ranFileName);
-		System.out.println("changeFile : "+changeFile);
-		
-		String profilePhoto = ranFileName;
-//		if(profilePhoto == null || profilePhoto.equals(""))
-//		profilePhoto = "noImage.jpg";
-//		if (upload.getOriginalFilename().equals("")) {
-//			profilePhoto = "noImage.jpg";
-//		}
-		System.out.println(profilePhoto);
-		
-		// dto에 주입
+		// dto 저장
 		MemberDTO dto = new MemberDTO();
 		dto.setUserId(userId);
 		dto.setUserPasswd(userPasswd);
@@ -98,7 +62,53 @@ public class memberAdd {
 		dto.setAddress2(address2);
 		dto.setEmail1(email1);
 		dto.setEmail2(email2);
+//		dto.setProfilePhoto(profilePhoto);		// 아래에서 파일업로드 유무 기본값설정함
+
+// 파일업로드 존재시
+	if(upload.getSize() != 0) {
+		System.out.println("파일있음");
+
+		// 2. 저장할 경로 가져오기
+//		String path = request.getSession().getServletContext().getRealPath("views");
+		String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
+		System.out.println("realPath : " + realPath);
+		String root = realPath + "\\upload\\member";
+		
+		File file = new File(root);
+		
+		// 만약 upload 폴더가 없으면 생성해라 라는뜻
+		if(!file.exists()) file.mkdirs();
+				
+		// 업로드할 폴더 설정
+		String originFileName = upload.getOriginalFilename();
+		String ext = originFileName.substring(originFileName.lastIndexOf("."));
+		String ranFileName = UUID.randomUUID().toString() + ext;
+		File changeFile = new File(root + "\\" + ranFileName);
+		
+		// 파일업로드
+		try {
+			upload.transferTo(changeFile);
+			System.out.println("파일 업로드 성공");
+		} catch (IllegalStateException | IOException e) {
+			System.out.println("파일 업로드 실패");
+			e.printStackTrace();
+		}
+		
+		System.out.println("ext : "+ext);
+		System.out.println("ranFileName : "+ranFileName);
+		System.out.println("changeFile : "+changeFile);
+			
+		String profilePhoto = ranFileName;
+		System.out.println("파일있음 : "+profilePhoto);
 		dto.setProfilePhoto(profilePhoto);
+		
+// 파일업로드 안할 시 기본값 설정
+	}else {
+		String profilePhoto = "noImage.jpg";
+		System.out.println("파일없음 : "+profilePhoto);
+		dto.setProfilePhoto(profilePhoto);
+	}
+		
 
 		if(hobby == null) {	// 취미가 없으면 null값입력
 			String hobbys = "";
