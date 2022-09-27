@@ -24,7 +24,7 @@ public class NoticeController {
 		m.addAttribute("NTdtoList", list);
 		
 		List<FAQ_DTO> FAQdto = service.selectAllFAQ();
-		System.out.println(FAQdto);//faq 정보 가져오기
+		//System.out.println(FAQdto);//faq 정보 가져오기
 		m.addAttribute("FAQdto",FAQdto);
 		
 		return"NoticeMain";

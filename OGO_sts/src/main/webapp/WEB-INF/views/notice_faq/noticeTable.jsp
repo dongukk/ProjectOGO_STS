@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
+	<table border="1">
 		<tr> <th>No.</th><th>제목</th><th>작성일</th><th>작성자</th> </tr>
 		
 		<c:forEach var="NTdto" items="${ NTdtoList }">

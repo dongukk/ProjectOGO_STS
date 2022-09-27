@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="getNTdto" resultType="NoticeTableDTO">
      select NCONTENT,to_char(ndate,'yyyy-mm-dd') ndate, NNUM,NTITLE,NICKNAME
   		from notice JOIN MEMBER USING(USERID)
+  		order by NDATE desc
     </select>
 	
 	<select id="selectContent" parameterType="string" resultType="NoticeTableDTO">
