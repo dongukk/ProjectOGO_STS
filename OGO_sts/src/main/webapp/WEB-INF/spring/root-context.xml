@@ -49,6 +49,7 @@
 				<value>com.dto.member.PageDTO</value>
 				<value>com.dto.notice.NoticeTableDTO</value>
 				<value>com.dto.notice.FAQ_DTO</value>
+				<value>com.dto.notice.NoticePageDTO</value>
 			</list>
 		</property>
 	</bean>
