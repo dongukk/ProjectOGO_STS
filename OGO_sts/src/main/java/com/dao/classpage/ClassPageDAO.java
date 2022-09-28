@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.classpage.ClassDTO;
+import com.dto.classpage.ClassImgDTO;
 
 @Repository
 public class ClassPageDAO {
@@ -24,6 +25,11 @@ public class ClassPageDAO {
 	public String userProfilePhoto(String tutorId) {
 		String tutorProfile=template.selectOne("ClassMapper.userProfilePhoto", tutorId);
 		return tutorProfile;
+	}
+
+	public ClassImgDTO getImage(int classNum) {
+		ClassImgDTO imgDTO=template.selectOne("ClassMapper.getImage", classNum);
+		return imgDTO;
 	}
 	
 	

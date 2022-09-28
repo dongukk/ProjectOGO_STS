@@ -1,7 +1,6 @@
 <%@page import="com.dto.classpage.ClassDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detail.jsp<br>
 
 <%
 	ClassDTO cDTO = (ClassDTO)request.getAttribute("classDTO");
