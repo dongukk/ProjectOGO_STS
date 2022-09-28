@@ -12,7 +12,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/common/navBar/nav.css?after1">
+<link rel="stylesheet" href="css/common/navBar/nav.css?after2">
 </head>
 <body>
 <!-- 프로그레스바 -->
@@ -23,7 +23,7 @@
 <!-- 네비바 -->
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
-		<a class="navbar-brand" href="MainForm.jsp"><img src="images/common/OGOLogo3.png"></a>
+		<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
       </div>
       <ul id="nav_Menu">
         <!-- <li class="nav-item">
@@ -67,7 +67,7 @@
 				<li><a href="#" id="logout">Logout</a></li>
 			<%	}} else{ %>
 				<li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</a></li>
-				<li><a href="LoginCURD/createMember.jsp">Sign up</a></li>
+				<li><a href="createMember">Sign up</a></li>
 			<% } // end if~else %>	
 			</ul>  	 
   		</div>
@@ -91,7 +91,7 @@
         	<br><br>
        
 		<img src="images/login/login.jpg" id="loginmodal_logo">
-		<h1 style="text-align: center;"><a href="createMemberServlet" style="text-decoration: none;" id="createmember_Btn">OGO가 처음이신가요?</a><br></h1>	
+		<h1 style="text-align: center;"><a href="createMember" style="text-decoration: none;" id="createmember_Btn">OGO가 처음이신가요?</a><br></h1>	
 			<br>
 		<form action="login" id="loginform">	
 			<div class="int-area">	

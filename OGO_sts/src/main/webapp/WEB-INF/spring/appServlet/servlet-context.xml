@@ -19,6 +19,7 @@
 	<view-controller path="/MainForm" view-name="MainForm"/>
 
 <!-- WEB-INF 폴더는 반드시 리소스 등록 후 사용 -->
+	<resources location="/WEB-INF/views/upload/" mapping="/upload/**"></resources>
 	<resources location="/WEB-INF/views/images/" mapping="/images/**"></resources>
 	<resources location="/WEB-INF/views/css/" mapping="/css/**"></resources>
 	<resources location="/WEB-INF/views/js/" mapping="/js/**"></resources>
@@ -39,7 +40,11 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.*" />
-	
-	
+
+<!-- 파일업로드 빈 생성 -->	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <beans:property name="maxUploadSize" value="10485760" />
+      <beans:property name="defaultEncoding" value="utf-8" /> 
+    </beans:bean>	
 	
 </beans:beans>

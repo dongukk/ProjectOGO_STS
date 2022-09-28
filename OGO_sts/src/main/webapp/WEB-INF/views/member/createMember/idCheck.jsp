@@ -16,16 +16,17 @@ $(document).ready(function() {
 $("#idCheckBtn").click(function(){
 	// 닉네임 입력안했을시 이벤트 중지
 	var userId = $("#userId").val();
+	console.log(userId);
 	if(userId.length == 0){
 		alert("아이디를 입력하세요");	
 		return false;
 	}
 	// 비동기 처리
 	$.ajax({
-		url: '../MemberIdCheckServlet',
+		url: 'memberIdCheck',
 		type: 'get',
-		dataType: 'json',
-		data: {userId:userId},
+		dataType: 'text',
+		data: {userId: userId},
 		success: function(data, status, xhr) {
 			console.log("중복된 아이디 수(data) : "+data);
 			

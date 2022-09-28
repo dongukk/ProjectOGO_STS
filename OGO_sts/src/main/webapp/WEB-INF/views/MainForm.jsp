@@ -28,7 +28,10 @@
 	<jsp:include page="common/mainPage/MainPage.html" flush="false"/>  --%>
 
 	<br><br><br><br><br><h1>로그인 test</h1>
-	${ login }
+	<% if(session.getAttribute("login")!=null){ %>
+	${ login }<br><br>
+	<img src="upload/member/${ login.profilePhoto}"> 
+	<%} %><br><br>
 	프로그레스바 test 시작
 	-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>
 	-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>
