@@ -1,8 +1,5 @@
 package com.controller.classpage;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -16,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.classpage.ClassDTO;
 import com.dto.classpage.ClassImgDTO;
-import com.dto.classpage.ClassOrderDTO;
 import com.dto.member.MemberDTO;
 import com.service.classpage.ClassPageService;
 import com.service.classpage.ContentService;
