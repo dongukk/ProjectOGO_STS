@@ -31,7 +31,7 @@ public class NoticeDAO {
 		int perPage = Pdto.getPerPage();
 		int offset = (Integer.parseInt(curPage) - 1) * perPage;
 		
-		List<NoticeTableDTO> list =template.selectList( "NoticeMapper.getNotice", null , new RowBounds(offset,perPage) );
+		List<NoticeTableDTO> list =template.selectList( "NoticeMapper.getNoticeList", null , new RowBounds(offset,perPage) );
 		
 		Pdto.setCurPage(curPage);
 		Pdto.setList(list);
@@ -42,6 +42,22 @@ public class NoticeDAO {
 	public int totalCount() {
 		int result = template.selectOne("NoticeMapper.totalCount");
 		return result;
+	}
+
+	public void NoticeDelete(int nNum) {
+		int num =template.delete("NoticeMapper.NoticeDelete",nNum);
+		System.out.println("삭제된 개수: "+num);
+		
+	}
+
+	public void NoticeUpdate2(NoticeTableDTO dto) {
+		int num =template.update("NoticeMapper.NoticeUpdate2",dto);
+		System.out.println("업데이트 된 개수 : "+ num);
+	}
+
+	public void CreateNotice(NoticeTableDTO dto) {
+		int num = template.insert("NoticeMapper.CreateNotice",dto);
+		System.out.println("생성된 갯수 : "+num);
 	}
 	
 	
