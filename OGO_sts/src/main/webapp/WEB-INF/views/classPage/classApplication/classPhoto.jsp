@@ -16,7 +16,7 @@
 	}else if (sCategory.equals("요리·음료")||sCategory.equals("공예·DIY")){
 		imgSrc +="D_요리·공예/";
 	}else if (sCategory.equals("디자인")||sCategory.equals("영상")){
-		imgSrc +="E_드로잉·영상/";
+		imgSrc +="E_드로잉·디자인·영상/";
 	}
 %>
 <div class="page classPhoto" id="classPhoto">

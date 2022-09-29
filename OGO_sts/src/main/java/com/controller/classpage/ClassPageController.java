@@ -30,11 +30,11 @@ public class ClassPageController {
 	@RequestMapping(value = "/ClassPage")
 	public ModelAndView classPage(HttpSession session) {
 		ModelAndView mav= new ModelAndView();
-		int classNum= 221; //나중에 클래스 Num 받기
+		int classNum= 202; //나중에 클래스 Num 받기
 		//로그인 세션 받기
 		MemberDTO mDTO = (MemberDTO) session.getAttribute("login");
 		//클래스 정보
-		ClassDTO cDTO=classService.selectClass(221);
+		ClassDTO cDTO=classService.selectClass(classNum);
 		
 		//튜터 닉네임
 		String tutorId = cDTO.getUserId();
