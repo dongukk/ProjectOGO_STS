@@ -28,6 +28,20 @@ public class NoticeService {
 		return dao.getNotice(curPage);
 	}
 
+	public void NoticeDelete(int nNum) {
+				dao.NoticeDelete(nNum);
+	}
+
+	public void NoticeUpdate2(NoticeTableDTO dto) {
+				dao.NoticeUpdate2(dto);
+		
+	}
+
+	public void CreateNotice(NoticeTableDTO dto) {
+				dao.CreateNotice(dto);
+		
+	}
+
 	
 
 	
