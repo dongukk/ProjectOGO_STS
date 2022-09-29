@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-title.jsp<br>
 <div class="mt-4 mb-4">
 	<p style="font-size: 39px"><b>${classDTO.className}</b></p>
 	<img src="" width="40px" height="40px">&nbsp;

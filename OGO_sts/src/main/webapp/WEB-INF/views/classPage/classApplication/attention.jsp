@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.HashMap"%>
 <!DOCTYPE html>
-attention.jsp<br>
 <%
 	HashMap<String,String> classContents 
 		= (HashMap<String,String>)request.getAttribute("classContents");
