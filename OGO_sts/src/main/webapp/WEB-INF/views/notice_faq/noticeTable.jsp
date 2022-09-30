@@ -26,13 +26,15 @@
 		<tr>
 			<td colspan="4">
 			
-			<% 
+			<%-- 
+			 <% 
 			NoticePageDTO Pdto =(NoticePageDTO) request.getAttribute("Pdto");
 			int perpage = Pdto.getPerPage();
 			int totalcount = Pdto.getTotalCount();
 			int totalPage = totalcount/perpage;
 			if(totalcount%perpage > 0) { totalPage++; }
-			%>
+			%> 
+			--%>
 			
 				<c:forEach varStatus="status" begin="1" end="${ Pdto.totalCount/Pdto.perPage }" > <%-- end="<%= totalPage %>" --%> 
 					<c:if test="${ Pdto.curPage  == status.index }">
@@ -51,5 +53,8 @@
 			</td>
 		</tr>
 	</table>
+	<c:if test="${ admin != null }">
+		<input type="button" value="글 작성" onclick="location.href='loginCheck/NoticeCreate1'">
+	</c:if>
 </body>
 </html>

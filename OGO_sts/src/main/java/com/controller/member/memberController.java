@@ -29,6 +29,9 @@ public class memberController {
 		System.out.println(dto);		
 		if (dto != null) {
 			session.setAttribute("login", dto);
+			if (dto.getUserName().equals("관리자")) {
+				session.setAttribute("admin", "admin");
+			}
 			return "redirect:/MainForm";	
 		} else {
 			session.setAttribute("mesg", "아이디 또는 비번이 잘못되었습니다.");
