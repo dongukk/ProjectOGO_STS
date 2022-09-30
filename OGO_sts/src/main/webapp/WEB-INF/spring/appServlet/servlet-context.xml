@@ -17,6 +17,7 @@
 <!-- view페이지 설정 -->
 	<view-controller path="/" view-name="MainForm"/>
 	<view-controller path="/MainForm" view-name="MainForm"/>
+	<view-controller path="/ClassCreateForm" view-name="ClassCreateForm"/>
 
 <!-- WEB-INF 폴더는 반드시 리소스 등록 후 사용 -->
 	<resources location="/WEB-INF/views/upload/" mapping="/upload/**"></resources>	<!-- 프로필이미지 불러오는데 사용 -->
