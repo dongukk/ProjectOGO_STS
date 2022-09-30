@@ -105,7 +105,7 @@ geocoder.addressSearch('<%= place %>', function(result, status) {
         
         //이미지 지정
        var markerImage = new kakao.maps.MarkerImage(
-              'class_img/map/earth.png',
+              'images/classPage/map/earth.png',
               new kakao.maps.Size(80, 80), new kakao.maps.Point(34, 34));
           marker.setImage(markerImage);
     } 
