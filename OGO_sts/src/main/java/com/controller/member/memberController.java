@@ -31,12 +31,11 @@ public class memberController {
 			session.setAttribute("login", dto);
 			if (dto.getUserName().equals("관리자")) {
 				session.setAttribute("admin", "admin");
-			}
-			return "redirect:/MainForm";	
+			}			
 		} else {
 			session.setAttribute("mesg", "아이디 또는 비번이 잘못되었습니다.");
-			return "redirect:/MainForm";
 		}
+		return "redirect:MainForm";	
 	}
 	
 // 로그아웃 처리	
@@ -46,11 +45,7 @@ public class memberController {
 		return "redirect:../";
 	}
 	
-// 회원관리 페이지
-	@RequestMapping(value = "/loginCheck/managementMember")
-	private String managementMember() {
-		return "managementMember";
-	}
+
 	
 // 회원가입
 	@RequestMapping(value = "/createMember")

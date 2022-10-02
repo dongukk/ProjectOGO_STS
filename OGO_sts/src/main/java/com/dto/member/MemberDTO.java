@@ -21,6 +21,7 @@ public class MemberDTO {
 	private String email2;
 	private String profilePhoto;
 	private String hobby;
+	
 	public MemberDTO() {
 		super();
 		// TODO Auto-generated constructor stub
