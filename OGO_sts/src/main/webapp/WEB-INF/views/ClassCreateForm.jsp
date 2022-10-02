@@ -33,7 +33,62 @@
 	$(document).ready(function() {
 		
 		//submit시 null이면 전송x
-		
+		$("#classOpenForm").on("submit", function() {
+			var className=$("#className").val();
+			var category=$("#category").val();
+			var subCategory=$("#subCategory").val();
+			var schedule1=$("#schedule1").val();
+			var classPrice=$("#price").val();
+			var post=$("#post").val();
+			var address1=$("#address1").val();
+			var address2=$("#address2").val();
+			var classPhoto1=$("#classPhoto1").val();
+			var con_class=$("#con_class").val();
+			var con_tutor=$("#con_tutor").val();
+			var con_notice=$("#con_notice").val();
+			var con_attention=$("#con_attention").val();
+			
+			if (className.length==0) {
+				alert("클래스명을 입력해주세요");
+				event.preventDefault();
+				$("#className").focus();
+			}else if (category=='Category') {
+				alert("카테고리를 선택해주세요");
+				event.preventDefault();
+			}else if (subCategory=='Sub Category') {
+				alert("서브카테고리를 선택해주세요");
+				event.preventDefault();
+			}else if (schedule1.length==0) {
+				alert("클래스 일정을 추가해주세요");
+				event.preventDefault();
+			}else if (classPrice.length==0) {
+				alert("클래스 가격을 입력해주세요");
+				event.preventDefault();
+				$("#price").focus();
+			}else if (post.length==0 && address1.length==0 && address2.length==0) {
+				alert("주소를 입력해주세요");
+				event.preventDefault();
+				$("#post").focus();
+			}else if (textClassInfo.length==0) {
+				alert("클래스 소개를 입력해주세요");
+				event.preventDefault();
+				$("#con_class").focus();
+			}else if (textTutorInfo.length==0) {
+				alert("튜터 소개를 입력해주세요");
+				event.preventDefault();
+				$("#con_tutor").focus();
+			}else if (textNotice.length==0) {
+				alert("클래스 공지사항을 입력해주세요");
+				event.preventDefault();
+				$("#con_notice").focus();
+			}else if (textAttention.length==0) {
+				alert("클래스 유의사항을 입력해주세요");
+				event.preventDefault();
+				$("#con_attention").focus();
+			}else{
+				alert("클래스 등록이 완료되었습니다.");
+			}
+		}) 
 		//클래스 일정 추가
 		var idx= 0;
 		$("#scheduleBtn").on("click", function() {
@@ -100,7 +155,7 @@
 			for (let str of categoryArr) {
 				subOption+="<option class='subCategory' value='"+str+"'>"+str+"</option>"
 			}
-			subCategory.append('<option selected>Sub Category</option>'+subOption);
+			subCategory.append("<option selected>Sub Category</option>"+subOption);
 		})
 		
 		//클래스 위치 - 지도추가
@@ -110,6 +165,60 @@
 			$("#card").attr("class", "card-body");
 			$("#map").attr("style", "width:100%;height:350px;");
 		})
+		
+		//카테고리 정보 저장 - 카테고리별로 이미지 저장 위해서
+		$("#subCategory").on("change", function() {
+			var sCategory=$("#subCategory").val();
+			console.log("classForm.jsp "+$("#subCategory").val());
+			//ajax 
+				$.ajax({
+					type: "get",
+					url: "ClassCategory", //servlet에서 session에 카테고리 정보 저장
+					dataType: "text",
+					async: false,
+					data: { //서버에 넘겨줄 데이터
+						sCategory : sCategory
+					},
+					success: function(data, status, xhr) {
+						console.log("success");
+						console.log(data);
+					},
+					error: function(xhr, status, e) {
+						console.log("error");
+						console.log(e, status);
+					}
+				})//ajax end
+		})//카테고리end
+		
+		//동일한 튜터, 클래스명 있는지 확인
+		$("#className").on("keyup", function() {
+			var className= $("#className").val();
+			//ajax 
+				$.ajax({
+					type: "get",
+					url: "ClassNameSearch", //servlet에서 session에 카테고리 정보 저장
+					dataType: "text",
+					async: false,
+					data: { //서버에 넘겨줄 데이터
+						userId : "<%=userId%>",
+						className : className
+					},
+					success: function(data, status, xhr) {
+						console.log("success");
+						//console.log(data);
+						$("#classSearch").text(data);
+					},
+					error: function(xhr, status, e) {
+						console.log("error");
+						console.log(e, status);
+					}
+				})//ajax end
+				//클래스명 빈칸이면 classSearch 메세지 삭제
+				if (className.length==0) {
+					$("#classSearch").text("");
+				}
+		})//classSearch end
+		
 		
 	})
 </script>
@@ -121,7 +230,7 @@
   	</div>
   	<br>
     <!-- <form class="row g-3" id="classOpenForm" action="../ClassOpenServlet" method="post" enctype="multipart/form-data"> -->
-    <form class="row g-3" id="classOpenForm" action="ClassAddServlet" method="post" enctype="multipart/form-data">
+    <form class="row g-3" id="classOpenForm" action="ClassAdd" method="post" enctype="multipart/form-data">
 	    <input type="hidden" id="schedule1" name="schedule1" value="">
 	    <input type="hidden" id="schedule2" name="schedule2" value="">
 	    <input type="hidden" id="schedule3" name="schedule3" value="">
@@ -202,11 +311,11 @@
 	  </div>
 	  
 	  <div class="col-12">
-	  	<label for="classPrice" class="form-label">클래스 가격</label>
+	  	<label for="price" class="form-label">클래스 가격</label>
 	  	<div class="input-group mb-3">
 		  <span class="input-group-text">₩</span>
 		  <!-- 0-9 제외한 문자 제거 후 ''으로 replace -->
-		  <input type="text" class="form-control" id="classPrice" name="classPrice"
+		  <input type="text" class="form-control" id="price" name="price"
 		  style="text-align: right;" placeholder="99,999" 
 		  oninput="this.value = this.value.replace(/[^0-9]/g, '');"><!-- 숫자만 입력할 수 있도록 함 -->
 		  <span class="input-group-text">(원)</span>
@@ -261,20 +370,20 @@
 	  
 	  <div class="mb-3">
 	  	<label for="textClassInfo" class="form-label">클래스 소개</label>
-	  	<textarea class="form-control" id="textClassInfo" name="textClassInfo" rows="5"></textarea>
+	  	<textarea class="form-control" id="con_class" name="con_class" rows="5"></textarea>
 	  </div>
 	  <div class="mb-3">
 	  	<label for="textTutorInfo" class="form-label">튜터 소개</label>
-	  	<textarea class="form-control" id="textTutorInfo" name="textTutorInfo" 
+	  	<textarea class="form-control" id="con_tutor" name="con_tutor" 
 	  	rows="5"><%-- <%if(tintroduce!=null){ %><%=tintroduce %><%} %> --%></textarea><!-- tutor에 저장된 tintroduce 불러옴 -->
 	  </div>
 	  <div class="mb-3">
 	  	<label for="textNotice" class="form-label">클래스 공지사항</label>
-	  	<textarea class="form-control" id="textNotice" name="textNotice" rows="5"></textarea>
+	  	<textarea class="form-control" id="con_notice" name="con_notice" rows="5"></textarea>
 	  </div>
 	  <div class="mb-3">
 	  	<label for="textAttention" class="form-label">클래스 유의사항</label>
-	  	<textarea class="form-control" id="textAttention" name="textAttention" rows="5"></textarea>
+	  	<textarea class="form-control" id="con_attention" name="con_attention" rows="5"></textarea>
 	  </div>
 	  <div class="d-grid gap-2 col-6 mx-auto">
 	    <button type="submit" class="btn btn-secondary" id="classFormButton">등록하기</button>
