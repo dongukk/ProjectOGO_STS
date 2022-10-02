@@ -23,8 +23,8 @@
 		<h3>아이디 / 비밀번호 찾기</h3>
 	</div>
 	<div class="d-grid gap-2 col-6 mx-auto" id="find_btn">
-	  <button class="btn btn-secondary btn-lg" id="findeid_email" onclick="location.href='findId.jsp'">아이디 찾기</button>
-	  <button class="btn btn-secondary btn-lg" id="findid_phone" onclick="location.href='findPw.jsp'">비밀번호 찾기</button>
+	  <button class="btn btn-secondary btn-lg" id="findeid_email" onclick="location.href='findId'">아이디 찾기</button>
+	  <button class="btn btn-secondary btn-lg" id="findid_phone" onclick="location.href='findPw'">비밀번호 찾기</button>
 	</div>	
 	<div>
 		<button type="button" class="btn btn-dark" id="cancle" onClick="history.back()">취소</button>

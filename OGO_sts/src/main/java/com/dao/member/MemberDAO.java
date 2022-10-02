@@ -69,5 +69,20 @@ public class MemberDAO {
 		return n;
 	}
 
+	public MemberDTO findId(HashMap<String, String> map) {
+		MemberDTO dto = template.selectOne("MemberMapper.findId", map);
+		return dto;
+	}
+
+	public MemberDTO findPw(HashMap<String, String> map) {
+		MemberDTO dto = template.selectOne("MemberMapper.findPw", map);
+		return dto;
+	}
+
+	public int newPw(HashMap<String, String> map) {
+		int n = template.update("MemberMapper.newPw", map); 
+		return n; 
+	}
+
 
 }

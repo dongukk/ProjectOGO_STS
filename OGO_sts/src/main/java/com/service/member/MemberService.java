@@ -56,5 +56,20 @@ public class MemberService {
 		return n;
 	}
 
+	public MemberDTO findId(HashMap<String, String> map) {
+		MemberDTO dto = dao.findId(map);
+		return dto;
+	}
+
+	public MemberDTO findPw(HashMap<String, String> map) {
+		MemberDTO dto = dao.findPw(map);
+		return dto;
+	}
+
+	public int newPw(HashMap<String, String> map) {
+		int n=dao.newPw(map);
+		return n;
+	} 
+
 	
 }
