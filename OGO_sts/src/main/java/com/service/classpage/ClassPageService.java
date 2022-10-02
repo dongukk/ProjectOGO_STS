@@ -1,5 +1,7 @@
 package com.service.classpage;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,22 @@ public class ClassPageService {
 
 	public ClassImgDTO getImage(int classNum) {
 		return dao.getImage(classNum);
+	}
+
+	public int searchClassName(HashMap<String, Object> classMap) {
+		return dao.searchClassName(classMap);
+	}
+
+	public int classOpen(ClassDTO cDTO) {
+		return dao.classOpen(cDTO);
+	}
+
+	public int searchClassNum(HashMap<String, String> classMap) {
+		return dao.searchClassNum(classMap);
+	}
+
+	public int uploadImg(ClassImgDTO iDTO) {
+		return dao.uploadImg(iDTO);
 	}
 
 }

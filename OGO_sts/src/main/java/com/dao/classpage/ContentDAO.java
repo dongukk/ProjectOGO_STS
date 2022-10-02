@@ -16,4 +16,9 @@ public class ContentDAO {
 		return con_class;
 	}
 
+	public int saveContent(HashMap<String, Object> contentMap) {
+		int num=template.insert("ContentMapper.saveContent", contentMap);
+		return num;
+	}
+
 }

@@ -16,5 +16,9 @@ public class ContentService {
 		return dao.selectContent(classNum);
 	}
 
+	public int saveContent(HashMap<String, Object> contentMap) {
+		return dao.saveContent(contentMap);
+	}
+
 	
 }
