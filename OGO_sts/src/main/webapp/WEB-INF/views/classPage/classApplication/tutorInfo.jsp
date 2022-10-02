@@ -3,8 +3,8 @@
     pageEncoding="UTF-8"%>
 tutorInfo.jsp<br>
 <%
-	String nickName = (String)request.getAttribute("nickName");
-	String tutorProfile= (String)request.getAttribute("tutorProfile");
+	//String nickName = (String)request.getAttribute("nickName");
+	//String tutorProfile= (String)request.getAttribute("tutorProfile");
 	HashMap<String,String> classContents =
 			(HashMap<String,String>)request.getAttribute("classContents");
 	String con_tutor =classContents.get("con_tutor");
@@ -20,10 +20,10 @@ tutorInfo.jsp<br>
   <div class="row">
     <div class="col-sm-2">
 		<div class="tutor ProfileImg" id="tutor ProfileImg" style="text-align: center;">
-			<img src="images/login/<%=tutorProfile %>" width="100" height="100">
+			<img src="upload/member/${tutorProfile}" width="100" height="100">
 		</div>
 		<div id="tutor nickName" style="text-align: center;">
-			<b><%= nickName %></b>
+			<b>${nickName}</b>
 		</div>
 	</div>
 	<div class="col-sm-10">

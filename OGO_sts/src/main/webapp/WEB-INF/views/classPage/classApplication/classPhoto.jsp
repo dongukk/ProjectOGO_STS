@@ -6,7 +6,7 @@
 	//카테고리별로 경로설정
 	ClassDTO cDTO=(ClassDTO)request.getAttribute("classDTO");
 	String sCategory=cDTO.getSubCategory();
-	String imgSrc="images/classPage/category/";
+	String imgSrc="upload/classPage/category/";
 	if (sCategory.equals("메이크업")||sCategory.equals("스타일링")){
 		imgSrc +="A_뷰티/";
 	}else if (sCategory.equals("영어")||sCategory.equals("일본어·중국어")||sCategory.equals("기타 외국어")){
