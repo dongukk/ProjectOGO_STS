@@ -12,7 +12,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/common/navBar/nav.css?after2">
+<link rel="stylesheet" href="css/common/navBar/nav.css?after3">
 </head>
 <body>
 <!-- 프로그레스바 -->
@@ -62,7 +62,8 @@
 				</div><br>
 			<%  if(userId.equals("admin")){ // 이중 if문%>	
 				<li><a href="#" id="logout">Logout</a></li>
-				<li><a href="loginCheck/managementMember">management</a></li>
+				<!-- <li><a href="loginCheck/managementMember">management</a></li> -->
+				<li><a href="managementMember">management</a></li>
 				<%  } else{ %>
 				<li><a href="#" id="logout">Logout</a></li>
 			<%	}} else{ %>
@@ -105,7 +106,7 @@
 				<label for="userPasswd">PASSWORD</label>				
 			</div>
 			<div class="forgot" style="text-align: right;">			
-				<a href="#" onclick="location.href='findId_Pw.jsp'">Forgot Id, password?</a>
+				<a href="findId_Pw">Forgot Id, password?</a>
 			</div>
 			<div class="btn-area" id="sublogin_btnarea">
 				<button type="submit" id="login_modalBtn">LOGIN</button><br><br>

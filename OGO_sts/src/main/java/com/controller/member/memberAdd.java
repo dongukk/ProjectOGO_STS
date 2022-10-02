@@ -124,7 +124,7 @@ public class memberAdd {
 
 		if(n==1) {
 			HttpSession session = multi.getSession();
-			session.setAttribute("mesg",nickname+"님 회원가입성공");
+			session.setAttribute("mesg",nickname+"님 회원가입을 환영합니다.");
 			session.setAttribute("login",dto);
 			session.setMaxInactiveInterval(60*30);
 			return "MainForm";

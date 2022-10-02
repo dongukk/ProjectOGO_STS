@@ -71,7 +71,7 @@ $(document).ready(function() {
        if (userId != null) {
       %>
       
-      <form class="newPw-form" method = "POST" action="PwUpdateServlet">
+      <form class="newPw-form" method = "POST" action="PwUpdate">
       	<input type="hidden" name="userId" value="<%=userId%>">
 			<div class = "search-title">
 				<h3>비밀번호 찾기</h3>
@@ -102,7 +102,7 @@ $(document).ready(function() {
 	     </div>
 	     <div class = "found-login">
  		    <input type="button" id="btnback" class="btn btn-dark" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" class="btn btn-dark" value="회원가입" onClick="location.href='createMemberServlet'"/>
+ 		    <input type="button" id="btnjoin" class="btn btn-dark" value="회원가입" onClick="location.href='createMember'"/>
        	</div>
        </div>  
        <%
