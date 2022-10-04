@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ public class memberController {
 
 // 로그인 처리
 	@RequestMapping(value = "/login")
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) {
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletRequest request) {
 		//System.out.println(map);
 		
 		MemberDTO dto = service.login(map);
@@ -39,14 +40,17 @@ public class memberController {
 		} else {
 			session.setAttribute("mesg", "아이디 또는 비번이 잘못되었습니다.");
 		}
-		return "redirect:MainForm";	
+		
+		String uri = request.getHeader("Referer");
+		return "redirect:"+uri;	
 	}
 	
 // 로그아웃 처리	
 	@RequestMapping(value = "/loginCheck/logout")
-	private String logout(HttpSession session) {
+	private String logout(HttpSession session, HttpServletRequest request) {
 		session.invalidate();
-		return "redirect:../";
+		String uri = request.getHeader("Referer");
+		return "redirect:"+uri;	
 	}
 	
 // id, pw 찾기

@@ -8,12 +8,6 @@
 <meta charset="UTF-8">
 <title>Main 페이지</title>
 
-	<c:if test="${!empty mesg}">
-		<script>alert("${mesg}");</script>	
-		<c:remove var="mesg"></c:remove>
-	</c:if>
-
-    
 	<jsp:include page="common/navBar/nav.jsp" flush="false"/>
 </head>
 <body>

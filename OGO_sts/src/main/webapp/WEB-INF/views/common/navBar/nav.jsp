@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.dto.member.MemberDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/common/navBar/nav.css?after3">
 <link rel="stylesheet" href="../css/common/navBar/nav.css?after3">
+
+	<c:if test="${!empty mesg}">
+		<script>alert("${mesg}");</script>	
+		<c:remove var="mesg"></c:remove>
+	</c:if>
+
 </head>
 <body>
 <!-- 프로그레스바 -->
