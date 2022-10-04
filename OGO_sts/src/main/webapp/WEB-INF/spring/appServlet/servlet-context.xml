@@ -34,6 +34,14 @@
 		</interceptor>
 	</interceptors>
 	
+	<beans:bean id="AdminCheckInterceptor" class="com.interceptor.AdminCheckInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/AdminCheck/**"/>
+			<beans:ref bean="AdminCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 <!-- el, jstl 태그 디펜던시 추가 없이 사용 가능 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

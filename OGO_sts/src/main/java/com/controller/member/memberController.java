@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,7 +26,7 @@ public class memberController {
 
 // 로그인 처리
 	@RequestMapping(value = "/login")
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) {
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletRequest request) {
 		//System.out.println(map);
 		
 		MemberDTO dto = service.login(map);
@@ -38,14 +40,17 @@ public class memberController {
 		} else {
 			session.setAttribute("mesg", "아이디 또는 비번이 잘못되었습니다.");
 		}
-		return "redirect:MainForm";	
+		
+		String uri = request.getHeader("Referer");
+		return "redirect:"+uri;	
 	}
 	
 // 로그아웃 처리	
 	@RequestMapping(value = "/loginCheck/logout")
-	private String logout(HttpSession session) {
+	private String logout(HttpSession session, HttpServletRequest request) {
 		session.invalidate();
-		return "redirect:../";
+		String uri = request.getHeader("Referer");
+		return "redirect:"+uri;	
 	}
 	
 // id, pw 찾기
@@ -226,7 +231,71 @@ public class memberController {
 			return "redirect:MainForm";
 	}
 			
-
+// 네이버 콜백
+	@RequestMapping(value="/member/login/naverCollback", method=RequestMethod.GET)
+	public String callBack(){
+		return "member/login/naverCollback";
+	}
+	
+// 네이버 로그인
+	@RequestMapping(value="/naverLogin", method=RequestMethod.GET)
+	public String naverLogin(HttpServletRequest request, HttpSession session){
+		String nickname = request.getParameter("nickname");
+		// 이메일 나누기
+		String email = request.getParameter("email");
+		int emailSplit = email.indexOf("@");  // @의 문자의 위치 값을 얻는다.
+		String email1 = email.substring(0, emailSplit);
+		String email2 = email.substring(emailSplit+1, email.length());
+		
+		// 개인정보때문에 더미데이터 저장합니다.
+		 String userId = request.getParameter("email");
+		 String userName = "네이버test";
+		 String userPasswd = "1";
+		 String gender = "남자";
+		 String birth = "1990/02/04";
+		 String phone1 = "010";
+		 String phone2 = "1111";
+		 String phone3 = "1111";
+		 String post = "05399";
+		 String address1 = "서울 강동구 성내로8길 9-11 (성내동)";
+		 String address2 = "서울 강동구 성내동 550-10";
+		 String profilePhoto = "noImage.jpg";	
+		 String hobbys = "";
+		 
+		 MemberDTO dto = new MemberDTO();
+			dto.setUserId(userId);
+			dto.setUserPasswd(userPasswd);
+			dto.setUserName(userName);
+			dto.setNickname(nickname);
+			dto.setGender(gender);
+			dto.setBirth(birth);
+			dto.setPhone1(phone1);
+			dto.setPhone2(phone2);
+			dto.setPhone3(phone3);
+			dto.setPost(post);
+			dto.setAddress1(address1);
+			dto.setAddress2(address2);
+			dto.setEmail1(email1);
+			dto.setEmail2(email2);
+			dto.setProfilePhoto(profilePhoto);	
+			dto.setHobby(hobbys);
+			System.out.println(dto);
+			
+			// 아이디 중복체크
+			int n1 = Integer.parseInt(service.idCheck(userId));	
+			System.out.println("아이디중복 갯수"+n1);
+			// 네이버 로그인 처음이면 자동 회원가입db 저장	
+			if(n1==0) {
+				int n2 = service.memberAdd(dto);
+				System.out.println("insert 갯수"+n2);		
+				if(n2==1) {				
+					session.setAttribute("mesg",nickname+"님 회원가입을 환영합니다.");	
+				}		
+			}
+			session.setAttribute("login",dto);
+			session.setMaxInactiveInterval(60*30);
+			return "redirect:MainForm";
+	}
 	
 
 }

@@ -94,7 +94,7 @@
 	<td><input type="checkbox" name="delCheck"  class="delCheck" value="${dto.userId}"></td>
 	    <td>${dto.userId}</td>
 	    <td>${dto.nickname}</td>
-	    <td>${dto.birth}</td>
+	    <td>${dto.birth.substring(0,10)}</td>
 	    <td>${dto.phone1}-${dto.phone2}-${dto.phone3}</td>
 	    <td>${dto.address2}</td>
 	    <td>${dto.email1}@${dto.email2}</td>

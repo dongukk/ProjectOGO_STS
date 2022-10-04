@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.dto.member.MemberDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +15,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/common/navBar/nav.css?after3">
+<link rel="stylesheet" href="../css/common/navBar/nav.css?after3">
+
+	<c:if test="${!empty mesg}">
+		<script>alert("${mesg}");</script>	
+		<c:remove var="mesg"></c:remove>
+	</c:if>
+
 </head>
 <body>
 <!-- 프로그레스바 -->
@@ -62,8 +71,8 @@
 				</div><br>
 			<%  if(userId.equals("admin")){ // 이중 if문%>	
 				<li><a href="#" id="logout">Logout</a></li>
-				<!-- <li><a href="loginCheck/managementMember">management</a></li> -->
 				<li><a href="managementMember">management</a></li>
+				<!-- <li><a href="AdminCheck/managementMember">management</a></li> -->
 				<%  } else{ %>
 				<li><a href="#" id="logout">Logout</a></li>
 			<%	}} else{ %>
@@ -135,7 +144,7 @@ $(".nav-item").find("a").each(function() {
 // 선택된 객체와 pathname이 같은 a태그의 href 속성을 선택, active 클래스를 토글시켜준다.
 
 // 네이버 아이디로 로그인
-  	var naver_id_login = new naver_id_login("ekZ3X4W9E8FY6vv_Y7AK", "http://localhost:8097/OGO/LoginCURD/naverCollback.jsp");
+  	var naver_id_login = new naver_id_login("ekZ3X4W9E8FY6vv_Y7AK", "http://localhost:8097/ogo/member/login/naverCollback");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("white", 3,50);
   	naver_id_login.setDomain("hbrMjKeDCL");
