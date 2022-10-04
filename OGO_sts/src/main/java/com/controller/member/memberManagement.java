@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.member.PageDTO;
 import com.service.member.MemberService;
@@ -22,8 +23,9 @@ public class memberManagement {
 	
 
 // 회원관리 페이지
-//	@RequestMapping(value = "/loginCheck/managementMember")
-	@RequestMapping(value = "managementMember")
+	@RequestMapping(value = "/managementMember")
+//	@RequestMapping(value = "/AdminCheck/managementMember")
+//	private String managementMember(HttpServletRequest request, RedirectAttributes attr) {
 	private String managementMember(HttpServletRequest request) {
 		
 		String curPage = request.getParameter("curPage");//현재페이지 
@@ -38,11 +40,15 @@ public class memberManagement {
 		request.setAttribute("pDTO", pDTO);
 		request.setAttribute("searchName", searchName);
 		request.setAttribute("searchValue", searchValue);
-
+//		attr.addFlashAttribute("pDTO", pDTO);
+//		attr.addFlashAttribute("searchName", searchName);
+//		attr.addFlashAttribute("searchValue", searchValue);		
+//		return "redirect:../managementMember";
+		
 		return "managementMember";
 	}
 	
-	@RequestMapping(value = "deleteAllMember")
+	@RequestMapping(value = "/deleteAllMember")
 	private String deleteAllMember(HttpServletRequest request, HttpSession session) {
 		String [] userIds = request.getParameterValues("delCheck");
 	    List<String> list = Arrays.asList(userIds);
@@ -57,7 +63,7 @@ public class memberManagement {
 		return "redirect:managementMember";
 	}
 	
-	@RequestMapping(value = "deleteMember")
+	@RequestMapping(value = "/deleteMember")
 	private String deleteMember(HttpServletRequest request, HttpSession session) {
 		String userId = request.getParameter("userId");
 		System.out.println("삭제할 회원 : "+userId);

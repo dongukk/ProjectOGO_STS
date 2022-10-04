@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
+import com.dto.member.MemberDTO;
+
+public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 
 // 로그인 처리
 // /loginCheck/**
@@ -19,13 +21,13 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		System.out.println("preHandle=========");
 		HttpSession session = request.getSession();
-		if (session.getAttribute("login") == null) {	// 로그인 안된 경우
-			System.out.println("interceptor 로그인 정보 없음");
+		if (session.getAttribute("admin") == null) {	// 관리자가 아닌 경우
+			System.out.println("interceptor 관리자 정보 없음");
 			response.sendRedirect("../MainForm");
-			return false;	// 주의
-		}else {	// 로그인 시
-			System.out.println("interceptor 로그인 정보 있음");
-			return true;	// 주의
+			return false;
+		}else {	// 관리자인 경우
+			System.out.println("interceptor 관리자 정보 있음");
+			return true;
 		}
 	}
 
