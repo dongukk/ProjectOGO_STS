@@ -33,7 +33,7 @@
 			<a class="nav_menu" href="ClassListCategoryServlet"><span>행성카테고리</span></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav_menu" href="MyPageServlet"><span>MY SPACE</span></a>
+			<a class="nav_menu" href="loginCheck/Mypage"><span>MY SPACE</span></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav_menu" href="notice"><span>공지사항&FAQ</span></a>

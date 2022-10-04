@@ -62,4 +62,24 @@ public class PayController {
 		
 		return json;
 	}
+	
+	
+	@RequestMapping(value = "/loginCheck/PaySuccess")
+	@ResponseBody
+	public String PaySuccess() {
+		return "";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
