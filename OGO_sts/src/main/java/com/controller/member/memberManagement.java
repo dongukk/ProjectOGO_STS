@@ -23,10 +23,10 @@ public class memberManagement {
 	
 
 // 회원관리 페이지
-	@RequestMapping(value = "/managementMember")
-//	@RequestMapping(value = "/AdminCheck/managementMember")
-//	private String managementMember(HttpServletRequest request, RedirectAttributes attr) {
-	private String managementMember(HttpServletRequest request) {
+	@RequestMapping(value = "/AdminCheck/managementMember")
+	private String managementMember(HttpServletRequest request, RedirectAttributes attr) {
+//	@RequestMapping(value = "/managementMember")
+//	private String managementMember(HttpServletRequest request) {
 		
 		String curPage = request.getParameter("curPage");//현재페이지 
 		if(curPage == null) curPage = "1";//시작시 현재페이지 1 
@@ -40,11 +40,12 @@ public class memberManagement {
 		request.setAttribute("pDTO", pDTO);
 		request.setAttribute("searchName", searchName);
 		request.setAttribute("searchValue", searchValue);
+
+		
 //		attr.addFlashAttribute("pDTO", pDTO);
 //		attr.addFlashAttribute("searchName", searchName);
 //		attr.addFlashAttribute("searchValue", searchValue);		
 //		return "redirect:../managementMember";
-		
 		return "managementMember";
 	}
 	
@@ -58,7 +59,7 @@ public class memberManagement {
 	    System.out.println("선택회원 삭제 : "+n);
 	    if(n == 1) {	
 	    	//session.setAttribute("deleteAllMember", list);
-	    	session.setAttribute("mesg", list);
+	    	session.setAttribute("mesg", "회원"+list+"을(를) 탈퇴시켰습니다.");
 	    }
 		return "redirect:managementMember";
 	}
@@ -71,7 +72,7 @@ public class memberManagement {
 	    int n = service.delete(userId);
 	    if(n == 1) {	 
 	    	//session.setAttribute("deleteMember", userId);
-	    	session.setAttribute("mesg", userId);
+	    	session.setAttribute("mesg", "회원"+userId+"을(를) 탈퇴시켰습니다.");
 	    }
 	    
 //		if(n == 1) {	

@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Main 페이지</title>
   
-	<jsp:include page="common/navBar/nav.jsp" flush="false"/>
+	<jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 
-	<jsp:include page="member/login/findId2.jsp" flush="false"/>
+	<jsp:include page="member/login/findId2.jsp" flush="true"/>
 
 </body>
 </html>

@@ -6,19 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
-    
-<%
-	
- 	
-	 
-	 
-%>
 
-	<c:if test="${!empty mesg}">
-		<script>alert("회원 ${mesg}을(를) 탈퇴시켰습니다.");</script>	
-		<c:remove var="mesg"></c:remove>
-	</c:if>
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,6 +100,9 @@
 <span id="memberPage">
 				<%	
 				PageDTO pDTO = (PageDTO) request.getAttribute("pDTO");
+				String searchName = (String)request.getAttribute("searchName");
+				String searchValue = (String)request.getAttribute("searchValue");
+				
 				int curPage = pDTO.getCurPage();		// 현재 볼 페이지 번호
 		        int perPage = pDTO.getPerPage();		// 한페이지에 보여질 목록 수 
 				int totalCount = pDTO.getTotalCount(); 	// 전체 레코드 갯수 
@@ -123,8 +114,7 @@
 		          	}else{								// RowBound(offset, limit) // 시작 idx, 몇개
 		          		                                //   offset = (원하는 페이지, -1)* perpage
 		          		                                //   limit = purpage
-		          		out.print("<a href='managementMember?curPage="+i+"&searchName='${searchName}'&searchValue='${searchValue}'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
-		          		
+		          		out.print("<a href='managementMember?curPage="+i+"&searchName="+searchName+"&searchValue="+searchValue+"'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
 		          	}
 		        }//end for
 				%>
