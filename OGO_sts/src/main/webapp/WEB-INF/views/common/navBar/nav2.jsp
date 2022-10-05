@@ -15,13 +15,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <br><br><br><br><br><br><br><br><br><%=session.getAttribute("interceptor") %>
-<!-- interceptor 사용시 경로 처리 -->
-<%-- <%if(session.getAttribute("interceptor") ==null ){ %>
-<link rel="stylesheet" href="css/common/navBar/nav.css?after3">
-<% } else {%>
 <link rel="stylesheet" href="../css/common/navBar/nav.css?after3">
-<% } %> --%>
-<link rel="stylesheet" href="css/common/navBar/nav.css?after3">
+
 	<c:if test="${!empty mesg}">
 		<script>alert("${mesg}");</script>	
 		<c:remove var="mesg"></c:remove>
@@ -37,13 +32,7 @@
 <!-- 네비바 -->
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
-		
-		
-		<%if(session.getAttribute("interceptor") ==null ){ %>
-			<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
-		<% } else {%>
 			<a class="navbar-brand" href="../MainForm"><img src="../images/common/OGOLogo3.png"></a>
-		<% } %>
       </div>
       <ul id="nav_Menu">
         <!-- <li class="nav-item">
@@ -232,31 +221,10 @@ $(".nav-item").find("a").each(function() {
   	$("#logout").click(function() {
   		kakaoLogout();
   		naverLogout();
-  		window.location.href='loginCheck/logout';
-  		/* if(session.getAttribute("interceptor") ==null ){
-  			window.location.href='loginCheck/logout';
-		} else {
-			window.location.href='../loginCheck/logout';
-		}	  */ 	
+		window.location.href='../loginCheck/logout';	  	
   	}); 
-
-// 네비바 메뉴버튼
-function navbarmenuChange(x) {
-  x.classList.toggle("change");
-}
-
-// 반응형 네비바 이벤트
-var toggleBtn = document.querySelector('.navbar-menu-Btn');
-var menu = document.querySelector('#nav_Menu');
-var login = document.querySelector('#nav_login');
-
-toggleBtn.addEventListener("click", function() { //클릭시 이벤트
-	  menu.classList.toggle("navActive");
-	  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
-	});
-	
-
-//프로그래스바
+ 
+ // 프로그래스바
 jQuery(function($){
   var growmouseover = [true, '25px']
 
@@ -306,11 +274,26 @@ jQuery(function($){
   }
 })
 
-/* $(document).ready(function() {
-	//session.removeAttribute("interceptor");
-	console.log("interceptor삭제");
-}); 
- */
+// 네비바 메뉴버튼
+function navbarmenuChange(x) {
+  x.classList.toggle("change");
+}
+
+
+// 반응형 네비바 이벤트
+var toggleBtn = document.querySelector('.navbar-menu-Btn');
+var menu = document.querySelector('#nav_Menu');
+var login = document.querySelector('#nav_login');
+
+toggleBtn.addEventListener("click", function() { //클릭시 이벤트
+	  menu.classList.toggle("navActive");
+	  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
+	});
+	
+window.addEventListener('DOMContentLoaded', function()
+		{
+console.log("페이지 로딩 후 실행");
+		});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

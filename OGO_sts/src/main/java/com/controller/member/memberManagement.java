@@ -23,10 +23,10 @@ public class memberManagement {
 	
 
 // 회원관리 페이지
-	@RequestMapping(value = "/managementMember")
-//	@RequestMapping(value = "/AdminCheck/managementMember")
-//	private String managementMember(HttpServletRequest request, RedirectAttributes attr) {
-	private String managementMember(HttpServletRequest request) {
+	@RequestMapping(value = "/AdminCheck/managementMember")
+	private String managementMember(HttpServletRequest request, RedirectAttributes attr) {
+//	@RequestMapping(value = "/managementMember")
+//	private String managementMember(HttpServletRequest request) {
 		
 		String curPage = request.getParameter("curPage");//현재페이지 
 		if(curPage == null) curPage = "1";//시작시 현재페이지 1 
@@ -40,11 +40,12 @@ public class memberManagement {
 		request.setAttribute("pDTO", pDTO);
 		request.setAttribute("searchName", searchName);
 		request.setAttribute("searchValue", searchValue);
+
+		
 //		attr.addFlashAttribute("pDTO", pDTO);
 //		attr.addFlashAttribute("searchName", searchName);
 //		attr.addFlashAttribute("searchValue", searchValue);		
 //		return "redirect:../managementMember";
-		
 		return "managementMember";
 	}
 	

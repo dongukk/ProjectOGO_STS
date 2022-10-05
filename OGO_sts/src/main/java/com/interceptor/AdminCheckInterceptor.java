@@ -11,10 +11,8 @@ import com.dto.member.MemberDTO;
 
 public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 
-// 로그인 처리
-// /loginCheck/**
-// 처리후 /loginCheck/loginForm 되므로 ../loginForm 으로 설정하기
-// servlet-context.xml에서 주소처리 등록
+// 관리자 처리
+// /AdminCheck/**
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -23,10 +21,12 @@ public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("admin") == null) {	// 관리자가 아닌 경우
 			System.out.println("interceptor 관리자 정보 없음");
+			session.setAttribute("mesg", "관리자 권한이 필요합니다.");
 			response.sendRedirect("../MainForm");
 			return false;
 		}else {	// 관리자인 경우
 			System.out.println("interceptor 관리자 정보 있음");
+			session.setAttribute("interceptor", "interceptor");
 			return true;
 		}
 	}

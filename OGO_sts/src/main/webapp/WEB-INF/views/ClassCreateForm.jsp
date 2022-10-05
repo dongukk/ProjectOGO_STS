@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <title>클래스 등록</title>
 <!-- 네비바 -->
-<jsp:include page="common/navBar/nav.jsp" flush="false"/>
+<jsp:include page="common/navBar/nav.jsp" flush="true"/>
 <style type="text/css">
 	.classCreate{
     	margin-top: 100px;
