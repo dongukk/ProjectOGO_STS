@@ -38,6 +38,7 @@
 				<value>classpath:com/config/member/MemberMapper.xml</value>
 				<value>classpath:com/config/notice/NoticeMapper.xml</value>
 				<value>classpath:com/config/pay/PayMapper.xml</value>
+				<value>classpath:com/config/mypage/MyPageMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
