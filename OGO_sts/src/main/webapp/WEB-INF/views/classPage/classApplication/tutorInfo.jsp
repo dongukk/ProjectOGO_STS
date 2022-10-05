@@ -1,7 +1,6 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-tutorInfo.jsp<br>
 <%
 	//String nickName = (String)request.getAttribute("nickName");
 	//String tutorProfile= (String)request.getAttribute("tutorProfile");
