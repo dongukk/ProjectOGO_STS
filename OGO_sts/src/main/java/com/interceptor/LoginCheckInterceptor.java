@@ -21,11 +21,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("login") == null) {	// 로그인 안된 경우
 			System.out.println("interceptor 로그인 정보 없음");
-//			response.sendRedirect("loginForm");		// /loginCheck/loginForm  => 오류
-			response.sendRedirect("../MainForm");	// /loginForm => 정상
-			// /loginCheck/** 주소시 /loginCheck이 남아 있게 되어 /loginCheck/loginForm 주소요청이 됨 ../ 이용 하나 위로 올려 찾게 함
-			// servlet-context.xml
-			// <mvc:view-controller path="/loginForm" view-name="loginForm"/>	// loginForm.jsp
+			response.sendRedirect("../MainForm");
 			return false;	// 주의
 		}else {	// 로그인 시
 			System.out.println("interceptor 로그인 정보 있음");

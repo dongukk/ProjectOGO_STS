@@ -11,6 +11,7 @@ public class PageDTO {
 	private int curPage;    //현재 볼 페이지 번호 
 	private int perPage=6;  //한페이지에 보여질 목록 수 
 	private int totalCount; //전체 레코드 갯수 
+	
 	public List<MemberDTO> getList() {
 		return list;
 	}

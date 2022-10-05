@@ -38,7 +38,7 @@
 	      <h4>  회원님의 아이디는 <%=userId%> 입니다</h4> 
 	     </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" class="btn btn-dark" value="로그인" onClick="location.href='MainFormServlet'"/>
+ 		    <input type="button" id="btnLogin" class="btn btn-dark" value="로그인" onClick="location.href='MainForm'"/>
        	</div>
        </div>
       <%
@@ -50,7 +50,7 @@
 	     </div>
 	     <div class = "found-login">
  		    <input type="button" id="btnback" class="btn btn-dark" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" class="btn btn-dark" value="회원가입" onClick="location.href='createMemberServlet'"/>
+ 		    <input type="button" id="btnjoin" class="btn btn-dark" value="회원가입" onClick="location.href='createMember'"/>
        	</div>
        </div>  
        <%

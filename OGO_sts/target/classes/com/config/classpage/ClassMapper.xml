@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="searchClassNum" parameterType="hashmap" resultType="int">
     	select classNum 
     	from class
-    	where classname= #{cName} and userid=#{cID}
+    	where classname= #{className} and userid=#{tutorId}
     </select>
     
     <select id="getImage" parameterType="int" resultType="ClassImgDTO">
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="searchClassName" parameterType="hashmap" resultType="int">
 		select count(*)
 		from class
-		where userid= #{userid} and className= #{className}
+		where userId= #{userId} and className= #{className}
 	</select>
 	<select id="getTintroduce" parameterType="string" resultType="string">
 		select tintroduce

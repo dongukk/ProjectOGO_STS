@@ -3,19 +3,22 @@
 <%@page import="com.dto.member.PageDTO"%>
 <%@page import="com.service.member.MemberService"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
     
-<%-- <%
+<%
 	
-	PageDTO pDTO = (PageDTO) request.getAttribute("pDTO");
-	List<MemberDTO> list = pDTO.getList();
+ 	
+	 
+	 
+%>
+
+	<c:if test="${!empty mesg}">
+		<script>alert("회원 ${mesg}을(를) 탈퇴시켰습니다.");</script>	
+		<c:remove var="mesg"></c:remove>
+	</c:if>
 	
-	String searchName = (String)request.getAttribute("searchName");
-	String  searchValue = (String)request.getAttribute("searchValue");
-	if(searchValue==null) {searchValue = "";}
-	System.out.println("search : "+searchName +"\t" + searchValue);
-%>   --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +37,13 @@
 	
 	// 선택된 항목 회원들 삭제
 	function delAll() {
-		document.querySelector("#MemberForm").action='deleteAllMemberServlet'; 
+		document.querySelector("#MemberForm").action='deleteAllMember'; 
 	}
 	
 	// 회원 1명 삭제
 	function delMember(n) {
 		event.preventDefault(); 
-		location.href="deleteMemberServlet?userId="+n;		
+		location.href="deleteMember?userId="+n;		
 	}
 	
 </script>
@@ -52,25 +55,23 @@
 	#ManageMember #hobby {width: 400px;}
 	#ManageMember #deleteAllMember {margin-left: 20px; margin-top: 10px;}
 	#ManageMember #search {float: left;}
-	#memberPage {text-align: center; font-size: 20px; font-family: 'Noto Sans KR', sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px;}
-    #memberPage a {text-decoration: none; }
-    
+	#ManageMember #memberPage {text-align: center; font-size: 20px; font-family: 'Noto Sans KR', sans-serif; margin-left: 500px; margin-right: auto; margin-top: 10px;}
+    #ManageMember #memberPage a {text-decoration: none; }
 </style>
 </head>
 <body>
-회원관리 페이지 연결
-<%-- <section id="ManageMember">
+<section id="ManageMember">
 <h1 id="title">회원관리 목록</h1>
 <table border="1" cellpadding=10 id="table">
 <!-- 검색기능 -->
 		<tr>
 			<td colspan="5">
-				<form id="search" action="ManageListServlet">
+				<form id="search" action="managementMember">
 					<select name="searchName" style="height: 30px;">
-						<option value="nickname" <% if("nickname".equals(searchName) || searchName == null){ %> selected="selected" <%}%> >닉네임</option>
-						<option value="address" <% if("address".equals(searchName)){ %> selected="selected" <%}%> >주소</option>
+						<option value="nickname" <c:if test="${empty searchName}">selected="selected"</c:if>>닉네임</option>
+						<option value="address"  <c:if test="${searchName eq 'address'}">selected="selected"</c:if> >주소</option>
 					</select> 
-					<input type="text" name="searchValue" value="<%=searchValue%>">	
+					<input type="text" name="searchValue" value="${searchValue}">	 
 					<input type="submit" id="searcBtn" value="검색">
 				</form>
 			</td>
@@ -88,48 +89,48 @@
 	   <th>등급</th>
 	   <th>탈퇴</th>
 	 </tr>
-<%
-   for(MemberDTO dto: list){
-	String userId = dto.getUserId();
-%>
- <tr>
-    <td><input type="checkbox" name="delCheck"  class="delCheck" value="<%= dto.getUserId()%>"></td>
-    <td><%= dto.getUserId()%></td>
-    <td><%= dto.getNickname()%></td>
-    <td><%= dto.getBirth().substring(0,10)%></td>
-    <td><%= dto.getPhone1()%>-<%= dto.getPhone2()%>-<%= dto.getPhone3()%></td>
-    <td><%= dto.getAddress2()%></td>
-    <td><%= dto.getEmail1()%>@<%= dto.getEmail2()%></td>
-    <td><%= dto.getHobby()%></td>
-    <td><%if( userId.equals("admin")) { %>관리자
-        <%} else if( userId.contains("tutor")) { %>강사
-    	<%} else {%>일반회원
-    	<%}%></td>
-    <td><button onclick="delMember('<%=dto.getUserId() %>')" >탈퇴</button></td>
-  </tr>
-<% } %>  <!-- end for -->
+<c:forEach var="dto" items="${pDTO.getList()}" varStatus="status">
+<tr>
+	<td><input type="checkbox" name="delCheck"  class="delCheck" value="${dto.userId}"></td>
+	    <td>${dto.userId}</td>
+	    <td>${dto.nickname}</td>
+	    <td>${dto.birth.substring(0,10)}</td>
+	    <td>${dto.phone1}-${dto.phone2}-${dto.phone3}</td>
+	    <td>${dto.address2}</td>
+	    <td>${dto.email1}@${dto.email2}</td>
+	    <td>${dto.hobby}</td> 
+	    <td><c:choose>
+	    <c:when test="${dto.userId eq 'admin'}">관리자</c:when>
+	    <c:when test="${fn:contains(dto.userId, 'tutor')}">강사</c:when>
+	    <c:otherwise>일반회원 </c:otherwise>
+	    </c:choose></td>
+	    <td><button onclick="delMember('${dto.userId}')" >탈퇴</button></td>
+	</tr>
+</c:forEach>
 </table>
-<div id="memberPage">
-	
+<button id="deleteAllMember" onclick="delAll()">선택한 회원 탈퇴</button>
+<span id="memberPage">
 				<%	
-				int curPage = pDTO.getCurPage();	//현재 볼 페이지 번호
-		        int perPage = pDTO.getPerPage();	//한페이지에 보여질 목록 수 
-				int totalCount = pDTO.getTotalCount(); //전체 레코드 갯수 
-				int totalPage = totalCount/perPage;	// 전체 페이지 수
+				PageDTO pDTO = (PageDTO) request.getAttribute("pDTO");
+				int curPage = pDTO.getCurPage();		// 현재 볼 페이지 번호
+		        int perPage = pDTO.getPerPage();		// 한페이지에 보여질 목록 수 
+				int totalCount = pDTO.getTotalCount(); 	// 전체 레코드 갯수 
+				int totalPage = totalCount/perPage;		// 전체 페이지 수
 				if(totalCount%perPage!=0) totalPage++;	// ex) 전체레코드 9개/보여질목록수 2개 = 나머지1  전체페이지 증가++
-		        for(int i=1; i<= totalPage; i++){		// 1부터 전체피이즈수까지 증가
+		        for(int i=1; i<= totalPage; i++){		// 1부터 전체페이지수까지 증가
 		          	if(i== curPage){					// 만약 i가 현재볼 페이지라면
 		          		out.print(i+"&nbsp;");			// i를 보여준다
 		          	}else{								// RowBound(offset, limit) // 시작 idx, 몇개
 		          		                                //   offset = (원하는 페이지, -1)* perpage
 		          		                                //   limit = purpage
-		          		out.print("<a href='ManageListServlet?curPage="+i+"&searchName="+searchName+"&searchValue="+searchValue+"'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
+		          		out.print("<a href='managementMember?curPage="+i+"&searchName='${searchName}'&searchValue='${searchValue}'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
+		          		
 		          	}
 		        }//end for
 				%>
-</div>
-<button id="deleteAllMember" onclick="delAll()">선택한 회원 탈퇴</button>
+</span>
+
 </form>
-</section> --%>
+</section>
 </body>
 </html>

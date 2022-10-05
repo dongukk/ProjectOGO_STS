@@ -1,8 +1,5 @@
 package com.controller.classpage;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -16,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.classpage.ClassDTO;
 import com.dto.classpage.ClassImgDTO;
-import com.dto.classpage.ClassOrderDTO;
 import com.dto.member.MemberDTO;
 import com.service.classpage.ClassPageService;
 import com.service.classpage.ContentService;
@@ -34,11 +30,12 @@ public class ClassPageController {
 	@RequestMapping(value = "/ClassPage")
 	public ModelAndView classPage(HttpSession session) {
 		ModelAndView mav= new ModelAndView();
-		int classNum= 221; //나중에 클래스 Num 받기
+//		int classNum= 202; //나중에 클래스 Num 받기
+		int classNum= 390; //test
 		//로그인 세션 받기
 		MemberDTO mDTO = (MemberDTO) session.getAttribute("login");
 		//클래스 정보
-		ClassDTO cDTO=classService.selectClass(221);
+		ClassDTO cDTO=classService.selectClass(classNum);
 		
 		//튜터 닉네임
 		String tutorId = cDTO.getUserId();
