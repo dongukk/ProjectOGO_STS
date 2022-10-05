@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     where USERID = #{userid}
 </update>
     
-    <select id="CheckID" resultType="integet" parameterType="string">
+    <select id="CheckID" resultType="int" parameterType="string">
     	select count(*)
     	from member
     	where userid = #{userid}

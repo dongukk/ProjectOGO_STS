@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -63,23 +64,39 @@ public class PayController {
 		return json;
 	}
 	
-	
-	@RequestMapping(value = "/loginCheck/PaySuccess")
-	@ResponseBody
-	public String PaySuccess() {
-		return "";
+	@RequestMapping(value = "/PaySuccess")
+	public String Cpayment(HttpSession session, Model m) {
+		String orderNum =(String) session.getAttribute("orderNum");
+		List<PayDTO> PayList = service.Cpayment(orderNum); 
+		
+		
+		System.out.println("들어가기전 PayList : "+PayList);
+		for (PayDTO payDTO : PayList) {
+			List<String> SClist = new ArrayList<>();
+			SClist.add(payDTO.getSCHEDULE1());
+			SClist.add(payDTO.getSCHEDULE2());
+			SClist.add(payDTO.getSCHEDULE3());
+			SClist.add(payDTO.getSCHEDULE4());
+			SClist.add(payDTO.getSCHEDULE5());
+			SClist.add(payDTO.getSCHEDULE6());
+			SClist.add(payDTO.getSCHEDULE7());
+			SClist.add(payDTO.getSCHEDULE8());
+			SClist.add(payDTO.getSCHEDULE9());
+			SClist.add(payDTO.getSCHEDULE10());		
+			
+			String date = "";
+			for (int i = 0; i < SClist.size(); i++) {
+				if (SClist.get(i) != null) {
+					date += SClist.get(i)+",";
+				}//if
+			}//for
+			payDTO.setAllschedule(date);
+
+		}//for
+		m.addAttribute("list",PayList);
+		return "PaySuccess";
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+}//controller

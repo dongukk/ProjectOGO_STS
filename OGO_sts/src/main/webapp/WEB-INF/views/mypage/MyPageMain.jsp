@@ -45,8 +45,13 @@
 			method:"get",
 			data:{ "userid":$('#NewID').val()},
 			dataType: "text", 
+			contentType: "application/json; charset=UTF-8",
 			success: function (data, xhr, status) {
-				console.log('성공'+data);
+				if (data == 'overlap') {
+					$("#overlap").text("이미 사용중인 아이디입니다.");
+				}else{
+					$("#overlap").text("사용가능한 아이디입니다.");
+				}
 			},
 			error: function(xhr, status, error) {
 				console.log(status, error);
@@ -69,7 +74,7 @@
 		<tr><td>아이디 &nbsp ${ login.userId }</td></tr>
 		<tr> <td> 비밀번호 변경 &nbsp<input type="password" id="passwd1" placeholder="변경할 비밀번호를 입력하세요." > </td> </tr>
 		<tr> <td> 비밀번호 확인 &nbsp<input type="password" id="passwd2"> &nbsp <input id="ChangePW" type="button" value="비밀번호 변경"> </td> </tr>
-		<tr> <td> 닉네임 &nbsp <input id="NewID" type="text" value ="${ login.nickname }"> <input type="button" value="중복 확인" id="IDC"> </td> </tr>
+		<tr> <td> 닉네임 &nbsp <input id="NewID" type="text" value ="${ login.nickname }"> <input type="button" value="중복 확인" id="IDC"> <span style="color: red;" id="overlap"></span> </td> </tr>
 	
 	</table>
 	

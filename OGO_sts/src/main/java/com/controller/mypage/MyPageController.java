@@ -49,9 +49,9 @@ public class MyPageController {
 		String Count = "";
 		int ID = service.CheckID(userid);
 		if (ID == 0) {
-			Count = "중복없음";
+			Count = "NOoverlap";
 		}else {
-			Count = "중복";
+			Count = "overlap";
 		}
 		return Count;
 	}
