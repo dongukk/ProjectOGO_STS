@@ -27,7 +27,7 @@ public class memberController {
 // 메인 페이지
 	@RequestMapping(value = "/MainForm")
 	public String MainForm (HttpSession session) {
-		session.removeAttribute("interceptor");
+		session.removeAttribute("interceptor");		// interceptor 삭제
 		return "MainForm";
 		
 	}
