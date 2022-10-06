@@ -1,5 +1,7 @@
 package com.service.pay;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,11 @@ public class PayService {
 
 	public PayDTO selectOrder(String orderNum) {
 		return dao.selectOrder(orderNum);
+	}
+
+	public List<PayDTO> Cpayment(String orderNum) {
+		List<PayDTO> PayList = dao.Cpayment(orderNum);
+		return PayList;
 	}
 	
 	
