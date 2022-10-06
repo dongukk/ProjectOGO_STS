@@ -76,6 +76,7 @@ public class ClassPageController {
 		
 		//클래스 등록 페이지 테스트 위한 session
 		session.setAttribute("classDTO", cDTO);
+		session.removeAttribute("interceptor");		// interceptor 삭제
 		
 		mav.setViewName("ClassPage"); //view 페이지 
 		return mav;
