@@ -66,6 +66,9 @@ public class ClassPageController {
 		//이미지 불러오기
 		ClassImgDTO imgDTO = classService.getImage(classNum);
 		
+/////////////////////////////코멘트 추가하기///////////////////////////////
+		
+		//mav.addObject() ->해주세요
 		mav.addObject("classDTO", cDTO); //classDTO 
 		mav.addObject("nickName", nickName); //튜터 닉네임
 		mav.addObject("tutorProfile", tutorProfile); //튜터 프로필 이미지
