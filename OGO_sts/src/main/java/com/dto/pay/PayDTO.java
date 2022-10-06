@@ -29,7 +29,7 @@ public class PayDTO {
 	String USERNAME;
 	String CLASSPHOTO1;
 	
-	String Allschedule;
+	String allschedule;
 
 	public PayDTO() {
 		super();
@@ -61,7 +61,7 @@ public class PayDTO {
 		CLASSNAME = cLASSNAME;
 		USERNAME = uSERNAME;
 		CLASSPHOTO1 = cLASSPHOTO1;
-		Allschedule = allschedule;
+		this.allschedule = allschedule;
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class PayDTO {
 				+ ", SCHEDULE2=" + SCHEDULE2 + ", SCHEDULE3=" + SCHEDULE3 + ", SCHEDULE4=" + SCHEDULE4 + ", SCHEDULE5="
 				+ SCHEDULE5 + ", SCHEDULE6=" + SCHEDULE6 + ", SCHEDULE7=" + SCHEDULE7 + ", SCHEDULE8=" + SCHEDULE8
 				+ ", SCHEDULE9=" + SCHEDULE9 + ", SCHEDULE10=" + SCHEDULE10 + ", PLACE=" + PLACE + ", CLASSNAME="
-				+ CLASSNAME + ", USERNAME=" + USERNAME + ", CLASSPHOTO1=" + CLASSPHOTO1 + ", Allschedule=" + Allschedule
+				+ CLASSNAME + ", USERNAME=" + USERNAME + ", CLASSPHOTO1=" + CLASSPHOTO1 + ", allschedule=" + allschedule
 				+ "]";
 	}
 
@@ -236,17 +236,14 @@ public class PayDTO {
 	}
 
 	public String getAllschedule() {
-		return Allschedule;
+		return allschedule;
 	}
 
 	public void setAllschedule(String allschedule) {
-		Allschedule = allschedule;
+		this.allschedule = allschedule;
 	}
 
-	
-	
-	
-	
+
 
 
 	
