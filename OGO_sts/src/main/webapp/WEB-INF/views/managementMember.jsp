@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원관리 페이지</title>
 
-	<jsp:include page="common/navBar/nav2.jsp" flush="true"/>
+	<jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 
