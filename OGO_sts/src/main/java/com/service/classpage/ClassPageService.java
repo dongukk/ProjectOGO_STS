@@ -46,4 +46,8 @@ public class ClassPageService {
 		return dao.uploadImg(iDTO);
 	}
 
+	public String getTintroduce(String userId) {
+		return dao.getTintroduce(userId);
+	}
+
 }
