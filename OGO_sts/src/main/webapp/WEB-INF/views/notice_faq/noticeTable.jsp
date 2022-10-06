@@ -10,8 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#noticeTable{padding-top: 100px;}
+</style>
 </head>
 <body>
+	<section id="noticeTable">
 	<table border="1">
 		<tr> <th>No.</th><th>제목</th><th>작성일</th><th>작성자</th> </tr>
 		
@@ -56,5 +60,6 @@
 	<c:if test="${ admin != null }">
 		<input type="button" value="글 작성" onclick="location.href='loginCheck/NoticeCreate1'">
 	</c:if>
+	</section>
 </body>
 </html>
