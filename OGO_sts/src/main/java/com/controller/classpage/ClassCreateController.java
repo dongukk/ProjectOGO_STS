@@ -186,6 +186,12 @@ public class ClassCreateController {
 		return "redirect:MainForm"; //일단 main으로 이동하도록 함->목록으로 이동하도록 나중에 수정하기
 	}//ClassAdd
 	
+	@RequestMapping(value = "/tutorSearch")
+	@ResponseBody
+	public String tutorSearch() {
+		
+		return "";
+	}
 	
 	
 }
