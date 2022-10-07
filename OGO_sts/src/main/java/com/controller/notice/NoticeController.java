@@ -44,7 +44,6 @@ public class NoticeController {
 		// System.out.println(FAQdto);//faq 정보 가져오기
 		m.addAttribute("FAQdto", FAQdto);
 		
-		session.removeAttribute("interceptor");		// interceptor 삭제
 		return "NoticeMain";
 	}
 

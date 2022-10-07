@@ -24,14 +24,6 @@ public class memberController {
 	@Autowired
 	MemberService service;
 
-// 메인 페이지
-	@RequestMapping(value = "/MainForm")
-	public String MainForm (HttpSession session) {
-		session.removeAttribute("interceptor");		// interceptor 삭제
-		return "MainForm";
-		
-	}
-
 // 로그인 처리
 	@RequestMapping(value = "/login")
 	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletRequest request) {
