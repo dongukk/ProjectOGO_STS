@@ -204,7 +204,7 @@
 		
 	})//
 </script>
-<jsp:include page="common/navBar/nav.jsp" flush="false"/>
+<jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 

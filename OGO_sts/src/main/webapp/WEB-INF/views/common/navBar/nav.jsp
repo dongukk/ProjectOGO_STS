@@ -14,8 +14,15 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/common/navBar/nav.css?after3">
-<!-- <link rel="stylesheet" href="../css/common/navBar/nav.css?after3"> -->
+<!-- interceptor 세션 확인용 -->
+<%-- <br><br><br><br><%=session.getAttribute("interceptor") %> --%>
+
+<!-- interceptor 사용시 경로 처리 -->
+<%if(session.getAttribute("interceptor") ==null ){ %>
+<link rel="stylesheet" href="css/common/navBar/nav.css">
+<% } else {%>
+<link rel="stylesheet" href="../css/common/navBar/nav.css">
+<% } %>
 
 	<c:if test="${!empty mesg}">
 		<script>alert("${mesg}");</script>	
@@ -32,23 +39,45 @@
 <!-- 네비바 -->
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
-		<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
+		
+		
+		<%if(session.getAttribute("interceptor") ==null ){ %>
+			<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
+		<% } else {%>
+			<a class="navbar-brand" href="../MainForm"><img src="../images/common/OGOLogo3.png"></a>
+		<% } %>
       </div>
       <ul id="nav_Menu">
         <!-- <li class="nav-item">
 			<a class="nav_menu" href="MainForm.jsp"><span>HOME</span></a>
 		</li> -->
         <li class="nav-item">
-			<a class="nav_menu" href="ClassListCategoryServlet"><span>행성카테고리</span></a>
+       		<%if(session.getAttribute("interceptor") ==null ){ %>					
+				<a class="nav_menu" href="ClassListCategoryServlet"><span>행성카테고리</span></a>
+			<% } else {%>
+				<a class="nav_menu" href="../ClassListCategoryServlet"><span>행성카테고리</span></a>
+			<% } %>
+		</li>
+		<li class="nav-item">	
+			<%if(session.getAttribute("interceptor") ==null ){ %>					
+				<a class="nav_menu" href="MyPageServlet"><span>MY SPACE</span></a>
+			<% } else {%>
+				<a class="nav_menu" href="../MyPageServlet"><span>MY SPACE</span></a>
+			<% } %>
 		</li>
 		<li class="nav-item">
-			<a class="nav_menu" href="loginCheck/Mypage"><span>MY SPACE</span></a>
+			<%if(session.getAttribute("interceptor") ==null ){ %>
+				<a class="nav_menu" href="notice"><span>공지사항&FAQ</span></a>
+			<% } else {%>
+				<a class="nav_menu" href="../notice"><span>공지사항&FAQ</span></a>
+			<% } %>
 		</li>
 		<li class="nav-item">
-			<a class="nav_menu" href="notice"><span>공지사항&FAQ</span></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav_menu" href="ClassPage"><span>Class</span></a>
+			<%if(session.getAttribute("interceptor") ==null ){ %>
+				<a class="nav_menu" href="ClassPage"><span>Class</span></a>
+			<% } else {%>
+				<a class="nav_menu" href="../ClassPage"><span>Class</span></a>
+			<% } %>			
 		</li>
       </ul>
      
@@ -69,12 +98,16 @@
 				<div id="loginName">
 					<%=nickname%><a style="opacity: 1;">님</a>
 				</div><br>
-			<%  if(userId.equals("admin")){ // 이중 if문%>	
-				<li><a href="#" id="logout">Logout</a></li>
-				<li><a href="managementMember">management</a></li>
-				<!-- <li><a href="AdminCheck/managementMember">management</a></li> -->
+			<%  if(userId.equals("admin")){ // 이중 if문%>		
+					<%if(session.getAttribute("interceptor") ==null ){ %>					
+						<li><a href="loginCheck/logout" id="logout">Logout</a></li>
+						<li><a href="AdminCheck/managementMember">management</a></li>
+					<% } else {%>
+						<li><a href="../loginCheck/logout" id="logout">Logout</a></li>
+						<li><a href="../AdminCheck/managementMember">management</a></li>
+					<% } %>		
 				<%  } else{ %>
-				<li><a href="#" id="logout">Logout</a></li>
+						<li><a href="loginCheck/logout" id="logout">Logout</a></li>		
 			<%	}} else{ %>
 				<li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</a></li>
 				<li><a href="createMember">Sign up</a></li>
@@ -87,7 +120,7 @@
 		  <div class="navbar-menu-bar2"></div>
 		  <div class="navbar-menu-bar3"></div>
 		</div>
-	
+	<%-- <% session.removeAttribute("interceptor"); %> --%>
 </nav>
 	
 	
@@ -208,11 +241,26 @@ $(".nav-item").find("a").each(function() {
     // 소셜 로그아웃
   	$("#logout").click(function() {
   		kakaoLogout();
-  		naverLogout();
-	  	window.location.href='loginCheck/logout';
+  		naverLogout();	
   	}); 
- 
- // 프로그래스바
+
+// 네비바 메뉴버튼
+function navbarmenuChange(x) {
+  x.classList.toggle("change");
+}
+
+// 반응형 네비바 이벤트
+var toggleBtn = document.querySelector('.navbar-menu-Btn');
+var menu = document.querySelector('#nav_Menu');
+var login = document.querySelector('#nav_login');
+
+toggleBtn.addEventListener("click", function() { //클릭시 이벤트
+	  menu.classList.toggle("navActive");
+	  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
+	});
+	
+
+//프로그래스바
 jQuery(function($){
   var growmouseover = [true, '25px']
 
@@ -262,24 +310,12 @@ jQuery(function($){
   }
 })
 
-// 네비바 메뉴버튼
-function navbarmenuChange(x) {
-  x.classList.toggle("change");
-}
-
-
-// 반응형 네비바 이벤트
-var toggleBtn = document.querySelector('.navbar-menu-Btn');
-var menu = document.querySelector('#nav_Menu');
-var login = document.querySelector('#nav_login');
-
-toggleBtn.addEventListener("click", function() { //클릭시 이벤트
-	  menu.classList.toggle("navActive");
-	  login.classList.toggle("navActive"); // 설정너비 이하로 줄어들면 active 클래스 토글 설정
-	});
+/* $(document).ready(function() {
+	//session.removeAttribute("interceptor");
+	console.log("interceptor삭제");
+}); 
+ */
 </script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

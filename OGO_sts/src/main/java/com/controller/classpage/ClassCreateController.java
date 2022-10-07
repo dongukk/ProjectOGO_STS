@@ -10,10 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.classpage.ClassDTO;
 import com.dto.classpage.ClassImgDTO;
@@ -30,7 +32,14 @@ public class ClassCreateController {
 	ContentService conService;
 	
 	@RequestMapping(value = "/loginCheck/ClassCreate")
-	public String classCreate() {
+	public String classCreate(HttpSession session, RedirectAttributes attr) {
+		MemberDTO mDTO=(MemberDTO) session.getAttribute("login");
+		if (mDTO!=null) {
+			String userId=mDTO.getUserId();
+			String tintroduce=cService.getTintroduce(userId);//튜터소개
+			System.out.println("tintroduce:"+tintroduce);
+			attr.addFlashAttribute("tintroduce", tintroduce);//튜터소개 저장
+		}
 		return "redirect:../ClassCreateForm";
 	}
 	
@@ -177,6 +186,12 @@ public class ClassCreateController {
 		return "redirect:MainForm"; //일단 main으로 이동하도록 함->목록으로 이동하도록 나중에 수정하기
 	}//ClassAdd
 	
+	@RequestMapping(value = "/tutorSearch")
+	@ResponseBody
+	public String tutorSearch() {
+		
+		return "";
+	}
 	
 	
 }

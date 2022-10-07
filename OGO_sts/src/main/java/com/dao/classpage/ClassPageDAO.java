@@ -53,6 +53,11 @@ public class ClassPageDAO {
 		int num =template.insert("ClassImgMapper.uploadImg", iDTO);
 		return num;
 	}
+
+	public String getTintroduce(String userId) {
+		String tintroduce=template.selectOne("ClassMapper.getTintroduce", userId);
+		return tintroduce;
+	}
 	
 	
 }

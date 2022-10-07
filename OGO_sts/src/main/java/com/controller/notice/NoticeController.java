@@ -29,7 +29,7 @@ public class NoticeController {
 	NoticeService service;
 
 	@RequestMapping(value = "/notice")
-	public String notice(Model m, String curpage) {
+	public String notice(Model m, String curpage, HttpSession session) {
 		NoticePageDTO Pdto = new NoticePageDTO();
 		String curPage = curpage; // 현체페이지 데이터 파싱
 		if (curPage == null) {
@@ -43,7 +43,8 @@ public class NoticeController {
 		List<FAQ_DTO> FAQdto = service.selectAllFAQ();
 		// System.out.println(FAQdto);//faq 정보 가져오기
 		m.addAttribute("FAQdto", FAQdto);
-
+		
+		session.removeAttribute("interceptor");		// interceptor 삭제
 		return "NoticeMain";
 	}
 
