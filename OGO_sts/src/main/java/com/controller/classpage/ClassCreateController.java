@@ -188,9 +188,18 @@ public class ClassCreateController {
 	
 	@RequestMapping(value = "/tutorSearch")
 	@ResponseBody
-	public String tutorSearch() {
-		
-		return "";
+	public String tutorSearch(@RequestParam("userId") String tutorId) {
+		//System.out.println("tutorId:"+tutorId);
+		int num =cService.tutorSearch(tutorId); //튜터 등록 여부 확인
+		//System.out.println("tutor result:"+num);
+		String result="";
+		if (num==1) {
+			System.out.println("tutor 등록 확인");
+			result="1";
+		}else {
+			result="0";
+		}
+		return result;
 	}
 	
 	

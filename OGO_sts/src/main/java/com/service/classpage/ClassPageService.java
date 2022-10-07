@@ -50,4 +50,8 @@ public class ClassPageService {
 		return dao.getTintroduce(userId);
 	}
 
+	public int tutorSearch(String tutorId) {
+		return dao.tutorSearch(tutorId);
+	}
+
 }

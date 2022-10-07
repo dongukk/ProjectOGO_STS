@@ -34,7 +34,7 @@
 						console.log("TutorSearch success");
 						console.log(data);
 						if (data == 0) { //튜터등록이 되어있지 않을 경우 
-							alert("튜터등록 후 등록해주세요");
+							alert("튜터등록 후 이용해주세요");
 							event.preventDefault();
 						}
 					},
