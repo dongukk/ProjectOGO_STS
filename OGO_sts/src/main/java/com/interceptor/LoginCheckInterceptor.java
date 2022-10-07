@@ -26,7 +26,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 			return false;	// 주의
 		}else {	// 로그인 시
 			System.out.println("interceptor 로그인 정보 있음");
-			session.setAttribute("interceptor", "interceptor");
+			request.setAttribute("interceptor", "interceptor");
 			return true;	// 주의
 		}
 	}

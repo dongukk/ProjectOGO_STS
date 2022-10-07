@@ -1,3 +1,4 @@
+<%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.dto.member.MemberDTO" %>
@@ -10,20 +11,19 @@
 <link rel="shortcut icon" href="images/common/OGO.ico">
 <meta charset="UTF-8">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<!-- interceptor 세션 확인용 -->
-<%-- <br><br><br><br><%=session.getAttribute("interceptor") %> --%>
 
 <!-- interceptor 사용시 경로 처리 -->
-<%if(session.getAttribute("interceptor") ==null ){ %>
+<%if(request.getAttribute("interceptor")==null){ %>
 <link rel="stylesheet" href="css/common/navBar/nav.css">
 <% } else {%>
 <link rel="stylesheet" href="../css/common/navBar/nav.css">
 <% } %>
 
+<!-- 세션에 저장된 mesg 경고창 출력 -->
 	<c:if test="${!empty mesg}">
 		<script>alert("${mesg}");</script>	
 		<c:remove var="mesg"></c:remove>
@@ -39,9 +39,7 @@
 <!-- 네비바 -->
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
-		
-		
-		<%if(session.getAttribute("interceptor") ==null ){ %>
+		<%if(request.getAttribute("interceptor")==null){ %>
 			<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
 		<% } else {%>
 			<a class="navbar-brand" href="../MainForm"><img src="../images/common/OGOLogo3.png"></a>
@@ -52,28 +50,28 @@
 			<a class="nav_menu" href="MainForm.jsp"><span>HOME</span></a>
 		</li> -->
         <li class="nav-item">
-       		<%if(session.getAttribute("interceptor") ==null ){ %>					
+       		<%if(request.getAttribute("interceptor")==null){ %>					
 				<a class="nav_menu" href="ClassListCategoryServlet"><span>행성카테고리</span></a>
 			<% } else {%>
 				<a class="nav_menu" href="../ClassListCategoryServlet"><span>행성카테고리</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">	
-			<%if(session.getAttribute("interceptor") ==null ){ %>					
+			<%if(request.getAttribute("interceptor")==null){ %>						
 				<a class="nav_menu" href="MyPageServlet"><span>MY SPACE</span></a>
 			<% } else {%>
 				<a class="nav_menu" href="../MyPageServlet"><span>MY SPACE</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">
-			<%if(session.getAttribute("interceptor") ==null ){ %>
+			<%if(request.getAttribute("interceptor")==null){ %>	
 				<a class="nav_menu" href="notice"><span>공지사항&FAQ</span></a>
 			<% } else {%>
 				<a class="nav_menu" href="../notice"><span>공지사항&FAQ</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">
-			<%if(session.getAttribute("interceptor") ==null ){ %>
+			<%if(request.getAttribute("interceptor")==null){ %>	
 				<a class="nav_menu" href="ClassPage"><span>Class</span></a>
 			<% } else {%>
 				<a class="nav_menu" href="../ClassPage"><span>Class</span></a>
@@ -99,7 +97,7 @@
 					<%=nickname%><a style="opacity: 1;">님</a>
 				</div><br>
 			<%  if(userId.equals("admin")){ // 이중 if문%>		
-					<%if(session.getAttribute("interceptor") ==null ){ %>					
+					<%if(request.getAttribute("interceptor")==null){ %>						
 						<li><a href="loginCheck/logout" id="logout">Logout</a></li>
 						<li><a href="AdminCheck/managementMember">management</a></li>
 					<% } else {%>
@@ -310,11 +308,6 @@ jQuery(function($){
   }
 })
 
-/* $(document).ready(function() {
-	//session.removeAttribute("interceptor");
-	console.log("interceptor삭제");
-}); 
- */
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

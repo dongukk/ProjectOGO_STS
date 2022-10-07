@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeMapper">
+
+    <select id="getNoticeList" resultType="NoticeTableDTO">
+          select NCONTENT,to_char(ndate,'yyyy-mm-dd') ndate, NNUM,NTITLE,NICKNAME
+  		from notice JOIN MEMBER USING(USERID)
+  		order by ndate desc
+    </select>
+    
+    <select id="totalCount" resultType="int">
+   		select count(*)
+    	from notice
+    </select>
+    
+	
+	<select id="selectContent" parameterType="string" resultType="NoticeTableDTO">
+     select NCONTENT,to_char(ndate,'yyyy-mm-dd') ndate, NNUM,NTITLE,NICKNAME
+  		from notice JOIN MEMBER USING(USERID)
+  		where NNUM = #{nNum}
+    </select>
+	
+	
+	<select id="selectAllFAQ" resultType="FAQ_DTO">
+  	select FAQNUM, FAQTITLE, FAQCONTENT
+  	from OGO_FAQ
+  </select>
+    
+    <delete id="NoticeDelete" parameterType="int">
+    delete from notice
+  	where nnum = #{nnum}
+    </delete>
+    
+    <update id="NoticeUpdate2" parameterType="NoticeTableDTO">
+    update notice
+  		set NTITLE = #{nTitle}, NDATE = sysdate, USERID = #{nickName}, NCONTENT = #{nContent}
+  		<!-- nickname이지만 userid값이 들어가 있음 -->
+  		where NNUM = #{nNum}
+    </update>
+    
+    <insert id="CreateNotice" parameterType="NoticeTableDTO">
+    	insert into NOTICE( NNUM, NTITLE, NDATE, USERID, NCONTENT )
+  	 values( nnum_seq.nextval,#{nTitle},sysdate,#{nickName},#{nContent} )
+  	  <!-- nickname이지만 userid값이 들어가 있음 -->
+    </insert>
+    
+    
+</mapper>

@@ -26,7 +26,7 @@ public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}else {	// 관리자인 경우
 			System.out.println("interceptor 관리자 정보 있음");
-			session.setAttribute("interceptor", "interceptor");
+			request.setAttribute("interceptor", "interceptor");
 			return true;
 		}
 	}
