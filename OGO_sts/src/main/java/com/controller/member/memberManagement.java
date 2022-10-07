@@ -45,15 +45,20 @@ public class memberManagement {
 	@RequestMapping(value = "/AdminCheck/deleteAllMember")
 	private String deleteAllMember(HttpServletRequest request, HttpSession session) {
 		String [] userIds = request.getParameterValues("delCheck");
-	    List<String> list = Arrays.asList(userIds);
-	    System.out.println("deleteAllMember : "+list);
-
-	    int n = service.deleteAll(list);
-	    System.out.println("선택회원 삭제 : "+n);
-	    if(n > 0) {	
-	    	session.setAttribute("mesg", "회원"+list+"을(를) 탈퇴시켰습니다.");
-	    }
-		return "redirect:managementMember";
+		if(userIds==null) {
+			session.setAttribute("mesg", "삭제할 회원을 체크해주세요.");
+			return "redirect:managementMember";
+		}else {
+		    List<String> list = Arrays.asList(userIds);
+		    System.out.println("deleteAllMember : "+list);
+	
+		    int n = service.deleteAll(list);
+		    System.out.println("선택회원 삭제 : "+n);
+		    if(n > 0) {	
+		    	session.setAttribute("mesg", "회원"+list+"을(를) 탈퇴시켰습니다.");
+		    }
+			return "redirect:managementMember";
+		}
 	}
 
 // 회원 단일 삭제
