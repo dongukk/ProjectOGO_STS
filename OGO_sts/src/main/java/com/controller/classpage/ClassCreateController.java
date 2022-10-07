@@ -42,6 +42,15 @@ public class ClassCreateController {
 		}
 		return "redirect:../ClassCreateForm";
 	}
+	@RequestMapping(value = "/ClassCreateForm")
+	public String ClassCreateForm(HttpSession session) {
+		MemberDTO mDTO=(MemberDTO) session.getAttribute("login");
+		if (mDTO!=null) {
+			return "ClassCreateForm";
+		} else {
+			return "redirect:MainForm";
+		}
+	}
 	
 	@RequestMapping(value = "/ClassNameSearch", produces = "application/text;charset=utf8")
 	@ResponseBody
