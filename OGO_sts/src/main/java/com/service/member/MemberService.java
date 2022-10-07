@@ -36,10 +36,11 @@ public class MemberService {
 		return n;
 	}
 
-	public PageDTO search(String searchName, String searchValue, int curPage) {
+	public PageDTO search(String searchName, String searchValue, int curPage, String order) {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("searchName", searchName);
 		map.put("searchValue", searchValue);
+		map.put("order", order);
 		
 		PageDTO pDTO = dao.search(map, curPage);	// map:검색결과, 최초 실행시curPage = 1
 		

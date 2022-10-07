@@ -30,13 +30,15 @@ public class memberManagement {
 		
 		String searchName = request.getParameter("searchName");
 		String searchValue = request.getParameter("searchValue");
-		System.out.println(searchName+"\t"+searchValue);
+		String order = request.getParameter("order");
+		System.out.println(searchName+"\t"+searchValue+"\t"+order);
+		if(order == null) {order = "asc";}
 		
-		PageDTO pDTO = service.search(searchName, searchValue, Integer.parseInt(curPage));
-		System.out.println(pDTO);
+		PageDTO pDTO = service.search(searchName, searchValue, Integer.parseInt(curPage), order);
 		request.setAttribute("pDTO", pDTO);
 		request.setAttribute("searchName", searchName);
 		request.setAttribute("searchValue", searchValue);
+		request.setAttribute("order", order);
 
 		return "managementMember";
 	}

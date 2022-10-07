@@ -108,13 +108,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       	from member
        	<where>
 	  		<if test="searchName == 'nickname'">
-	       		upper(nickname)  like  upper('%'||#{searchValue}||'%') 
+	       		upper(nickname)  like  upper('%'||#{searchValue}||'%')
 	  		</if>
 	  		<if test="searchName == 'address'">
 	     		 address2 like '%'||#{searchValue}||'%'
 	 		</if>
-     	</where>
-		order by userId
+	 	</where>
+			<if test="order == 'asc'">
+	       		order by userId asc
+	  		</if>
+	  		<if test="order == 'desc'">
+	     		order by userId desc
+	 		</if>
 	  </select>
     
 </mapper>

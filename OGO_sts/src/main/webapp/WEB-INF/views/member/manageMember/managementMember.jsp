@@ -59,7 +59,9 @@
 						<option value="nickname" <c:if test="${empty searchName}">selected="selected"</c:if>>닉네임</option>
 						<option value="address"  <c:if test="${searchName eq 'address'}">selected="selected"</c:if> >주소</option>
 					</select> 
-					<input type="text" name="searchValue" value="${searchValue}">	 
+					<input type="text" name="searchValue" value="${searchValue}">	
+					<input type="radio" value="asc" name="order" <c:if test="${order eq 'asc'}"> checked="checked"</c:if>>오름차순
+					<input type="radio" value="desc" name="order" <c:if test="${order eq 'desc'}"> checked="checked"</c:if>>내림차순 
 					<input type="submit" id="searcBtn" value="검색">
 				</form>
 			</td>
@@ -77,6 +79,7 @@
 	   <th>등급</th>
 	   <th>탈퇴</th>
 	 </tr>
+
 <c:forEach var="dto" items="${pDTO.getList()}" varStatus="status">
 <tr>
 	<td><input type="checkbox" name="delCheck"  class="delCheck" value="${dto.userId}"></td>
