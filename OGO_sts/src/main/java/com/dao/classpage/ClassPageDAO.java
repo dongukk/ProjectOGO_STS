@@ -58,6 +58,11 @@ public class ClassPageDAO {
 		String tintroduce=template.selectOne("ClassMapper.getTintroduce", userId);
 		return tintroduce;
 	}
+
+	public int tutorSearch(String tutorId) {
+		int result=template.selectOne("ClassMapper.tutorSearch", tutorId);
+		return result;
+	}
 	
 	
 }
