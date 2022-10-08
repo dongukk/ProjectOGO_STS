@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.mypage.MypageDAO;
+import com.dto.member.MemberDTO;
 
 @Service
 public class MypageService {
@@ -14,9 +15,13 @@ public class MypageService {
 		dao.ChangePW(userid, passwd);	
 	}
 
-	public int CheckID(String userid) {
-		int ID = dao.CheckID(userid);
+	public String CheckID(String userid) {
+		String ID = dao.CheckID(userid);
 		return ID;
+	}
+
+	public void MemberUpdate(MemberDTO dto) {
+		dao.MemberUpdate(dto);
 	}
 	
 	

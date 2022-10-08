@@ -58,9 +58,9 @@
 		</li>
 		<li class="nav-item">	
 			<%if(request.getAttribute("interceptor")==null){ %>						
-				<a class="nav_menu" href="MyPageServlet"><span>MY SPACE</span></a>
+				<a class="nav_menu" href="loginCheck/Mypage"><span>MY SPACE</span></a>
 			<% } else {%>
-				<a class="nav_menu" href="../MyPageServlet"><span>MY SPACE</span></a>
+				<a class="nav_menu" href="../loginCheck/Mypage"><span>MY SPACE</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">
