@@ -39,6 +39,7 @@
 				<value>classpath:com/config/notice/NoticeMapper.xml</value>
 				<value>classpath:com/config/pay/PayMapper.xml</value>
 				<value>classpath:com/config/mypage/MyPageMapper.xml</value>
+				<value>classpath:com/config/classlist/classlistMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -53,6 +54,7 @@
 				<value>com.dto.notice.FAQ_DTO</value>
 				<value>com.dto.notice.NoticePageDTO</value>
 				<value>com.dto.pay.PayDTO</value>
+				<value>com.dto.classlist.classlistDTO</value>
 			</list>
 		</property>
 	</bean>
