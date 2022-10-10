@@ -33,12 +33,18 @@
 			<beans:ref bean="LoginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
-	
 	<beans:bean id="AdminCheckInterceptor" class="com.interceptor.AdminCheckInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
 			<mapping path="/AdminCheck/**"/>
 			<beans:ref bean="AdminCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	<beans:bean id="TutorCheckInterceptor" class="com.interceptor.TutorCheckInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/tutor/**"/>
+			<beans:ref bean="TutorCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
 	
