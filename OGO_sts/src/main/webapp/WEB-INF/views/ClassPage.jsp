@@ -243,6 +243,9 @@
 		<jsp:include page="classPage/classApplication/classPhoto.jsp"></jsp:include>
 		<br>
 		<!-- 수강생 후기 아래에 추가 -->
+		<br>
+		<jsp:include page="classPage/classComment/comment_index.jsp"></jsp:include>
+		<br>
 		
 		
 		

@@ -13,10 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.classpage.ClassDTO;
 import com.dto.classpage.ClassImgDTO;
+import com.dto.comment.ClassCommentPageDTO;
 import com.dto.member.MemberDTO;
 import com.service.classpage.ClassPageService;
 import com.service.classpage.ContentService;
 import com.service.classpage.HeartService;
+import com.service.comment.ClassCommentService;
 
 @Controller
 public class ClassPageController {
