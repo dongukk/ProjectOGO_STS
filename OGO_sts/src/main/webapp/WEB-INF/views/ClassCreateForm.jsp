@@ -53,6 +53,9 @@
 				alert("클래스명을 입력해주세요");
 				event.preventDefault();
 				$("#className").focus();
+			}else if ($("#classSearch").text()=='이미 등록한 클래스명입니다. 다른 클래스명을 입력해주세요') {
+				alert("중복된 클래스명입니다. 다른 클래스명을 입력해주세요");
+				event.preventDefault();
 			}else if (category=='Category') {
 				alert("카테고리를 선택해주세요");
 				event.preventDefault();

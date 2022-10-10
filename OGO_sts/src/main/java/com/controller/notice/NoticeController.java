@@ -27,7 +27,10 @@ import com.service.notice.NoticeService;
 public class NoticeController {
 	@Autowired
 	NoticeService service;
-
+	
+	
+	//controller부터  DB가서 데이터 하나 가져오고 MIN.jsp 뿌려주기 jstl사용해요.
+	
 	@RequestMapping(value = "/notice")
 	public String notice(Model m, String curpage, HttpSession session) {
 		NoticePageDTO Pdto = new NoticePageDTO();
