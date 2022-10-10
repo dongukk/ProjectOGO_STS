@@ -84,5 +84,10 @@ public class MemberDAO {
 		return n; 
 	}
 
+	public String fileName(String userId) {
+		String fileName = template.selectOne("MemberMapper.fileName", userId);
+		return fileName;
+	}
+
 
 }
