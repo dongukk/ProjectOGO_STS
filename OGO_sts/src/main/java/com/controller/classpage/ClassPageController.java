@@ -26,10 +26,12 @@ public class ClassPageController {
 	ContentService conService;
 	@Autowired
 	HeartService hService;
+	@Autowired
+	ClassCommentService cmtservice;
 	
 	@RequestMapping(value = "/ClassPage")
 	public ModelAndView classPage(HttpSession session,
-			@RequestParam("listNum") int classNum) {
+			@RequestParam("listNum") int classNum, String curpage) {
 		ModelAndView mav= new ModelAndView();
 		//로그인 세션 받기
 		MemberDTO mDTO = (MemberDTO) session.getAttribute("login");
@@ -66,6 +68,10 @@ public class ClassPageController {
 		ClassImgDTO imgDTO = classService.getImage(classNum);
 		
 /////////////////////////////코멘트 추가하기///////////////////////////////
+		if(curpage == null) { curpage="1"; }
+		System.out.println(curpage);
+		ClassCommentPageDTO cmtpagedto = cmtservice.viewPage(Integer.parseInt(curpage));
+		System.out.println("classpageSevlet"+cmtpagedto);
 		
 		//mav.addObject() ->해주세요
 		mav.addObject("classDTO", cDTO); //classDTO 
@@ -75,6 +81,7 @@ public class ClassPageController {
 		mav.addObject("heartYN", heartYN); //찜 여부 검사
 		mav.addObject("heartCount", count); //찜 개수 count
 		mav.addObject("imgDTO", imgDTO); //클래스 별 이미지
+		mav.addObject("cmtpagedto", cmtpagedto); //classComment(수강후기)
 		
 		//클래스 등록 페이지 테스트 위한 session
 		session.setAttribute("classDTO", cDTO);
