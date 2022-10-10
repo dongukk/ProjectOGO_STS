@@ -189,28 +189,35 @@ $("#close").click( function(){
   padding: 0 5px;	
   width: 150px;
 }
+section{padding-top: 66px;}
 
-
+.profile_container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-image: url("../upload/member/${ login.profilePhoto}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
 </style>
-
-<aside>
-        <div class="side_bar">
-          <p><a href="MyPageServlet">프로필 관리</a></p>
-          <p><a href="HeartListServlet">MY 찜</a></p>
-          <p><a href="#">수강내역</a></p>
-          <p><a href="#">튜터 등록</a></p>
-        </div>
-      </aside>  
-      
-      
+<section>
         <h1>MY SPACE</h1>
          
-        <div class="profile_container">
-        <%-- <img src="../upload/member/${ login.profilePhoto}"> --%>
+<!--         <div class="profile_container">
+        
         <form action="photoch.html">
         </form>
-        </div>
-           
+        </div> -->
+        <div class="profile_container">
+        <form action="photoch.html">
+         	<button>
+         		<%-- <img src="../upload/member/${ login.profilePhoto}"> --%>
+         		<img class="change_image" src="LoginImg/change.jpeg"  url="./profile.jpeg"  accept=".jpg, .png, .jpeg"/>
+         	</button>
+        </form>
+        </div>   
            
 
 
