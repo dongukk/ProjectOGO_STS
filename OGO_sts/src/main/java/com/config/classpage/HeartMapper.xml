@@ -23,6 +23,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO heart(classnum,userid,num) 
 		VALUES (#{classNum}, #{userId}, HEART_SEQ.nextval)
 	</insert>
+	
+	 <select id="heartList" parameterType="string" resultType="HeartListDTO">
+        select heart.classnum, class.classname, class.price, heart.userid, heart.num
+        from class
+                 JOIN heart ON heart.classnum = class.classnum
+        where heart.userid = #{userid}
+    </select>
+
+	
+	
+	<delete id="heartlistDel" parameterType="int">
+        delete
+        from heart
+        where num = #{num}
+    </delete>
+
+
+    <delete id="heartlistDelAll" parameterType="arraylist">
+        delete from heart
+        where num
+        IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
     	
 
     
