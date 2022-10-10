@@ -17,10 +17,11 @@
 	$(document).ready(function() {
 		//클래스 등록버튼 클릭
 		$(".more2").on("click", function(event) {
-			if ("<%= userId%>" == "null") {
+			<%-- if ("<%= userId%>" == "null") {
 				alert("로그인 후 이용해주세요");
 				event.preventDefault();
-			}else{
+			}else{ --%>
+			if("<%= userId%>" != "null"){
 				//ajax로 튜터등록 여부 검사하고 돌아오기
 				$.ajax({
 					type: "post",
@@ -43,7 +44,7 @@
 						console.log(e, status);
 					}
 				})//ajax end
-			}
+			}//if end
 		})
 	})	
 

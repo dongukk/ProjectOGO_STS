@@ -35,10 +35,10 @@ public class ClassPageController {
 	ClassCommentService cmtservice;
 	
 	@RequestMapping(value = "/ClassPage")
-	public ModelAndView classPage(HttpSession session, String curpage) {
+
+	public ModelAndView classPage(HttpSession session,
+			@RequestParam("listNum") int classNum, String curpage) {
 		ModelAndView mav= new ModelAndView();
-//		int classNum= 202; //나중에 클래스 Num 받기
-		int classNum= 390; //test
 		//로그인 세션 받기
 		MemberDTO mDTO = (MemberDTO) session.getAttribute("login");
 		//클래스 정보

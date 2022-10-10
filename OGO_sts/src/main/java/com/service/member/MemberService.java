@@ -70,6 +70,11 @@ public class MemberService {
 	public int newPw(HashMap<String, String> map) {
 		int n=dao.newPw(map);
 		return n;
+	}
+
+	public String fileName(String userId) {
+		String fileName=dao.fileName(userId);
+		return fileName;
 	} 
 
 	
