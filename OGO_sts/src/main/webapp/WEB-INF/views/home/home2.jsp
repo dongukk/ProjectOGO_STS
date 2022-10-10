@@ -14,7 +14,7 @@
 <title>OGO : 행성 카테고리</title>
 </head>
 <body>
-	
+<jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
 	 <div class="wrap">
 		<div class="intro_bg">
 			<div class="header">-
