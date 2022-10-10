@@ -22,7 +22,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 		if (session.getAttribute("login") == null) {	// 로그인 안된 경우
 			System.out.println("interceptor 로그인 정보 없음");
 			session.setAttribute("mesg", "로그인이 필요한 페이지입니다.");
-			response.sendRedirect("../MainForm");
+			response.sendRedirect("../home2");
 			return false;	// 주의
 		}else {	// 로그인 시
 			System.out.println("interceptor 로그인 정보 있음");
