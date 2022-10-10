@@ -62,7 +62,6 @@ public class memberAdd {
 		dto.setAddress2(address2);
 		dto.setEmail1(email1);
 		dto.setEmail2(email2);
-//		dto.setProfilePhoto(profilePhoto);		// 아래에서 파일업로드 유무 기본값설정함
 
 // 파일업로드 존재시
 	if(upload.getSize() != 0) {
@@ -102,14 +101,14 @@ public class memberAdd {
 		System.out.println("파일있음 : "+profilePhoto);
 		dto.setProfilePhoto(profilePhoto);
 		
-// 파일업로드 안할 시 기본값 설정
-	}else {
-		String profilePhoto = "noImage.jpg";
-		System.out.println("파일없음 : "+profilePhoto);
-		dto.setProfilePhoto(profilePhoto);
-	}
+		// 파일업로드 안할 시 기본값 설정
+		}else {
+			String profilePhoto = "noImage.jpg";
+			System.out.println("파일없음 : "+profilePhoto);
+			dto.setProfilePhoto(profilePhoto);
+		}
 		
-
+// 취미배열 string타입으로 변형
 		if(hobby == null) {	// 취미가 없으면 null값입력
 			String hobbys = "";
 			dto.setHobby(hobbys);

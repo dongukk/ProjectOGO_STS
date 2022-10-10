@@ -15,7 +15,7 @@
 <jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
-	
+<jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
 	 <div class="wrap">
 		<div class="intro_bg">
 			<div class="header">-
