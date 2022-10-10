@@ -39,6 +39,7 @@ public class ClassCommentController {
 		
 		service.cmtAdd(cmt_dto);
 		
+		
 				
 		return "redirect: ../ClassPage?listNum="+classnum;
 	}
