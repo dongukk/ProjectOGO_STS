@@ -53,7 +53,7 @@
        		<%if(request.getAttribute("interceptor")==null){ %>					
 				<a class="nav_menu" href="home2"><span>행성카테고리</span></a>
 			<% } else {%>
-				<a class="nav_menu" href="../home/home2"><span>행성카테고리</span></a>
+				<a class="nav_menu" href="../home2"><span>행성카테고리</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">	

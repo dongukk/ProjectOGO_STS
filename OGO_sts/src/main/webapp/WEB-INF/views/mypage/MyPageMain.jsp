@@ -192,6 +192,17 @@ $("#close").click( function(){
 
 
 </style>
+
+<aside>
+        <div class="side_bar">
+          <p><a href="MyPageServlet">프로필 관리</a></p>
+          <p><a href="HeartListServlet">MY 찜</a></p>
+          <p><a href="#">수강내역</a></p>
+          <p><a href="#">튜터 등록</a></p>
+        </div>
+      </aside>  
+      
+      
         <h1>MY SPACE</h1>
          
         <div class="profile_container">
