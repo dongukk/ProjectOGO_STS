@@ -201,6 +201,16 @@ section{padding-top: 66px;}
   background-position: center;
   border-radius: 50%;
 }
+.change_image {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
 </style>
 <section>
         <h1>MY SPACE</h1>
@@ -211,14 +221,25 @@ section{padding-top: 66px;}
         </form>
         </div> -->
         <div class="profile_container">
-        <form action="photoch.html">
+        <form action="../photoch" method="post" enctype="multipart/form-data">
          	<button>
          		<%-- <img src="../upload/member/${ login.profilePhoto}"> --%>
-         		<img class="change_image" src="LoginImg/change.jpeg"  url="./profile.jpeg"  accept=".jpg, .png, .jpeg"/>
+         		<img class="change_image" src="../images/login/change.jpeg"  url="../profile.jpeg"  accept=".jpg, .png, .jpeg"/>
          	</button>
+         	<%-- <input type="hidden" name="file">
+            <input type="hidden" name="memberId" id="memberId" value="${login.userId}"> --%>
+           <!--  <input type=file name='file1' style='display: none;'> 
+			<input type='text' name='file2' id='file2'>  -->
         </form>
         </div>   
-           
+        
+<%--         <img src="../upload/member/${ login.profilePhoto}" style=" max-width: 50%;  height: auto;"> <br />	  
+          <div class="card">           
+              <form action="/member/updateImg" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="hidden" name="memberId" id="memberId" value="${login.userId}">
+               <button type="submit" class="btn btn-primary">사진변경</button>
+             </form> --%>
 
 
 	<form action="../loginCheck/MemberUpdate" method="post">	<!-- enctype: 파일업로드 -->
