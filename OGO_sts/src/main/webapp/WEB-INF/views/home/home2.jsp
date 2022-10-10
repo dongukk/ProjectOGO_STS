@@ -9,9 +9,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="ClassList_css/style2.css">
+<link rel="stylesheet" type="text/css" href="css/classlist/home2.css">
 <meta charset="UTF-8">
 <title>OGO : 행성 카테고리</title>
+<jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 	
@@ -77,7 +78,7 @@
 	<div class=filter>
 	<div style="display:flex; justify-content:center; ">
 	<!-- 버튼 요소 -->
-		<button data-value="all" onclick="location.href='ClassListCategoryServlet'" style="color:red;">초기화</button>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<button data-value="all" onclick="location.href='home2'" style="color:red;">초기화</button>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<p>
 		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new">최신순</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<a href="ClassListCategoryServlet?priceasc" data-value="asc">낮은 가격</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
@@ -131,7 +132,8 @@
 												<!-- 이미지연결  -->
 													 					<%-- <%=listDTO.get(i).getClassNum() %> --%>
 													<a href="ClassPage?listNum=${cVO.classNum}">
-														 <img src="class_img/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
+													<!-- 이미지 머지하고 연결 다시 할 것 - DB문제 -->
+														 <img src="images/class_img/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
 													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
 													</a>	
 												</font>
