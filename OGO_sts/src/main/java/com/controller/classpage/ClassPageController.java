@@ -1,11 +1,14 @@
 package com.controller.classpage;
 
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,10 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.classpage.ClassDTO;
 import com.dto.classpage.ClassImgDTO;
+import com.dto.comment.ClassCommentPageDTO;
 import com.dto.member.MemberDTO;
 import com.service.classpage.ClassPageService;
 import com.service.classpage.ContentService;
 import com.service.classpage.HeartService;
+import com.service.comment.ClassCommentService;
 
 @Controller
 public class ClassPageController {
@@ -26,9 +31,11 @@ public class ClassPageController {
 	ContentService conService;
 	@Autowired
 	HeartService hService;
+	@Autowired
+	ClassCommentService cmtservice;
 	
 	@RequestMapping(value = "/ClassPage")
-	public ModelAndView classPage(HttpSession session) {
+	public ModelAndView classPage(HttpSession session, String curpage) {
 		ModelAndView mav= new ModelAndView();
 //		int classNum= 202; //나중에 클래스 Num 받기
 		int classNum= 390; //test
@@ -67,6 +74,10 @@ public class ClassPageController {
 		ClassImgDTO imgDTO = classService.getImage(classNum);
 		
 /////////////////////////////코멘트 추가하기///////////////////////////////
+		if(curpage == null) { curpage="1"; }
+		System.out.println(curpage);
+		ClassCommentPageDTO cmtpagedto = cmtservice.viewPage(Integer.parseInt(curpage));
+		System.out.println("classpageSevlet"+cmtpagedto);
 		
 		//mav.addObject() ->해주세요
 		mav.addObject("classDTO", cDTO); //classDTO 
@@ -76,6 +87,9 @@ public class ClassPageController {
 		mav.addObject("heartYN", heartYN); //찜 여부 검사
 		mav.addObject("heartCount", count); //찜 개수 count
 		mav.addObject("imgDTO", imgDTO); //클래스 별 이미지
+		mav.addObject("cmtpagedto", cmtpagedto); //classComment(수강후기)
+		
+		
 		
 		//클래스 등록 페이지 테스트 위한 session
 		session.setAttribute("classDTO", cDTO);
@@ -128,6 +142,5 @@ public class ClassPageController {
 		return count;
 	}
 
-	
 	
 }
