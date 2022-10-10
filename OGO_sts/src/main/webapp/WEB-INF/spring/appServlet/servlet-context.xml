@@ -15,8 +15,8 @@
 	<!-- <context:annotation-config></context:annotation-config> -->
 	
 <!-- view페이지 설정 -->
-	<view-controller path="/" view-name="home2"/>
-	<view-controller path="/home2" view-name="home2"/>
+	<view-controller path="/" view-name="/home2"/>
+	<view-controller path="/home2" view-name="/home2"/>
 	<view-controller path="/ClassCreateForm" view-name="ClassCreateForm"/>
 
 <!-- WEB-INF 폴더는 반드시 리소스 등록 후 사용 -->
