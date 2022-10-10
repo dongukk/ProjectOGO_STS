@@ -20,6 +20,7 @@
 		<tr> <th>No.</th><th>제목</th><th>작성일</th><th>작성자</th> </tr>
 		
 		<c:forEach var="NTdto" items="${ Pdto.list }" varStatus="status">
+		
 		<c:if test="${ Pdto.curPage == '1' }">
 			<tr> <td>${status.index +1}</td><td><a href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
 		</c:if>
@@ -50,7 +51,7 @@
 					</c:if> 
 				</c:forEach>
 				
-				<c:if test="${ Pdto.totalCount/Pdto.perPage >0 }">
+				<c:if test="${ Pdto.totalCount%Pdto.perPage >0 }">
 					<a href="notice?curpage=<fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
 				</c:if>
 				
