@@ -213,16 +213,6 @@ section{padding-top: 66px;}
 }
 </style>
 <section>
-
- <aside>
-        <div class="side_bar">
-          <p><a href="/ogo/loginCheck/Mypage">프로필 관리</a></p>
-          <p><a href="/ogo/hearts">My 찜</a></p>
-          <p><a href="#">수강내역</a></p>
-          <p><a href="/ogo/tutor/register">튜터 등록</a></p>
-        </div>
-      </aside>  
-
         <h1>MY SPACE</h1>
          
 <!--         <div class="profile_container">
