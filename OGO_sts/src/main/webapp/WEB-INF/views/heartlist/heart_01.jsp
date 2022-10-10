@@ -97,7 +97,7 @@ a:hover {
 text-decoration: underline;
 } 
 
-
+section{padding-top: 50px;}
 </style>
 <jsp:include page="/WEB-INF/views/common/navBar/nav.jsp" flush="true"/>  
 </head>

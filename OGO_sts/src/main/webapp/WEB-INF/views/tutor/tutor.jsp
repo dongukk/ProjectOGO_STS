@@ -112,7 +112,8 @@ text-decoration: underline;
   background-position: center;
   border-radius: 50%;
     }
-
+    
+  section{padding-top: 100px;}
 
 
 
