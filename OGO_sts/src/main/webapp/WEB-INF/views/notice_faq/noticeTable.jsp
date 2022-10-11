@@ -7,6 +7,8 @@
     
 <!DOCTYPE html>
 <html>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/notice/noticeTable.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -14,21 +16,21 @@
 	#noticeTable{padding-top: 100px;}
 </style>
 </head>
-<body>
-	<section id="noticeTable">
-	<table border="1">
-		<tr> <th>No.</th><th>제목</th><th>작성일</th><th>작성자</th> </tr>
+<body id="notice_body">
+	<div id="notice_title"  >NOTICE</div>
+	<table id="notice_table1">
+		<tr id="tr1"> <th>No.</th><th id="td2">제목</th><th id="td3">작성일</th><th>작성자</th> </tr>
 		
 		<c:forEach var="NTdto" items="${ Pdto.list }" varStatus="status">
 		<c:if test="${ Pdto.curPage == '1' }">
-			<tr> <td>${status.index +1}</td><td><a href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
+			<tr> <td>${status.index +1}</td><td><a id="a1" href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
 		</c:if>
 		<c:if test="${ Pdto.curPage != '1' }">
 		<tr> <td>${((Pdto.curPage-1)*Pdto.perPage + status.index)+1}</td><td><a href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
 		</c:if>
 		</c:forEach>
-		<tr>
-			<td colspan="4">
+		</table>
+			<!-- <td colspan="4"> -->
 			
 			<%-- 
 			 <% 
@@ -39,7 +41,10 @@
 			if(totalcount%perpage > 0) { totalPage++; }
 			%> 
 			--%>
-			
+			<table id="notice_table2">
+			<tr>
+				<td colspan="2" id="notice_perage1">
+					<br>
 				<c:forEach varStatus="status" begin="1" end="${ Pdto.totalCount/Pdto.perPage }" > <%-- end="<%= totalPage %>" --%> 
 					<c:if test="${ Pdto.curPage  == status.index }">
 							&nbsp&nbsp${ status.index }&nbsp&nbsp
@@ -53,13 +58,16 @@
 				<c:if test="${ Pdto.totalCount/Pdto.perPage >0 }">
 					<a href="notice?curpage=<fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
 				</c:if>
-				
+				</td>
+			</tr>
+			<tr>
+			<td>
+				<c:if test="${ admin != null }">
+				<input id="notice_btn" type="button" value="글 작성" onclick="location.href='loginCheck/NoticeCreate1'">
+				</c:if>
 			</td>
-		</tr>
-	</table>
-	<c:if test="${ admin != null }">
-		<input type="button" value="글 작성" onclick="location.href='loginCheck/NoticeCreate1'">
-	</c:if>
-	</section>
+			</tr>
+			</table>
+			
 </body>
 </html>

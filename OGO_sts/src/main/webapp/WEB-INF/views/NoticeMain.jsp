@@ -10,6 +10,8 @@
 </head>
 <body>
 <jsp:include page="notice_faq/noticeTable.jsp"></jsp:include>
+<br>
+<br>
 <jsp:include page="notice_faq/noticeFAQ.jsp"></jsp:include>
 </body>
 </html>
