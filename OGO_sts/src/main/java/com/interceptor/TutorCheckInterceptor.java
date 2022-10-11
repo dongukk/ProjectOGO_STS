@@ -1,0 +1,55 @@
+package com.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+public class TutorCheckInterceptor extends HandlerInterceptorAdapter {
+
+// 로그인 처리
+// /loginCheck/**
+// 처리후 /loginCheck/loginForm 되므로 ../loginForm 으로 설정하기
+// servlet-context.xml에서 주소처리 등록
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		System.out.println("preHandle=========");
+		HttpSession session = request.getSession();
+		if (session.getAttribute("Tutor") == null) {
+			System.out.println("interceptor 로그인 정보 없음");
+			session.setAttribute("mesg", "튜터 권한이 필요한 페이지입니다.");
+			response.sendRedirect("../home2");
+			return false;	// 주의
+		}else {
+			System.out.println("interceptor 로그인 정보 있음");
+			request.setAttribute("interceptor", "interceptor");
+			return true;	// 주의
+		}
+	}
+
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		System.out.println("postHandle=========");
+		super.postHandle(request, response, handler, modelAndView);
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		System.out.println("afterCompletion=========");
+		super.afterCompletion(request, response, handler, ex);
+	}
+
+	@Override
+	public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		System.out.println("afterConcurrentHandlingStarted=========");
+		super.afterConcurrentHandlingStarted(request, response, handler);
+	}
+
+}

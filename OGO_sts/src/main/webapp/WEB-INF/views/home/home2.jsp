@@ -12,9 +12,13 @@
 <link rel="stylesheet" type="text/css" href="css/classlist/home2.css">
 <meta charset="UTF-8">
 <title>OGO : 행성 카테고리</title>
+<style type="text/css">
+	section{padding-top: 100px;}
+</style>
 <jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
+<section>
 <jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
 	 <div class="wrap">
 		<div class="intro_bg">
@@ -276,7 +280,7 @@
 			<li></li>
 		</ul>
 	</div>
-
+</section>
 	<!-- footer html 현재 기능 아무것도 없음-->
 	<footer>
 	<div class="container">
