@@ -1,31 +1,9 @@
 
-.fix_tit {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  z-index: 200;
-  font-family: 'NotoB';
-  font-size: 180px;
-  line-height: 1;
-  color: #000;
-  transform: translate(-50%, -50%);
-  opacity: .4;
-}
-
-.fix_tit span {
-  position: absolute;
-  right: 0;
-  top: -30px;
-  font-size: 30px;
-  font-family: 'NotoM';
-  border-bottom: 3px solid rgba(000, 000, 000, .6);
-}
-
 /* svg */
 .svg_wrap {
   position: fixed;
-  left: 90%;
-  top: 60%;
+  left: 40%;
+  top: 55%;
   z-index: 30;
   width: 1500px;
   height: 800px;
@@ -45,7 +23,7 @@
   left: 50%;
   top: 50%;
   z-index: 100;
-  width: 1920px;
+  width: 100%;
   opacity: 0;
   transform: translate(-50%, -50%);
   transition: opacity .5s;

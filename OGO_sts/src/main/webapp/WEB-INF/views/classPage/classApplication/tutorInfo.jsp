@@ -12,7 +12,8 @@
 <div id="classTutor" class="page mb-5">
 	<div class="classpage_tab2">
 	  <div class="name">
-	    <h2 class="tab_menu">클래스 행성 튜터 소개</h2>
+	  <!--   <h2 class="tab_menu">클래스 행성 튜터 소개</h2> -->
+	    <h2 class="tab_menu"> 튜터 소개</h2>
 	  </div>
 	</div>  
 <div id="tab_scrollbar" class="classpage_tab2n">		

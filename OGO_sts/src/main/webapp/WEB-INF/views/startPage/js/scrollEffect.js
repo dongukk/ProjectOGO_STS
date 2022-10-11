@@ -45,14 +45,13 @@ window.onload = function() {
 	function moveStartRender() {
 
 			if(!top.classList.contains('active')) {
-
-				top.classList.add('active');
 				sectionMainVisual.classList.add('active');
 				sectionOverlap.classList.add('active');
 
 				scrollMove(sectionMainBottom+1);
 
 			}else {
+        top.classList.remove('active');
 				sectionMainVisual.classList.remove('active');
 				sectionOverlap.classList.remove('active');
 
@@ -195,7 +194,7 @@ window.onload = function() {
 
 		svgPath.style.strokeDashoffset = SVGMoveDistance;
 
-		if(SVGPercent >= 95 && !isPlay){
+		if(SVGPercent >= 96 && !isPlay){
 
 			isPlay = true;
 			document.querySelector('.video_wrap').style.opacity = 1;
@@ -206,7 +205,7 @@ window.onload = function() {
 			},500)
 
       setTimeout(function(){
-        location.href='http://localhost:8097/OGO/MainForm.jsp'
+        location.href='https://www.naver.com/'
       },3000);
 
 		}else if(SVGPercent < 100 && isPlay){

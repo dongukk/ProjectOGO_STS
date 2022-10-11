@@ -10,9 +10,12 @@
 <script src="https://js.tosspayments.com/v1"></script>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
 <title>클래스 신청</title>
 <link rel="stylesheet" href="css/classPage/classPage.css">
+<link rel="stylesheet" href="css/classPage/classPageTab.css">
 <%
 	String heartYN = (String)request.getAttribute("heartYN");
 	String heartCount = String.valueOf(request.getAttribute("heartCount"));
@@ -203,6 +206,8 @@
 		
 		
 	})//
+	
+	
 </script>
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
@@ -216,6 +221,7 @@
   <div id="left">
 	<!-- 네비탭 -->
 	<%-- <jsp:include page="class_page/classNavtab.jsp"></jsp:include> --%>
+		<jsp:include page="classPage/classApplication/class_pagetab.jsp"></jsp:include>
 	<br>
 		<!-- 클래스 이미지, 클래스 이름 -->
 		<jsp:include page="classPage/classApplication/title.jsp"></jsp:include>

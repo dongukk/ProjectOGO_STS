@@ -29,7 +29,7 @@
 		
 		/* update button */
 		$("#cmt_submit2").click(function() {
-			//alert("Update_CommentSerlvet");
+			alert("Update_CommentSerlvet");
 			
 			$("textarea").remove("#cmt_textarea");
 			$("#cmt_submit2").attr("type", "submit");
@@ -103,7 +103,7 @@
 
 	
 	        <div class="notice1"><br>
-	        	<p id="notice_detail"><b>&nbsp&nbsp ${cmtpagedto.list[0].comment_notice}</b></p>
+	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp ${cmtpagedto.list[0].comment_notice}</b></p></p>
 	        </div> <!--임시 text DB연동-->
 
 	        <div class="notice2"><br>
@@ -112,7 +112,7 @@
 
 	
 	        <div class="notice3"><br>
-	        	<p id="notice_detail"><b>&nbsp&nbsp ${cmtpagedto.list[2].comment_notice}</b></p>
+	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp ${cmtpagedto.list[2].comment_notice}</b></p></p>
 	        </div> <!--임시 text DB연동-->
  
 
