@@ -40,9 +40,9 @@
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
 		<%if(request.getAttribute("interceptor")==null){ %>
-			<a class="navbar-brand" href="home2"><img src="images/common/OGOLogo3.png"></a>
+			<a class="navbar-brand" href="startPage"><img src="images/common/OGOLogo3.png"></a>
 		<% } else {%>
-			<a class="navbar-brand" href="../home2"><img src="../images/common/OGOLogo3.png"></a>
+			<a class="navbar-brand" href="../startPage"><img src="../images/common/OGOLogo3.png"></a>
 		<% } %>
       </div>
       <ul id="nav_Menu">
