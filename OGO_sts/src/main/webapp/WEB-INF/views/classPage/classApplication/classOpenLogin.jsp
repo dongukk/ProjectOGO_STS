@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <%
 	MemberDTO loginDto=(MemberDTO)session.getAttribute("login");
 	System.out.println(loginDto);
@@ -12,8 +13,19 @@
 		System.out.println("classOpenLogin.jsp userId:"+userId);
 	} 
 %>
+<script type="text/javascript">
+<% String classMesg = (String)session.getAttribute("classMesg");
+	if(classMesg != null){%>
+	  alert("<%=classMesg%>");
+<%	System.out.print(classMesg);
+	session.removeAttribute("classMesg");
+	}
+%>
+</script>	
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+
 	$(document).ready(function() {
 		//클래스 등록버튼 클릭
 		$(".more2").on("click", function(event) {
