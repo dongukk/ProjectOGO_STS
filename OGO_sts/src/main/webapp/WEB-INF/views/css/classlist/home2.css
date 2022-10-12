@@ -1,2 +1,187 @@
+@charset "UTF-8";
+@charset "UTF-8";
+/* 검정 인트로 css 시작*/
+.intro_bg{
+	background:black;
+	height:575px;
+	width:100%;
+	border-radius: 0px 0px 80px 80px / 0px 0px 80px 80px;
+	margin:auto;
+}
 
+.intro_text{
+	width:100%;
+	margin:231px auto 231px auto;
+	text-align:left;
+	color:#fff;
+	background:black;
+	margin:auto;
+	padding-top:230px;
+	padding-left:50px;
+}	
+
+.intro_text > h1{
+	font-family: 'Black Han Sans', sans-serif;
+	font-size:70px;
+	text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.66);
+}
+
+h4 {
+	font-family: 'NanumSquare';
+}
+
+/* 흰색 의미 없는 바 css 시작 */
+.amount{
+	position:relative;
+	top:-44px; /*이거 높이 조정 되는지 확인해야함 */
+	display:flex;
+	width:1280px;
+	background:#fff;
+	margin:auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+	margin:auto;
+}
+
+.amount > li {
+	flex:1;
+	height:132px;
+	}
+
+.amount > li > div{
+	text-align:center;
+	margin-top:37px;
+	height:57px;
+}
+.amount > li:not(:last-child) div{
+	border-right:1px solid #fff;
+}
+
+.contents1 {
+	font-family: 'NanumSquare';
+	font-size:20px;
+}
+
+.result{
+	font-size:24px;
+	font-family: 'NanumSquarelight';
+}
+
+/*main css 시작*/
+.main_text0{
+	width:100%;
+	height:240px; /* classlist 본문 길이 */
+	margin-top:-102px;
+	background:#fff;
+}
+
+.main_text0 > h1{
+	padding-top:116px;
+	text-align:center;
+	font-family:'NanumSquare';
+}
+
+.main_text0 > .contents1 {
+	text-align:center;
+}
 	
+/* 필터링 메뉴바 css 시작 */	
+.filter {
+	font-family:'NanumSquare';
+}
+
+
+/*클래스 목록 css 시작*/
+.classlist{
+	border-collapse:separate !important;
+	font-family:'NanumSquare';
+}
+
+
+/* 클래스 등록하기 css 시작 */
+.create {
+	width:100%;
+	height:418px;	
+	background-image: url("../ClassList_img/footer04.png" center no-repeat);
+	object-fit: cover;
+}
+
+.create > ul{
+	display :flex;
+	padding-top:138px;
+}
+
+.create > ul > li {
+	flex: 1;
+	text-align:center;
+}
+
+.create > ul > li > div > h1,
+.create > ul > li > div {
+	color:#fff;
+	font-family:'NanumSquarelignt';
+}
+
+.more2 {
+	width:220px;
+	height:40px;
+	border:1px solid #fff;
+	line-height: 40px;
+	cursor: pointer;
+	margin: 16px auto;
+	font-family:'NanumSquare';
+}
+
+footer {
+	display:flex;
+	background:#1f1f1f;
+	pdding:30px;
+}
+
+footer .container {
+	width:880px;
+	height:170px;
+}
+
+.f_top{margin-bottom:5px;}
+.f_top > ul{display:flex;}
+.f_nav .depth1 .tit {
+	padding:0 110px 20px 0;
+	font-weight: 500;
+	font-size:24px;
+	color:#fff;
+	letter-spacing: -0.4px;
+}
+.f_nav .depth2 li {
+	margin-bottom: 10px;
+	line-height:20px;
+	font-size:18px;
+	color:inherit #fff;
+	letter-spacing: -0.35px;
+}
+.f_nav .depth2 li:last-child{
+	margin-bottom:0;
+	color:#fff;
+	}
+
+.container2 {display:flex
+	font-family: 'NanumSquarelight';
+};
+
+.container2 .f_info{
+	width: calc(100% - 320px); 
+	margin-right: 29px;
+	font-family: 'NanumSquarelight';
+	}
+
+.container2 .f_info p{
+	margin-bottom: 5px;
+	font-size: 12px;
+	line-height: 18px;
+	color: #5a5a5a ;
+	letter-spacing: -0.3px;
+	}
+	
+.container2 .f_info p:last-child{
+	margin-bottom: 0; margin-top: 20px;
+	}
+
