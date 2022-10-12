@@ -208,30 +208,17 @@ $("#close").click( function(){
       </aside>      
 <main>
         <h1>MY SPACE</h1>
-         
-<!--         <div class="profile_container">
-        
-        <form action="photoch.html">
-        </form>
-        </div> -->
-        <%-- <div class="profile_container">
-        <form action="../photoch" method="post" enctype="multipart/form-data">
-         	<button>
-         		<img src="../upload/member/${ login.profilePhoto}">
-         		<img class="change_image" src="../images/login/change.jpeg"  url="../profile.jpeg"  accept=".jpg, .png, .jpeg"/>
-         	</button>
-        </form>
-        </div>  --%>  
-           
+
      <div class="upload"></div>
-	   <ul class="image-preview" style="background-image: url('../upload/member/${ login.profilePhoto}')"></ul>
-		<input type="hidden" value="${ login.profilePhoto}" name="mimg">
+	   <ul class="image-preview" style="background-image: url('../upload/member/${ login.profilePhoto}')"></ul>	
 	  <div class="profile_container">
  	</div>
        		
-	<form action="../loginCheck/MemberUpdate" method="post" enctype="multipart/form-data">	<!-- enctype: 파일업로드 -->
-		<input type="file" name="profileimg" class="real-upload" accept="image/*">
+	<form action="../loginCheck/MemberUpdate" method="post" enctype="multipart/form-data"><!-- 이거 수정함 --> 
+		<input type="hidden" value="${ login.profilePhoto}" name="mimg">   
+		<input type="file" name="changeProfile" class="real-upload" accept="image/*">	
 		<br>
+
 	
 <div style="text-align: left; color: red;">* 항목은 필수입력 사항입니다.</div>
 		<div class="info_input">
@@ -425,7 +412,41 @@ function getImageFiles(e) {
 	reader.onload = () =>{
 		imagePreview.style.backgroundImage = 'url(\''+reader.result+'\')';
 	}
+	
+	var fd = new FormData($("#fphoto")[0]); 
+    fd.append("changeProfile",$("input[name=changeProfile]")[0].files[0]);
+	console.log("이미지변경2");
+	console.log(file);
+	console.log(reader);
+	console.log(fd);
+	
+	var formData = new FormData();
+	var inputFile = $("input[name=changeProfile]");
+	var files = inputFile[0].files;
+	console.log(formData);
+	console.log(files);
+	/* $.ajax({
+        type: "post",
+        url: "/change/profilePhoto", 
+		enctype: "multipart/form-data",
+		data: formData,
+        processData: false,
+        contentType: false,
+        success: function(data,status,xhr) {
+            alert("사진이 정상적으로 변경되었습니다.");
+            window.location.reload(true);
+            alert(data);
+        },
+        error: function(xhr,status,error) {
+            alert("사진 업로드시 에러 발생");
+            return false;
+        }
+    }); */
+	
+	
 }
 realUpload.addEventListener('change', getImageFiles);
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
