@@ -7,8 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="LoginMypage/index4.css?after"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/mypage/mypage.css">
+<link rel="shortcut icon" href="../images/logo/favicon.ico" type="image/x-icon">
 <script type="text/javascript">
 <% %>
 
@@ -159,51 +160,89 @@ $(function(){
 $(function(){
 $("#close").click( function(){
 	
-	location.href='../MainForm';
+	location.href='../home2';
 });
 });
 
 </script>
 
 <style type="text/css">
-.profile_container {
+/* .profile_container {
   position: relative;
   width: 150px;
   height: 150px;
+  background-image: url("../upload/member/${ login.profilePhoto}");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 50%; 
-}
+  border-radius: 50%;
+} */
+   .real-upload {
+      display: none;
+    }
 
-.info_input p {
- height: 10px;
-}
+   .upload {
+      width: 30px;
+      height: 30px;
+      background-color: antiquewhite;
+        background-image:url('/ogo/images/tour/change2.jpg');
+          position: absolute;
+            border-radius: 50%;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+             bottom: 780px;
+            right: 450px;
+            z-index: 1;
+    }
 
-#nicknameCheckBtn {
-  color: white;
-  background-color: blueviolet;
-  border: none;
-  height: 30px;
-  border-radius: 4px;
-  padding: 0 5px;	
+ .image-preview {
+  position: relative;
   width: 150px;
+  height: 150px;
+  background-image:url("../upload/member/${ login.profilePhoto}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
 }
-
-
 </style>
+</head>
+<body>
+ <section>
+      <aside>
+        <div class="side_bar">
+          <p><a href="/ogo/loginCheck/Mypage">프로필 관리</a></p>
+          <p><a href="/ogo/hearts">My 찜</a></p>
+          <p><a href="#">수강내역</a></p>
+          <p><a href="/ogo/tutor/register">튜터 등록</a></p>
+        </div>
+      </aside>  
+<main>
         <h1>MY SPACE</h1>
          
-        <div class="profile_container">
-        <%-- <img src="../upload/member/${ login.profilePhoto}"> --%>
+<!--         <div class="profile_container">
+        
         <form action="photoch.html">
         </form>
-        </div>
+        </div> -->
+        <%-- <div class="profile_container">
+        <form action="../photoch" method="post" enctype="multipart/form-data">
+         	<button>
+         		<img src="../upload/member/${ login.profilePhoto}">
+         		<img class="change_image" src="../images/login/change.jpeg"  url="../profile.jpeg"  accept=".jpg, .png, .jpeg"/>
+         	</button>
+        </form>
+        </div>  --%>  
            
-           
-
-
-	<form action="../loginCheck/MemberUpdate" method="post">	<!-- enctype: 파일업로드 -->
+            <div class="upload"></div>
+			  <ul class="image-preview" style="background-image: url('../upload/member/${ login.profilePhoto}')"></ul>
+				<input type="hidden" value="${ login.profilePhoto}" name="mimg">
+			 <div class="profile_container">
+       		</div>
+       		
+	<form action="../loginCheck/MemberUpdate" method="post" enctype="multipart/form-data">	<!-- enctype: 파일업로드 -->
+		<input type="file" name="tutorimg" class="real-upload" accept="image/*">
+		<br>
+	
 <div style="text-align: left; color: red;">* 항목은 필수입력 사항입니다.</div>
 		<div class="info_input">
 	<input type="hidden"  value="${ login.userId }"  name="userId" ><!-- hidden 을 이용한 id 전송 -->
@@ -237,31 +276,27 @@ $("#close").click( function(){
 					<button type="button" id="nicknameCheckBtn" class="btn2">닉네임 중복체크</button>
 					
 				</div>
+				
 			</div>
 			<div style="text-align: right;">
 				<span id="result2"></span>
 			</div>
 		
-		
-		-
-		<div class="info_input">
+
+         <div class="info_input">
             <p style="width: 100px;">이름</p>
            ${ login.userName }
             <div></div>
-          </div>      
-          
-          
+          </div>   
+
 		 <div class="info_input">
 			<p style="width: 100px;">생년월일</p>
 			<c:set var="birth" value="${ login.birth }" />
 			${ fn:substring(birth,0,10) }
-		</div>
-		
-		
-		
+		</div> 
 		
 		     <div class="info_input">
-            <pstyle="width: 100px;">연락처</p>
+            <p style="width: 100px;">연락처</p>
          <div class="form-inline"><!-- phone1 해야됨 -->
 				<select name="phone1" style="height: 25px;" >
 					<option  value="010" <c:if test="${ login.phone1 eq '010' }">selected="selected"</c:if> >010</option>
@@ -295,7 +330,7 @@ $("#close").click( function(){
 
 	
 		
-			  <div class="info_input">
+			 <div class="info_input">
             <p style="width: 100px;">이메일</p> 
 			<!-- type : email - 모바일의 키패드가 email입력 패드로 바뀐다. 입력한 데이터가 이메일 양식에 맞는지 검사한다. -->
 			<input type="text" name="email1" id="email1" required="required" value="${ login.email1 }">@
@@ -329,7 +364,7 @@ $("#close").click( function(){
 </main>
   <aside></aside>
 </section>
- 
+
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js" ></script>
 <script>
@@ -384,4 +419,5 @@ $("#close").click( function(){
         }).open();
 
     }
-</script> 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

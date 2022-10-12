@@ -52,7 +52,7 @@ $("input[name=tservise]").click(function() {
 $("#tserviceOK").click(function(){
 	event.preventDefault();
 	   if ( ! $("#tservise1").is(":checked")) {
-	    alert('이용동의 약관에 동의하지 않았습니다.');  
+	    alert('이용약관에 동의하지 않았습니다.');  
 	    return false; 
 	   }
 	   if (! $("#tservise2").is(":checked")) {
@@ -61,9 +61,10 @@ $("#tserviceOK").click(function(){
 	   }
 	 	$(this).attr("data-dismiss","modal");
 	 	$("#tserviceOK2").css("color","green");
+	 	$("#tserviceOK3").css("color","green");
 }); 
 $("#tserviceNO").click(function () {	
-	alert("이용약관에 동의하지 않으시면 회원가입이 안됩니다.")
+	alert("이용약관에 동의하지 않으시면 회원가입이 안됩니다.");
 	return false; 
 });
 
@@ -127,7 +128,7 @@ $("form").submit(function () {
 	
 		// 이용약관 비동의 이벤트 중지
 	if ( ! $("#tservise1").is(":checked")) {
-	   alert('이용동의 약관에 동의하지 않았습니다.');  
+	   alert('이용약관에 동의하지 않았습니다.');  
 	   return false; 
 	}
 	if (! $("#tservise2").is(":checked")) {
@@ -221,6 +222,26 @@ $(function(){
 	#d2{
 		text-align: left;
 		margin-left: 50px;
+	}
+	.shake {
+	    -webkit-animation: shake 1.5s;
+	    -moz-animation: shake 1.5s;
+	    -ms-animation: shake 1.5s;
+	    animation: shake 1.5s;
+	}
+	#tserviceOK3{
+		color: red;
+	}
+	#box_vibration {
+  		animation: vibration 0.5s infinite;
+	}
+	@keyframes vibration {
+	  from {
+	    transform: rotate(1deg);
+	  }
+	  to {
+	    transform: rotate(-1deg);
+	  }
 	}
 </style>
 </head>
@@ -347,9 +368,11 @@ $(function(){
 		</div><br>
 		<input type="hidden" value="<%= hobbys%>">
 		<!-- <button id="btnChk1">버튼</button> -->
-		<a href="#" data-toggle="modal" data-target="#myModal">
+		<div id="box_vibration">
+		<a href="#" data-toggle="modal" data-target="#myModal" id="tserviceOK3">
 		  이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내메일 수신(선택)에<br> 모두 동의합니다.</a>
-		<span id="tserviceOK2" style="color: gray;">내용을 모두 확인하였고 동의합니다.</span>
+		<span id="tserviceOK2">이용약관을 확인해주세요.</span>
+		</div>
 		<br><br>
 		<div class="div_submit">
 			<button class="btn btn-default" type="submit">가입</button>

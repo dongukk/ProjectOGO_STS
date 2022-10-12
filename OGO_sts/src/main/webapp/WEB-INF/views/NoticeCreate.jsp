@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 <jsp:include page="notice_faq/noticeCreate.jsp"></jsp:include>

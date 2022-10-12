@@ -87,6 +87,9 @@ public class MyPageController {
 		return "/MainForm";
 	}
 	
-
+	@RequestMapping(value = "/photoch")
+	public String photoch() {
+		return "/mypage/photoch";
+	}
 	
 }

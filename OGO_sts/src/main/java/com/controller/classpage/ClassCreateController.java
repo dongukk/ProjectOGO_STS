@@ -207,6 +207,7 @@ public class ClassCreateController {
 			result="1";
 		}else {
 			result="0";
+			System.out.println("tutor 등록X");
 		}
 		return result;
 	}
