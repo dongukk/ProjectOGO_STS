@@ -21,6 +21,10 @@ public class PayService {
 		List<PayDTO> PayList = dao.Cpayment(orderNum);
 		return PayList;
 	}
+
+	public List<PayDTO> getPlog(String userId) {
+		return dao.getPlog(userId);
+	}
 	
 	
 }

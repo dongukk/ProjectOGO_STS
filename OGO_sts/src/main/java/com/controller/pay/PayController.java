@@ -27,22 +27,24 @@ public class PayController {
 	 	PayDTO dto = service.selectOrder(orderNum);
 	 	
 		List<String> list = new ArrayList<>();
-		list.add(dto.getSCHEDULE1());
-		list.add(dto.getSCHEDULE2());
-		list.add(dto.getSCHEDULE3());
-		list.add(dto.getSCHEDULE4());
-		list.add(dto.getSCHEDULE5());
-		list.add(dto.getSCHEDULE6());
-		list.add(dto.getSCHEDULE7());
-		list.add(dto.getSCHEDULE8());
-		list.add(dto.getSCHEDULE9());
-		list.add(dto.getSCHEDULE10());		
+		list.add(dto.getSchedule1());
+		list.add(dto.getSchedule2());
+		list.add(dto.getSchedule3());
+		list.add(dto.getSchedule4());
+		list.add(dto.getSchedule5());
+		list.add(dto.getSchedule6());
+		list.add(dto.getSchedule7());
+		list.add(dto.getSchedule8());
+		list.add(dto.getSchedule9());
+		list.add(dto.getSchedule10());		
 		
 		
 		String date = "";
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i) != null) {
-				date += list.get(i)+",";
+			if ( list.get(i) !=null) {
+				if (i != list.size()-1) {
+					date += list.get(i)+",";
+				}
 			}
 		}
 	 	
@@ -52,12 +54,12 @@ public class PayController {
 		System.out.println("사용할 정보 "+dto);
 		
 		String json = "{\"price\" : \"";
-		json += dto.getPRICE()+"\", \"PLACE\" : \"";
-		json += dto.getPLACE() +"\", \"CLASSNAME\" : \"";
-		json += dto.getCLASSNAME()+"\", \"countDate\": \"";
+		json += dto.getPrice()+"\", \"PLACE\" : \"";
+		json += dto.getPlace() +"\", \"CLASSNAME\" : \"";
+		json += dto.getClassname()+"\", \"countDate\": \"";
 		json += countDate+"\", \"customerName\" : \"";
-		json += dto.getUSERNAME()+"\", \"orderNum\" : \"";
-		json += dto.getORDERNUM();
+		json += dto.getUsername()+"\", \"orderNum\" : \"";
+		json += dto.getOrdernum();
 		json += "\" }";
 		
 		
@@ -73,23 +75,31 @@ public class PayController {
 		System.out.println("들어가기전 PayList : "+PayList);
 		for (PayDTO payDTO : PayList) {
 			List<String> SClist = new ArrayList<>();
-			SClist.add(payDTO.getSCHEDULE1());
-			SClist.add(payDTO.getSCHEDULE2());
-			SClist.add(payDTO.getSCHEDULE3());
-			SClist.add(payDTO.getSCHEDULE4());
-			SClist.add(payDTO.getSCHEDULE5());
-			SClist.add(payDTO.getSCHEDULE6());
-			SClist.add(payDTO.getSCHEDULE7());
-			SClist.add(payDTO.getSCHEDULE8());
-			SClist.add(payDTO.getSCHEDULE9());
-			SClist.add(payDTO.getSCHEDULE10());		
+			SClist.add(payDTO.getSchedule1());
+			SClist.add(payDTO.getSchedule2());
+			SClist.add(payDTO.getSchedule3());
+			SClist.add(payDTO.getSchedule4());
+			SClist.add(payDTO.getSchedule5());
+			SClist.add(payDTO.getSchedule6());
+			SClist.add(payDTO.getSchedule7());
+			SClist.add(payDTO.getSchedule8());
+			SClist.add(payDTO.getSchedule9());
+			SClist.add(payDTO.getSchedule10());		
 			
 			String date = "";
 			for (int i = 0; i < SClist.size(); i++) {
-				if (SClist.get(i) != null) {
-					date += SClist.get(i)+",";
-				}//if
+				if ( SClist.get(i) !=null) {
+					if (i != SClist.size()-1) {
+						date += SClist.get(i)+",";
+					}
+				}
+						
+				
 			}//for
+			
+			date = date.substring(0,date.length()-1);
+			System.out.println(date);
+			
 			payDTO.setAllschedule(date);
 
 		}//for
@@ -97,6 +107,41 @@ public class PayController {
 		return "PaySuccess";
 	}
 	
-	
+	@RequestMapping(value = "/loginCheck/paymentlog")
+	public String paymentlog(String userId, Model m) {
+		List<PayDTO> PayList = service.getPlog(userId);
+		
+		for (PayDTO payDTO : PayList) {
+			List<String> SClist = new ArrayList<>();
+			SClist.add(payDTO.getSchedule1());
+			SClist.add(payDTO.getSchedule2());
+			SClist.add(payDTO.getSchedule3());
+			SClist.add(payDTO.getSchedule4());
+			SClist.add(payDTO.getSchedule5());
+			SClist.add(payDTO.getSchedule6());
+			SClist.add(payDTO.getSchedule7());
+			SClist.add(payDTO.getSchedule8());
+			SClist.add(payDTO.getSchedule9());
+			SClist.add(payDTO.getSchedule10());		
+			
+			String date = "";
+			for (int i = 0; i < SClist.size(); i++) {
+				if ( SClist.get(i) !=null) {
+					if (i != SClist.size()-1) {
+						date += SClist.get(i)+",";
+					}
+				}
+						
+				
+			}//for
+			
+			date = date.substring(0,date.length()-1);
+			System.out.println(date);
+			
+			payDTO.setAllschedule(date);
+		}
+		m.addAttribute("list", PayList);
+		return "paymentlog";
+	}
 	
 }//controller
