@@ -5,234 +5,234 @@ import org.apache.ibatis.type.Alias;
 @Alias("PayDTO")
 public class PayDTO {
 	
-	String ORDERNUM;
-	String USERID;
-	int CLASSNUM;
-	int PRICE;
-	String ORDERDATE;
+	String ordernum; 
+	String userid;
+	int classnum; 
+	int price; 
+	String orderdate; 
 	
-	String ORDERSTATUS;
-	String SCHEDULE1;
-	String SCHEDULE2;
-	String SCHEDULE3;
-	String SCHEDULE4;
+	String orderstatus; 
+	String schedule1; 
+	String schedule2;
+	String schedule3;
+	String schedule4;
 	
-	String SCHEDULE5;
-	String SCHEDULE6;
-	String SCHEDULE7;
-	String SCHEDULE8;
-	String SCHEDULE9;
+	String schedule5;
+	String schedule6;
+	String schedule7;
+	String schedule8;
+	String schedule9;
 	
-	String SCHEDULE10;
-	String PLACE;
-	String CLASSNAME;
-	String USERNAME;
-	String CLASSPHOTO1;
+	String schedule10;
+	String place; 
+	String classname; 
+	String username; 
+	String classphoto1; 
 	
 	String allschedule;
+
+	public PayDTO(String ordernum, String userid, int classnum, int price, String orderdate, String orderstatus,
+			String schedule1, String schedule2, String schedule3, String schedule4, String schedule5, String schedule6,
+			String schedule7, String schedule8, String schedule9, String schedule10, String place, String classname,
+			String username, String classphoto1, String allschedule) {
+		super();
+		this.ordernum = ordernum;
+		this.userid = userid;
+		this.classnum = classnum;
+		this.price = price;
+		this.orderdate = orderdate;
+		this.orderstatus = orderstatus;
+		this.schedule1 = schedule1;
+		this.schedule2 = schedule2;
+		this.schedule3 = schedule3;
+		this.schedule4 = schedule4;
+		this.schedule5 = schedule5;
+		this.schedule6 = schedule6;
+		this.schedule7 = schedule7;
+		this.schedule8 = schedule8;
+		this.schedule9 = schedule9;
+		this.schedule10 = schedule10;
+		this.place = place;
+		this.classname = classname;
+		this.username = username;
+		this.classphoto1 = classphoto1;
+		this.allschedule = allschedule;
+	}
 
 	public PayDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PayDTO(String oRDERNUM, String uSERID, int cLASSNUM, int pRICE, String oRDERDATE, String oRDERSTATUS,
-			String sCHEDULE1, String sCHEDULE2, String sCHEDULE3, String sCHEDULE4, String sCHEDULE5, String sCHEDULE6,
-			String sCHEDULE7, String sCHEDULE8, String sCHEDULE9, String sCHEDULE10, String pLACE, String cLASSNAME,
-			String uSERNAME, String cLASSPHOTO1, String allschedule) {
-		super();
-		ORDERNUM = oRDERNUM;
-		USERID = uSERID;
-		CLASSNUM = cLASSNUM;
-		PRICE = pRICE;
-		ORDERDATE = oRDERDATE;
-		ORDERSTATUS = oRDERSTATUS;
-		SCHEDULE1 = sCHEDULE1;
-		SCHEDULE2 = sCHEDULE2;
-		SCHEDULE3 = sCHEDULE3;
-		SCHEDULE4 = sCHEDULE4;
-		SCHEDULE5 = sCHEDULE5;
-		SCHEDULE6 = sCHEDULE6;
-		SCHEDULE7 = sCHEDULE7;
-		SCHEDULE8 = sCHEDULE8;
-		SCHEDULE9 = sCHEDULE9;
-		SCHEDULE10 = sCHEDULE10;
-		PLACE = pLACE;
-		CLASSNAME = cLASSNAME;
-		USERNAME = uSERNAME;
-		CLASSPHOTO1 = cLASSPHOTO1;
-		this.allschedule = allschedule;
-	}
-
 	@Override
 	public String toString() {
-		return "PayDTO [ORDERNUM=" + ORDERNUM + ", USERID=" + USERID + ", CLASSNUM=" + CLASSNUM + ", PRICE=" + PRICE
-				+ ", ORDERDATE=" + ORDERDATE + ", ORDERSTATUS=" + ORDERSTATUS + ", SCHEDULE1=" + SCHEDULE1
-				+ ", SCHEDULE2=" + SCHEDULE2 + ", SCHEDULE3=" + SCHEDULE3 + ", SCHEDULE4=" + SCHEDULE4 + ", SCHEDULE5="
-				+ SCHEDULE5 + ", SCHEDULE6=" + SCHEDULE6 + ", SCHEDULE7=" + SCHEDULE7 + ", SCHEDULE8=" + SCHEDULE8
-				+ ", SCHEDULE9=" + SCHEDULE9 + ", SCHEDULE10=" + SCHEDULE10 + ", PLACE=" + PLACE + ", CLASSNAME="
-				+ CLASSNAME + ", USERNAME=" + USERNAME + ", CLASSPHOTO1=" + CLASSPHOTO1 + ", allschedule=" + allschedule
+		return "PayDTO [ordernum=" + ordernum + ", userid=" + userid + ", classnum=" + classnum + ", price=" + price
+				+ ", orderdate=" + orderdate + ", orderstatus=" + orderstatus + ", schedule1=" + schedule1
+				+ ", schedule2=" + schedule2 + ", schedule3=" + schedule3 + ", schedule4=" + schedule4 + ", schedule5="
+				+ schedule5 + ", schedule6=" + schedule6 + ", schedule7=" + schedule7 + ", schedule8=" + schedule8
+				+ ", schedule9=" + schedule9 + ", schedule10=" + schedule10 + ", place=" + place + ", classname="
+				+ classname + ", username=" + username + ", classphoto1=" + classphoto1 + ", allschedule=" + allschedule
 				+ "]";
 	}
 
-	public String getORDERNUM() {
-		return ORDERNUM;
+	public String getOrdernum() {
+		return ordernum;
 	}
 
-	public void setORDERNUM(String oRDERNUM) {
-		ORDERNUM = oRDERNUM;
+	public void setOrdernum(String ordernum) {
+		this.ordernum = ordernum;
 	}
 
-	public String getUSERID() {
-		return USERID;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUSERID(String uSERID) {
-		USERID = uSERID;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
-	public int getCLASSNUM() {
-		return CLASSNUM;
+	public int getClassnum() {
+		return classnum;
 	}
 
-	public void setCLASSNUM(int cLASSNUM) {
-		CLASSNUM = cLASSNUM;
+	public void setClassnum(int classnum) {
+		this.classnum = classnum;
 	}
 
-	public int getPRICE() {
-		return PRICE;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setPRICE(int pRICE) {
-		PRICE = pRICE;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public String getORDERDATE() {
-		return ORDERDATE;
+	public String getOrderdate() {
+		return orderdate;
 	}
 
-	public void setORDERDATE(String oRDERDATE) {
-		ORDERDATE = oRDERDATE;
+	public void setOrderdate(String orderdate) {
+		this.orderdate = orderdate;
 	}
 
-	public String getORDERSTATUS() {
-		return ORDERSTATUS;
+	public String getOrderstatus() {
+		return orderstatus;
 	}
 
-	public void setORDERSTATUS(String oRDERSTATUS) {
-		ORDERSTATUS = oRDERSTATUS;
+	public void setOrderstatus(String orderstatus) {
+		this.orderstatus = orderstatus;
 	}
 
-	public String getSCHEDULE1() {
-		return SCHEDULE1;
+	public String getSchedule1() {
+		return schedule1;
 	}
 
-	public void setSCHEDULE1(String sCHEDULE1) {
-		SCHEDULE1 = sCHEDULE1;
+	public void setSchedule1(String schedule1) {
+		this.schedule1 = schedule1;
 	}
 
-	public String getSCHEDULE2() {
-		return SCHEDULE2;
+	public String getSchedule2() {
+		return schedule2;
 	}
 
-	public void setSCHEDULE2(String sCHEDULE2) {
-		SCHEDULE2 = sCHEDULE2;
+	public void setSchedule2(String schedule2) {
+		this.schedule2 = schedule2;
 	}
 
-	public String getSCHEDULE3() {
-		return SCHEDULE3;
+	public String getSchedule3() {
+		return schedule3;
 	}
 
-	public void setSCHEDULE3(String sCHEDULE3) {
-		SCHEDULE3 = sCHEDULE3;
+	public void setSchedule3(String schedule3) {
+		this.schedule3 = schedule3;
 	}
 
-	public String getSCHEDULE4() {
-		return SCHEDULE4;
+	public String getSchedule4() {
+		return schedule4;
 	}
 
-	public void setSCHEDULE4(String sCHEDULE4) {
-		SCHEDULE4 = sCHEDULE4;
+	public void setSchedule4(String schedule4) {
+		this.schedule4 = schedule4;
 	}
 
-	public String getSCHEDULE5() {
-		return SCHEDULE5;
+	public String getSchedule5() {
+		return schedule5;
 	}
 
-	public void setSCHEDULE5(String sCHEDULE5) {
-		SCHEDULE5 = sCHEDULE5;
+	public void setSchedule5(String schedule5) {
+		this.schedule5 = schedule5;
 	}
 
-	public String getSCHEDULE6() {
-		return SCHEDULE6;
+	public String getSchedule6() {
+		return schedule6;
 	}
 
-	public void setSCHEDULE6(String sCHEDULE6) {
-		SCHEDULE6 = sCHEDULE6;
+	public void setSchedule6(String schedule6) {
+		this.schedule6 = schedule6;
 	}
 
-	public String getSCHEDULE7() {
-		return SCHEDULE7;
+	public String getSchedule7() {
+		return schedule7;
 	}
 
-	public void setSCHEDULE7(String sCHEDULE7) {
-		SCHEDULE7 = sCHEDULE7;
+	public void setSchedule7(String schedule7) {
+		this.schedule7 = schedule7;
 	}
 
-	public String getSCHEDULE8() {
-		return SCHEDULE8;
+	public String getSchedule8() {
+		return schedule8;
 	}
 
-	public void setSCHEDULE8(String sCHEDULE8) {
-		SCHEDULE8 = sCHEDULE8;
+	public void setSchedule8(String schedule8) {
+		this.schedule8 = schedule8;
 	}
 
-	public String getSCHEDULE9() {
-		return SCHEDULE9;
+	public String getSchedule9() {
+		return schedule9;
 	}
 
-	public void setSCHEDULE9(String sCHEDULE9) {
-		SCHEDULE9 = sCHEDULE9;
+	public void setSchedule9(String schedule9) {
+		this.schedule9 = schedule9;
 	}
 
-	public String getSCHEDULE10() {
-		return SCHEDULE10;
+	public String getSchedule10() {
+		return schedule10;
 	}
 
-	public void setSCHEDULE10(String sCHEDULE10) {
-		SCHEDULE10 = sCHEDULE10;
+	public void setSchedule10(String schedule10) {
+		this.schedule10 = schedule10;
 	}
 
-	public String getPLACE() {
-		return PLACE;
+	public String getPlace() {
+		return place;
 	}
 
-	public void setPLACE(String pLACE) {
-		PLACE = pLACE;
+	public void setPlace(String place) {
+		this.place = place;
 	}
 
-	public String getCLASSNAME() {
-		return CLASSNAME;
+	public String getClassname() {
+		return classname;
 	}
 
-	public void setCLASSNAME(String cLASSNAME) {
-		CLASSNAME = cLASSNAME;
+	public void setClassname(String classname) {
+		this.classname = classname;
 	}
 
-	public String getUSERNAME() {
-		return USERNAME;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUSERNAME(String uSERNAME) {
-		USERNAME = uSERNAME;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getCLASSPHOTO1() {
-		return CLASSPHOTO1;
+	public String getClassphoto1() {
+		return classphoto1;
 	}
 
-	public void setCLASSPHOTO1(String cLASSPHOTO1) {
-		CLASSPHOTO1 = cLASSPHOTO1;
+	public void setClassphoto1(String classphoto1) {
+		this.classphoto1 = classphoto1;
 	}
 
 	public String getAllschedule() {
@@ -241,10 +241,7 @@ public class PayDTO {
 
 	public void setAllschedule(String allschedule) {
 		this.allschedule = allschedule;
-	}
+	} 
 
-
-
-
-	
+		
 }
