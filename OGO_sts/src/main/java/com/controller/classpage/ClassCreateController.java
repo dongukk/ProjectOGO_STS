@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -191,8 +192,10 @@ public class ClassCreateController {
 		//3. classImg 테이블에 저장하기
 		int result3 =cService.uploadImg(iDTO);
 		System.out.println("파일 저장:"+result3);
-		
-		return "redirect:home2"; //일단 main으로 이동하도록 함->목록으로 이동하도록 나중에 수정하기
+		if (result3 != 0) {
+			session.setAttribute("classMesg", "클래스 등록 성공");
+		}
+		return "redirect:home2"; 
 	}//ClassAdd
 	
 	@RequestMapping(value = "/tutorSearch")
