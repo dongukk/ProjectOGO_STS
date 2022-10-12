@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@charset "UTF-8";
 /* 검정 인트로 css 시작*/
 .intro_bg{
 	background:black;
@@ -45,6 +44,7 @@ h4 {
 .amount > li {
 	flex:1;
 	height:132px;
+	list-style:none;
 	}
 
 .amount > li > div{
@@ -93,16 +93,121 @@ h4 {
 /*클래스 목록 css 시작*/
 .classlist{
 	border-collapse:separate !important;
-	font-family:'NanumSquare';
+	font-family:'NanumSquarebold';
+	margin-top:-25vh;
+	/*position:stikcy를 쓰면 menu영역 높이가 인식되어서 공백이 생기기때문에 classlist의 margin-top값을 빼서 공백을 줄여줌*/
 }
+
+
+/* 검색창 css 시작*/
+.menu {
+	width:170px;
+	height:auto;
+	position:stikcy;
+	top:35px; left:35px;
+}
+
+.searchArea{
+	width:170px;
+	height:40px;
+	background:rgba(0,0,0,0.2);
+	border-radius:5px;
+	margin-top:24px;
+}
+/*position:sticky - 스크롤이 해당 포지션이 걸려 있는 div에 닿으면 고정이 되는 css임.
+높이값이 정해져있는 부모 요소 안에 넣으면 부모 요소의 높이만큼만 fix됌*/
+
+.searchArea > form > input{
+	border:none;
+	width:120px;
+	height:40px;
+	background:rgba(0,0,0,0.2);
+	color:#fff;
+	padding-left:10px;
+}
+
+.searchArea > form > span{
+	display:inline-block;
+	width:40px;
+	background-color:#eee;
+	color:#000;
+	font-family: 'NanumSquare';
+	font-weight: bold;
+	font-size:10px;
+	cursor:pointer;
+	text-align:center;
+}
+
+
+/* 좌측 카테고리 바 css시작 */
+.category{
+	width:170px;
+	overflow:hidden;
+	margin:10px auto;
+	padding-left:0px;
+	font:#fff;
+}
+
+.category > li {
+	width:100%;
+	text-align:center;
+	line-height:40px;
+	background-color:#9400D3;
+	transition: all .5s;
+	list-style:none;
+    margin:0px; padding:0px; /*점, 들여쓰기 제거*/
+	/*transition(애니메이션 속도 조절)은 효과가 필요한 대상에 직접 줘야함*/
+}
+.cate{
+	font-family: 'NanumSquare';
+	font:#fff;
+	font-size:12px;
+	border:none;
+	background-color:transparent;
+}
+
+.category a {
+	color:#fff;
+	display:inline-block;
+	width:100%;
+}
+
+.subcate > li{
+	line-height:40px; /* 서브카테고리 세로 간격 */
+	background-color:#B750EA;
+	font-family: 'NanumSquare';
+	font-size:12px;
+	list-style:none;
+}
+
+.subcate {
+	height:0; /* ul의 높이를 안보이게 처리  */
+	overflow:hidden;
+	transform : all 1s;
+	padding-left:0px; /*subcate 글자 들여쓰기 제거*/
+}
+
+.category > li:hover {
+	background-color:#B750EA;
+	/* transition-duration:0.5s; */
+}
+
+.category > li:hover .subcate {
+	height:120px; /* 서브메뉴 li 한개의 높이 40*3 */
+	/* transition-duration:1s; */
+}
+
 
 
 /* 클래스 등록하기 css 시작 */
 .create {
 	width:100%;
-	height:418px;	
-	background-image: url("../ClassList_img/footer04.png" center no-repeat);
+	height:400px;	
+	background:gray;
+	/*css bg 이미지 안먹음 대체 왜일까*/
+	/* background-image: url("ClassList_img/footer04.png" center no-repeat); */
 	object-fit: cover;
+	font-family:'NanumSquarelignt';
 }
 
 .create > ul{
@@ -113,12 +218,12 @@ h4 {
 .create > ul > li {
 	flex: 1;
 	text-align:center;
+	list-style:none;
 }
 
 .create > ul > li > div > h1,
 .create > ul > li > div {
 	color:#fff;
-	font-family:'NanumSquarelignt';
 }
 
 .more2 {
@@ -140,6 +245,7 @@ footer {
 footer .container {
 	width:880px;
 	height:170px;
+
 }
 
 .f_top{margin-bottom:5px;}
@@ -150,6 +256,7 @@ footer .container {
 	font-size:24px;
 	color:#fff;
 	letter-spacing: -0.4px;
+	font-family:'NanumSquare';
 }
 .f_nav .depth2 li {
 	margin-bottom: 10px;
@@ -157,15 +264,16 @@ footer .container {
 	font-size:18px;
 	color:inherit #fff;
 	letter-spacing: -0.35px;
+	list-style:none;
 }
 .f_nav .depth2 li:last-child{
 	margin-bottom:0;
 	color:#fff;
+	list-style:none;
 	}
 
-.container2 {display:flex
-	font-family: 'NanumSquarelight';
-};
+.container2 {display:flex}
+	
 
 .container2 .f_info{
 	width: calc(100% - 320px); 

@@ -26,7 +26,7 @@ public class classlistController {
 			m.addAttribute("classlist", list);//classlist로 변수명, list의 데이터를 m이 들고 home2로 따라가서 ${}실행
 		
 		} else if (subcategory != null) {
-			/* System.out.println(subcategory); */ //카테고리를 잘 가져왔는지 확인
+			System.out.println(subcategory);//카테고리를 잘 가져왔는지 확인
 			
 			List<classlistDTO> list = service.selectcate(subcategory);
 			m.addAttribute("classlist", list);
