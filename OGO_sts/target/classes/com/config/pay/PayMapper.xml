@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 c.PLACE,c.CLASSNAME,m.USERNAME, i.CLASSPHOTO1
 	from CLASSORDER o JOIN CLASS c on o.CLASSNUM = c.CLASSNUM join MEMBER m on o.USERID = m.USERID join CLASSIMG i on o.classnum = i.classnum
 	where o.userid = #{userId} 
-	order by ORDERDATE asc
+	order by ORDERDATE desc
     </select>
     
 </mapper>
