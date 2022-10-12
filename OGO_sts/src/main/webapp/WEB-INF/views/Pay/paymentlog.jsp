@@ -63,8 +63,8 @@ main {
       <br>
 <h1 id="title">결제 내역 </h1>
 <br>
-<table class="table table-striped table-hover"  style="width: 1000px; margin-left: 300px;">
-	<tr> <th class="Pname">상품명</th><th class="Pschedule">일정</th><th class="Pprice" style="width: 200px;">가격</th><th class="Pdate" style="width: 200px;">결제일</th> </tr>
+<table class="table table-striped table-hover"  style=" width:1000px; margin-left: 500px; ">
+	<tr> <th class="Pname"  style="width: 200px;">상품명</th><th class="Pschedule"  style="width: 200px;">일정</th><th class="Pprice" style="width: 200px;">가격</th><th class="Pdate" style="width: 200px;">결제일</th> </tr>
 	<c:forEach var="dto" items="${ list }">
 	<tr> <td><a class="Pname" href="../ClassPage?listNum=${ dto.classnum }">${ dto.classname }</a>&nbsp;&nbsp;</td><td class="scheduleOverflow">${ dto.allschedule }&nbsp;&nbsp;</td><td class="Pprice">${ dto.price }&nbsp;&nbsp;</td><td class="Pdate">${ dto.orderdate }&nbsp;&nbsp;</td> </tr>
 	</c:forEach>
