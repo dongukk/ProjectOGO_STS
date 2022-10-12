@@ -21,9 +21,13 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 <meta charset="UTF-8">
 
 <title>OGO : 행성 카테고리</title>
+<style type="text/css">
+	section{padding-top: 100px;}
+</style>
 <jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
+<section>
 <jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
 		<div class="intro_bg">
 				<div class="intro_text">
@@ -128,6 +132,8 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 												<!-- 이미지연결  -->
 													 					<%-- <%=listDTO.get(i).getClassNum() %> --%>
 													<a href="ClassPage?listNum=${cVO.classNum}">
+
+													<!-- 이미지 머지하고 연결 다시 할 것 - DB문제 -->
 														 <img src="upload/classPage/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
 													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
 													</a>	
@@ -236,8 +242,8 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 			<li></li>
 		</ul>
 	</div>
-
-	<!-- footer html 현재 기능 아무것도 없음-->	
+</section>
+	<!-- footer html 현재 기능 아무것도 없음-->
 	<footer>
 		<div class="container">
 			<div class="f_top">

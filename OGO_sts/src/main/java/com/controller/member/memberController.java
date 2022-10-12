@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dto.member.MemberDTO;
+import com.service.classpage.ClassPageService;
 import com.service.member.MemberService;
 
 @Controller
@@ -23,7 +24,9 @@ public class memberController {
 	
 	@Autowired
 	MemberService service;
-
+	@Autowired
+	ClassPageService Cservice;
+	
 // 로그인 처리
 	@RequestMapping(value = "/login")
 	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletRequest request) {
@@ -34,13 +37,15 @@ public class memberController {
 		if (dto != null) {
 			session.setAttribute("login", dto);
 			session.setAttribute("mesg", dto.getNickname()+"님 어서오세요.");
+			int tutorSearch = Cservice.tutorSearch(dto.getUserId());
 			if (dto.getUserName().equals("관리자")) {
 				session.setAttribute("admin", "admin");
-			}			
+			}else if (tutorSearch>0) {
+				session.setAttribute("Tutor", "Tutor");
+			}	
 		} else {
 			session.setAttribute("mesg", "아이디 또는 비번이 잘못되었습니다.");
 		}
-		
 		String uri = request.getHeader("Referer");
 		return "redirect:"+uri;	
 	}
@@ -228,7 +233,7 @@ public class memberController {
 			}
 			session.setAttribute("login",dto);
 			session.setMaxInactiveInterval(60*30);
-			return "redirect:MainForm";
+			return "redirect:home2";
 	}
 			
 // 네이버 콜백
@@ -294,7 +299,7 @@ public class memberController {
 			}
 			session.setAttribute("login",dto);
 			session.setMaxInactiveInterval(60*30);
-			return "redirect:MainForm";
+			return "redirect:home2";
 	}
 	
 

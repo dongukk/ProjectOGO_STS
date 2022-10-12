@@ -40,6 +40,10 @@
 				<value>classpath:com/config/pay/PayMapper.xml</value>
 				<value>classpath:com/config/mypage/MyPageMapper.xml</value>
 				<value>classpath:com/config/classlist/classlistMapper.xml</value>
+				<value>classpath:com/config/comment/ClassCommentMapper.xml</value>
+				<value>classpath:/com/config/tutors/TutorMapper.xml</value>
+				
+				
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -55,6 +59,10 @@
 				<value>com.dto.notice.NoticePageDTO</value>
 				<value>com.dto.pay.PayDTO</value>
 				<value>com.dto.classlist.classlistDTO</value>
+				<value>com.dto.comment.ClassCommentDTO</value>
+				<value>com.dto.comment.ClassCommentPageDTO</value>
+				<value>com.dto.heartlist.HeartListDTO</value>
+				<value>com.dto.tutor.TutorDTO</value>
 			</list>
 		</property>
 	</bean>

@@ -7,18 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/notice/noticeContent.css">
 </head>
 <body>
-
-<table border="1">
-	<tr> <td>${ NoticeDTO.nTitle }</td><td>${ NoticeDTO.nDate }</td><td>${ NoticeDTO.nickName }</td> </tr>
-	<tr> <td colspan="3">${ NoticeDTO.nContent }</td> </tr>
-</table>
-<input type="button" value="목록으로" onclick="location.href='http://localhost:7069/ogo/notice'">
-<c:if test="${ admin != null }">
-	<input type="button" value="수정" onclick="location.href='loginCheck/NoticeUpdate1?nNum=${NoticeDTO.nNum}'">
-	<input type="button" value="삭제" onclick="location.href='loginCheck/NoticeDelete?nNum=${NoticeDTO.nNum}'">
-</c:if>
+		<table id="noticeContent_body">
+			<tr id="noticeContent_tr1" > <td>${ NoticeDTO.nTitle }</td><td>${ NoticeDTO.nDate }</td><td>${ NoticeDTO.nickName }</td> </tr>
+			<tr id="noticeContent_tr2" class="noticeContent_color"> <td colspan="3">&nbsp&nbsp ${ NoticeDTO.nContent }</td> </tr>
+			
+			<tr id="noticeContent_tr3" > 
+				<td id="noticeContent_btn">
+					<input type="button" class="nbtn" value="목록으로" onclick="location.href='http://localhost:7069/ogo/notice'">
+					<c:if test="${ admin != null }">
+					<input type="button" class="nbtn" value="수정" onclick="location.href='loginCheck/NoticeUpdate1?nNum=${NoticeDTO.nNum}'">
+					<input type="button" class="nbtn" value="삭제" onclick="location.href='loginCheck/NoticeDelete?nNum=${NoticeDTO.nNum}'">
+					</c:if>
+				</td>
+			</tr>
+		</table>
 
 </body>
 </html>

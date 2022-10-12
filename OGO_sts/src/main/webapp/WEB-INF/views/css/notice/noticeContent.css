@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+
+#noticeContent_body{
+	position: absolute;
+	margin: 12%;
+	left:19%;
+	
+	width: 700px;
+	height: 600px;
+	
+}
+#noticeContent_tr1{
+		
+	 font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 19px;
+	 height: 80px;
+}
+#noticeContent_tr2{
+	 border: 2px solid #c4c4c4;
+	 height: 280px;
+	 font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 20px;
+}
+#noticeContent_tr3{
+}
+.noticeContent_color{
+	background: rgb(250, 248, 247);
+}
+
+.nbtn{
+	float: right;
+	border: 2px solid #c4c4c4;
+	border-radius: 30px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 20px;
+	
+}

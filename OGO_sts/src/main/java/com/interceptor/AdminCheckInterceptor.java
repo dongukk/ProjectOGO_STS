@@ -22,7 +22,7 @@ public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 		if (session.getAttribute("admin") == null) {	// 관리자가 아닌 경우
 			System.out.println("interceptor 관리자 정보 없음");
 			session.setAttribute("mesg", "관리자 권한이 필요한 페이지입니다.");
-			response.sendRedirect("../MainForm");
+			response.sendRedirect("../home2");
 			return false;
 		}else {	// 관리자인 경우
 			System.out.println("interceptor 관리자 정보 있음");

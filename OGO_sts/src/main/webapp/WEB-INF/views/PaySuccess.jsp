@@ -9,23 +9,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <jsp:include page="common/navBar/nav.jsp" flush="true"/>
   <title>Document</title>
-  <link rel="stylesheet" href="Pay_css/cash.css">
-  <link rel="stylesheet" href="Pay_css/button.css">
-  <link rel="stylesheet" href="Pay_css/reset.css">
+  
+  <meta http-equiv="refresh" content="10; url=loginCheck/paymentlog?userId=admin"> 
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/pay/payment.css">
 </head>
 <body>
-  <div class="header">
-    <div class="info">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section>
       <h1>결제내역</h1>
-    </div> 
-  </div>
-	<div class="middle">
-    <table border="1">
+      <br>
+	<table class="table table-striped">
       <tr>
-      <th>이미지</th>
       <th>상품명</th>
       <th>일정</th>
       <th>가격</th>
@@ -33,41 +38,16 @@
       </tr>
       <c:forEach items="${ list }" var="list">
       	<tr>
-      <td>${ list.CLASSPHOTO1 }</td>
-      <td>${ list.CLASSNAME }</td>
+      <td>${ list.classname }</td>
       <td>${ list.allschedule }</td> 
-      <td>${ list.PRICE }원</td>
-      <td>${ list.ORDERDATE }</td>
+      <td>${ list.price }원</td>
+      <td>${ list.orderdate }</td>
       </tr>
       </c:forEach>
-    </table>
+</table>
+<span id="redCount"> *10초뒤 결제 내역페이지로 이동합니다. </span> 
     <br>
-
-
-    <a href="http://localhost:7069/ogo/"><button id="btn1">OGO Main</button></a>
-
-
-    <script>
-      const btn = document.getElementById('btn1')
-      const onClick = e => {
-        const { x, y, width, height} = btn.getBoundingClientRect()
-        const radius = Math.sqrt(width * width + height * height)
-        btn.style.setProperty('--diameter', radius * 2 + 'px')
-        const { clientX, clientY } = e
-        const left = (clientX - x - radius) / width * 100 + '%'
-        const top = (clientY - y - radius) / height * 100 + '%'
-
-        btn.style.setProperty('--left', left)
-        btn.style.setProperty('--top', top)
-        btn.style.setProperty('--a', '')
-        setTimeout(() => {
-          btn.style.setProperty('--a', 'ripple-effect 500ms linear')
-        }, 5)
-      }
-
-      btn.addEventListener('click', onClick)
-    </script>
-  </div>
+</section>
 
 </body>
 </html>

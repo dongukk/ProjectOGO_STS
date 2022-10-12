@@ -40,9 +40,9 @@
 <nav class="navbar">
       <div class="navBar_logo" id="nav_logo">
 		<%if(request.getAttribute("interceptor")==null){ %>
-			<a class="navbar-brand" href="MainForm"><img src="images/common/OGOLogo3.png"></a>
+			<a class="navbar-brand" href="home2"><img src="images/common/OGOLogo3.png"></a>
 		<% } else {%>
-			<a class="navbar-brand" href="../MainForm"><img src="../images/common/OGOLogo3.png"></a>
+			<a class="navbar-brand" href="../home2"><img src="../images/common/OGOLogo3.png"></a>
 		<% } %>
       </div>
       <ul id="nav_Menu">
@@ -53,7 +53,7 @@
        		<%if(request.getAttribute("interceptor")==null){ %>					
 				<a class="nav_menu" href="home2"><span>행성카테고리</span></a>
 			<% } else {%>
-				<a class="nav_menu" href="../home/home2"><span>행성카테고리</span></a>
+				<a class="nav_menu" href="../home2"><span>행성카테고리</span></a>
 			<% } %>
 		</li>
 		<li class="nav-item">	
@@ -70,13 +70,13 @@
 				<a class="nav_menu" href="../notice"><span>공지사항&FAQ</span></a>
 			<% } %>
 		</li>
-		<li class="nav-item">
+		<%-- <li class="nav-item">
 			<%if(request.getAttribute("interceptor")==null){ %>	
 				<a class="nav_menu" href="ClassPage"><span>Class</span></a>
 			<% } else {%>
 				<a class="nav_menu" href="../ClassPage"><span>Class</span></a>
 			<% } %>			
-		</li>
+		</li> --%>
       </ul>
      
       
@@ -105,7 +105,11 @@
 						<li><a href="../AdminCheck/managementMember">management</a></li>
 					<% } %>		
 				<%  } else{ %>
+					<%if(request.getAttribute("interceptor")==null){ %>
 						<li><a href="loginCheck/logout" id="logout">Logout</a></li>		
+					<% } else {%>
+						<li><a href="../loginCheck/logout" id="logout">Logout</a></li>		
+					<% } %>	
 			<%	}} else{ %>
 				<li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</a></li>
 				<li><a href="createMember">Sign up</a></li>

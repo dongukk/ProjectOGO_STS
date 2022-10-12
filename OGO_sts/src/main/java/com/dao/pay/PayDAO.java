@@ -29,5 +29,9 @@ public class PayDAO {
 		System.out.println("payment보낼 list" + list);
 		return list;
 	}
+
+	public List<PayDTO> getPlog(String userId) {
+		return template.selectList("PayMapper.getPlog",userId);
+	}
 	
 }
