@@ -192,7 +192,7 @@ public class ClassCreateController {
 		int result3 =cService.uploadImg(iDTO);
 		System.out.println("파일 저장:"+result3);
 		
-		return "redirect:MainForm"; //일단 main으로 이동하도록 함->목록으로 이동하도록 나중에 수정하기
+		return "redirect:home2"; //일단 main으로 이동하도록 함->목록으로 이동하도록 나중에 수정하기
 	}//ClassAdd
 	
 	@RequestMapping(value = "/tutorSearch")
