@@ -110,10 +110,10 @@ section{padding-top: 50px;}
         <div class="side_bar">
           <p><a href="/ogo/loginCheck/Mypage">프로필 관리</a></p>
           <p><a href="/ogo/hearts">My 찜</a></p>
-          <p><a href="#">수강내역</a></p>
-          <p><a href="/ogo/tutor/register">튜터 등록</a></p>
+          <p><a href="/ogo/loginCheck/paymentlog?userId=${ login.userId }">결제 내역</a></p>
+          <p><a href="/ogo/loginCheck/register">튜터 등록</a></p>
         </div>
-      </aside> 
+      </aside>  
        <main>
        <h1 style="line-height: 2.0; ">MY 찜</h1>
      <h2 style="position: relative; right: 330px; ">MY 찜 목록</h2>

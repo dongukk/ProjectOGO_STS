@@ -31,14 +31,14 @@ public class TutorController {
     public static final String IMAGE_PATH = "/ogo/images/tour";
 
 
-    @GetMapping("/tutor/register")
+    @GetMapping("/loginCheck/register")
     public String register(HttpSession session, Model model) {
 
         model.addAttribute("profile", IMAGE_PATH + "/profile.jpeg");
         return "/tutor/tutor";
     }
 
-    @PostMapping("/tutor/register")
+    @PostMapping("/loginCheck/register")
     public String postRegister(HttpSession session,
                                @ModelAttribute TutorCreateForm form,
 							   RedirectAttributes red,
@@ -55,7 +55,7 @@ public class TutorController {
         if (tutorService.createTutor(form.toEntity()) == 1) {
             red.addFlashAttribute("flag", dto2.getUserId() +"님 튜터등록성공");
         }
-        return "redirect:/tutor/register";
+        return "redirect:/loginCheck/register";
     }
 
 

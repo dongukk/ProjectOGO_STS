@@ -128,10 +128,10 @@ text-decoration: underline;
         <div class="side_bar">
           <p><a href="/ogo/loginCheck/Mypage">프로필 관리</a></p>
           <p><a href="/ogo/hearts">My 찜</a></p>
-          <p><a href="#">수강내역</a></p>
-          <p><a href="/ogo/tutor/register">튜터 등록</a></p>
+          <p><a href="paymentlog?userId=${ login.userId }">결제 내역</a></p>
+          <p><a href="/ogo/loginCheck/register">튜터 등록</a></p>
         </div>
-      </aside>  
+      </aside>     
         <main>
         <h1>튜터 등록</h1>
  
@@ -148,7 +148,7 @@ text-decoration: underline;
         </div>
 
 	
-	<form action="../tutor/register" method="post" enctype="multipart/form-data"><!-- 이거 수정함 -->
+	<form action="../loginCheck/register" method="post" enctype="multipart/form-data"><!-- 이거 수정함 -->
 		<input type="file" name="tutorimg" class="real-upload" accept="image/*">
 
 
