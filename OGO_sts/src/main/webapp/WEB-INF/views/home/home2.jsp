@@ -10,31 +10,27 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/classlist/home2.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+<style type="text/css"> 
+a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
+</style> 
+
 <meta charset="UTF-8">
+
 <title>OGO : 행성 카테고리</title>
 <jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
-	 <div class="wrap">
 		<div class="intro_bg">
-			<div class="header">-
-			<!-- 	<ul class="nav"> -->
-				<a href="#" id="logo">
-					<img src="ClassList_img/whitelogo.png" width="150" height="60">
-				</a>
-				
-				<!-- <li><a href="#id_main_text0">행성 카테고리</a></li>
-				<li><a href="#">MY SPACE</a></li>
-				<li><a href="#">공지사항&FAQ</a></li> -->
-				<!-- </ul> -->
-			</div>
-			<div class="intro_text">
-			<h1>내가 원하는 행성으로, 바로 착지!</h1>
-			<h4 class="contents1">배우고 싶었던 분야를 전문가에게 직접, 원하는 일정에 들어보세요</h4>
-			</div>	
-		</div>
-	</div>		
+				<div class="intro_text">
+				<h1>내가 원하는 행성으로, <br>바로 착지!</h1>
+				<h4 class="contents1">배우고 싶었던 분야를 전문가에게 직접, 원하는 일정에 들어보세요</h4>
+				</div>	
+		</div>		
 	<!-- intro end -->
 	
 	<ul class="amount">
@@ -78,23 +74,23 @@
 	<div class=filter>
 	<div style="display:flex; justify-content:center; ">
 	<!-- 버튼 요소 -->
-		<button data-value="all" onclick="location.href='home2'" style="color:red;">초기화</button>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="home2" style="color:red; text-decoration:none">전체보기</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<p>
-		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new">최신순</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?priceasc" data-value="asc">낮은 가격</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?pricedesc" data-value="desc">높은 가격</a> 
+		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new" style="text-decoration:none">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="ClassListCategoryServlet?priceasc" data-value="asc" style="text-decoration:none">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="ClassListCategoryServlet?pricedesc" data-value="desc" style="text-decoration:none">높은 가격</a> 
 	</div> 
 	</div>
 	
 	
 
 <!-- 상품 목록 3개씩 정렬 -->
-	<table width="100%" cellspacing="0" cellpadding="0" >
+<div class=classlist>
+	<table width="100%" cellspacing="0" cellpadding="0">
 		
 			<tr>
 				<td>
-					<!-- <table align="center" width="710" cellspacing="0" cellpadding="0" border="0"> -->
-					<table style="margin-left:auto; margin-right:auto;">
+					<table style="margin-left:auto; margin-right:auto; border-collapse:separate">
 						<tr>
 							<td height="5"></td>
 						</tr>
@@ -132,8 +128,7 @@
 												<!-- 이미지연결  -->
 													 					<%-- <%=listDTO.get(i).getClassNum() %> --%>
 													<a href="ClassPage?listNum=${cVO.classNum}">
-													<!-- 이미지 머지하고 연결 다시 할 것 - DB문제 -->
-														 <img src="images/class_img/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
+														 <img src="upload/classPage/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
 													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
 													</a>	
 												</font>
@@ -172,40 +167,12 @@
 						        </tr>
 							</c:if> 
 						</c:forEach> <!-- for -->
-						 
-								
-		
-
-
-		
-				
-	
-	
-<!-- 드롭박스로 오른쪽 정렬 <div class="filter">최신순/</div> -->
-<!-- 	<div class="top">
-	<div class="sorting">
-    <button class="dropbtn">
-      <span class="dropbtn_content">최신순</span>
-      <span class="dropbtn_click" style="font-family: Material Icons; font-size : 20px; color : #3b3b3b; float:right;"
-        onclick="dropdown()"><img src="/image/dropdown_icon.jpg"></span>
-    </button>
-    <div class="dropdown-content">
-      <div class="sort" onclick="showMenu(this.innerText)">최신순</div>
-      <div class="sort" onclick="showMenu(this.innerText)">인기순</div>
-      <div class="sort" onclick="showMenu(this.innerText)">금액이 높은순</div>
-      <div class="sort" onclick="showMenu(this.innerText)">금액이 낮은순</div>
-    </div>
-  </div>
-		</div> -->
-		
-		
-		
-		
-		
-		
-		
-		
-		
+					</tr>
+				</table>
+			</td>
+		</tr>				
+	</table>					 
+</div>		
 		<!-- 좌측 검색창-->
 		 <div class="menu">
 		<div class="searchArea">
@@ -219,57 +186,50 @@
 		<li>
 			<button class=cate style="color:#fff; font-weight:bold;">뷰티</button>
 			<ul class="subcate">
-				<li><a href="home2?subcategory=메이크업">메이크업</a></li>
-				<li><a href="home2?subcategory=스타일링">스타일링</a></li>
+				<li><a href="home2?subcategory=메이크업" style="text-decoration:none">메이크업</a></li>
+				<li><a href="home2?subcategory=스타일링" style="text-decoration:none">스타일링</a></li>
 			</ul>
 		</li>
 		<li>
 			<button class=cate style="color:#fff; font-weight:bold;">외국어</button>
 			<ul class="subcate">
-				<li><a href="home2?subcategory=영어">영어</a>	
-				<li><a href="home2?subcategory=일본어·중국어">일본어·중국어</a>	
-				<li><a href="home2?subcategory=기타 외국어">기타 외국어</a>	
+				<li><a href="home2?subcategory=영어" style="text-decoration:none">영어</a>	
+				<li><a href="home2?subcategory=일본어·중국어" style="text-decoration:none">일본어·중국어</a>	
+				<li><a href="home2?subcategory=기타 외국어" style="text-decoration:none">기타 외국어</a>	
 			</ul>
 		</li>
 		<li>
 			<button class=cate style="color:#fff; font-weight:bold;">댄스·뮤직</button>
 			<ul class="subcate">
-				<li><a href="home2?subcategory=댄스">댄스</a>	
-				<li><a href="home2?subcategory=뮤직">뮤직</a>	
+				<li><a href="home2?subcategory=댄스" style="text-decoration:none">댄스</a>	
+				<li><a href="home2?subcategory=뮤직" style="text-decoration:none">뮤직</a>	
 			</ul>
 		</li>
 		<li>
 			<button class=cate style="color:#fff; font-weight:bold;">요리·공예</button>
 			<ul class="subcate">
-				<li><a href="home2?subcategory=요리·음료">요리·음료</a>	
-				<li><a href="home2?subcategory=공예·DIY">공예·DIY</a>		
+				<li><a href="home2?subcategory=요리·음료" style="text-decoration:none">요리·음료</a>	
+				<li><a href="home2?subcategory=공예·DIY" style="text-decoration:none">공예·DIY</a>		
 			</ul>
 		</li>
 		<li>
 			<button class=cate style="color:#fff; font-weight:bold;">드로잉·디자인·영상</button>
 			<ul class="subcate">
-				<li><a href="home2?subcategory=디자인">디자인</a>	
-				<li><a href="home2?subcategory=영상">영상</a>	
+				<li><a href="home2?subcategory=디자인" style="text-decoration:none">디자인</a>	
+				<li><a href="home2?subcategory=영상" style="text-decoration:none">영상</a>	
 			</ul>
 		</li>
 		</ul>
 		</div>
-		
-		
-		
-		
-		
-		
-			
-
 	<!--중간 main_text0 end -->
 	
-	<div class="main_text2">
+	<!-- main_text2 클래스 등록하기 시작 -->
+	<div class="create">
 		<ul>
 			<li>
 			<div><h1>클래스 등록</h1></div>
 			<div>어떤 분야든 전문성을 갖고있다면, 지금 바로 클래스를 등록해주세요</div>
-			<div class="more2"><a href="loginCheck/ClassCreate" style="color:#fff;">
+			<div class="more2"><a href="loginCheck/ClassCreate" style="color:#fff; text-decoration:none"">
 			클래스 등록하기</a>
 			</div>
 			</li>
@@ -277,57 +237,56 @@
 		</ul>
 	</div>
 
-	<!-- footer html 현재 기능 아무것도 없음-->
+	<!-- footer html 현재 기능 아무것도 없음-->	
 	<footer>
-	<div class="container">
-		<div class="f_top">
-			<ul class="f_nav">
-				<li class="depth1">
-				<p class="tit">COMPANY</p>
-					<ul class="depth2">
-						<li><a href="#" target="_blank" style="color:#fff;">회사 소개</a></li>
-						<br>
-						<li><a href="#" target="_blank" style="color:#fff;">언론 보도</a></li>
-					</ul>	
-				</li>
-				<li class="depth1">
-				<p class="tit">POLICIES</p>
-					<ul class="depth2">
-						<li><a href="#" target="_blank" style="color:#fff;">이용약관</a></li>
-						<br>
-						<li><a href="#" target="_blank" style="color:#fff;">개인정보처리방침</a></li>
-					</ul>	
-				</li>
-				<li class="depth1">
-				<p class="tit">SUPPORT</p>
-					<ul class="depth2">
-						<li><a href="#" target="_blank" style="color:#fff;">FAQ</a></li>
-						<br>
-						<li><a href="#" target="_blank" style="color:#fff;">공지사항</a></li>
-					</ul>	
-				</li>
-				<li class="depth1">
-				<p class="tit">B2B</p>
-					<ul class="depth2">
-						<li><a href="#" target="_blank" style="color:#fff;">기업교육</a></li>
-						<br>
-						<li><a href="#" target="_blank" style="color:#fff;">브랜드제휴</a></li>
-					</ul>	
-				</li>
-			</ul>
+		<div class="container">
+			<div class="f_top">
+				<ul class="f_nav">
+					<li class="depth1">
+					<p class="tit">COMPANY</p>
+						<ul class="depth2">
+							<li><a href="#" target="_blank" style="color:#fff;">회사 소개</a></li>
+							<br>
+							<li><a href="#" target="_blank" style="color:#fff;">언론 보도</a></li>
+						</ul>	
+					</li>
+					<li class="depth1">
+					<p class="tit">POLICIES</p>
+						<ul class="depth2">
+							<li><a href="#" target="_blank" style="color:#fff;">이용약관</a></li>
+							<br>
+							<li><a href="#" target="_blank" style="color:#fff;">개인정보처리방침</a></li>
+						</ul>	
+					</li>
+					<li class="depth1">
+					<p class="tit">SUPPORT</p>
+						<ul class="depth2">
+							<li><a href="#" target="_blank" style="color:#fff;">FAQ</a></li>
+							<br>
+							<li><a href="#" target="_blank" style="color:#fff;">공지사항</a></li>
+						</ul>	
+					</li>
+					<li class="depth1">
+					<p class="tit">B2B</p>
+						<ul class="depth2">
+							<li><a href="#" target="_blank" style="color:#fff;">기업교육</a></li>
+							<br>
+							<li><a href="#" target="_blank" style="color:#fff;">브랜드제휴</a></li>
+						</ul>	
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	
-	<div class="container2">
-		<div class="f_info">
-			<p>상호:(주)오고  |  주소 : 서울특별시 강남구 테헤란로 70 5층  |  사업자등록번호 : 123-45-67890  |  대표자명 : 김취준</p>
-			<p>(주)오고는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 (주)오고는 튜터가 등록한 상품·클래스정보 및 거래에 관한
-의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
-			<br>
-			<p>Copyright ⓒ2022 ogo inc, ltd. All rights reserved</p>
+		
+		<div class="container2">
+			<div class="f_info" style="color:#fff">
+				<p>상호:(주)오고  |  주소 : 서울특별시 강남구 테헤란로 70 5층  |  사업자등록번호 : 123-45-67890  |  대표자명 : 김취준</p>
+				<p>(주)오고는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 (주)오고는 튜터가 등록한 상품·클래스정보 및 거래에 관한
+	의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
+				<br>
+				<p>Copyright ⓒ2022 ogo inc, ltd. All rights reserved</p>
+			</div>
 		</div>
-	</div>
 	</footer> 
-
 </body>
 </html> 
