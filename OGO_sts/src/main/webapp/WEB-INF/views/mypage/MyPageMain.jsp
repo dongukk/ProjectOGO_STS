@@ -167,34 +167,24 @@ $("#close").click( function(){
 </script>
 
 <style type="text/css">
-/* .profile_container {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background-image: url("../upload/member/${ login.profilePhoto}");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
-} */
-   .real-upload {
-      display: none;
-    }
+.real-upload {
+   display: none;
+ }
 
-   .upload {
-      width: 30px;
-      height: 30px;
-      background-color: antiquewhite;
-        background-image:url('/ogo/images/tour/change2.jpg');
-          position: absolute;
-            border-radius: 50%;
-            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-             bottom: 780px;
-            right: 450px;
-            z-index: 1;
-    }
+.upload {
+   width: 30px;
+   height: 30px;
+   background-color: antiquewhite;
+   background-image:url('/ogo/images/tour/change2.jpg');
+   position: absolute;
+   border-radius: 50%;
+   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+   bottom: 800px;
+   right: 550px;
+   z-index: 1;
+ }
 
- .image-preview {
+.image-preview {
   position: relative;
   width: 150px;
   height: 150px;
@@ -233,14 +223,14 @@ $("#close").click( function(){
         </form>
         </div>  --%>  
            
-            <div class="upload"></div>
-			  <ul class="image-preview" style="background-image: url('../upload/member/${ login.profilePhoto}')"></ul>
-				<input type="hidden" value="${ login.profilePhoto}" name="mimg">
-			 <div class="profile_container">
-       		</div>
+     <div class="upload"></div>
+	   <ul class="image-preview" style="background-image: url('../upload/member/${ login.profilePhoto}')"></ul>
+		<input type="hidden" value="${ login.profilePhoto}" name="mimg">
+	  <div class="profile_container">
+ 	</div>
        		
 	<form action="../loginCheck/MemberUpdate" method="post" enctype="multipart/form-data">	<!-- enctype: 파일업로드 -->
-		<input type="file" name="tutorimg" class="real-upload" accept="image/*">
+		<input type="file" name="profileimg" class="real-upload" accept="image/*">
 		<br>
 	
 <div style="text-align: left; color: red;">* 항목은 필수입력 사항입니다.</div>
@@ -419,5 +409,23 @@ $("#close").click( function(){
         }).open();
 
     }
+</script>
+<script type="text/javascript">
+const realUpload = document.querySelector('.real-upload');
+const upload = document.querySelector('.upload');
+const imagePreview = document.querySelector('.image-preview');
+
+upload.addEventListener('click', () => realUpload.click());
+
+
+function getImageFiles(e) {
+	const file = e.target.files[0];
+	const reader = new FileReader();
+	reader.readAsDataURL(file);
+	reader.onload = () =>{
+		imagePreview.style.backgroundImage = 'url(\''+reader.result+'\')';
+	}
+}
+realUpload.addEventListener('change', getImageFiles);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
