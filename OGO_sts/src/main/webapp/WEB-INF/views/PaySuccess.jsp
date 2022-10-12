@@ -28,7 +28,7 @@
 <br>
 <br>
 <section>
-      <h1>결제내역</h1>
+      <h1>결제 완료!</h1>
       <br>
 	<table class="table table-striped">
       <tr>
@@ -46,8 +46,8 @@
       </tr>
       </c:forEach>
 </table>
-	<input type="text" id="userid" value="${ list[0].userid}">
-	  <span id="countdown" style="color: red;">10</span> <span style="color: red;">초 뒤 페이지 이동</span>
+	<input type="hidden" id="userid" value="${ list[0].userid}">
+	  <span id="countdown" style="color: red;">10</span> <span style="color: red;">초 뒤 결제 내역 페이지 이동 합니다.</span>
     <br>
 </section>
 
