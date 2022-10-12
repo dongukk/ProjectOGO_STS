@@ -15,7 +15,7 @@
 	<!-- <context:annotation-config></context:annotation-config> -->
 	
 <!-- view페이지 설정 -->
-	<view-controller path="/" view-name="/home2"/>
+	<view-controller path="/" view-name="/startPage"/>
 	<view-controller path="/home2" view-name="/home2"/>
 	<view-controller path="/ClassCreateForm" view-name="ClassCreateForm"/>
 
@@ -23,7 +23,12 @@
 	<resources location="/WEB-INF/views/upload/" mapping="/upload/**"></resources>	<!-- 프로필이미지 불러오는데 사용 -->
 	<resources location="/WEB-INF/views/images/" mapping="/images/**"></resources>
 	<resources location="/WEB-INF/views/css/" mapping="/css/**"></resources>
-	<resources location="/WEB-INF/views/js/" mapping="/js/**"></resources>
+	<!-- startPage 주소 -->
+	<resources location="/startPage/css/" mapping="/startPage/css/**"></resources>
+	<resources location="/startPage/js/" mapping="/startPage/js/**"></resources>
+	<resources location="/startPage/fonts/" mapping="/startPage/fonts/**"></resources>
+	<resources location="/startPage/images/" mapping="/startPage/images/**"></resources>
+	<resources location="/startPage/video/" mapping="/startPage/video/**"></resources>
 	
 <!-- Interceptor 빈 생성 -->
 	<beans:bean id="LoginCheckInterceptor" class="com.interceptor.LoginCheckInterceptor"></beans:bean>
@@ -43,7 +48,7 @@
 	<beans:bean id="TutorCheckInterceptor" class="com.interceptor.TutorCheckInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
-			<mapping path="/tutor/**"/>
+			<mapping path="/TutorCheck/**"/>
 			<beans:ref bean="TutorCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
