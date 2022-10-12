@@ -137,7 +137,7 @@
 													 					<%-- <%=listDTO.get(i).getClassNum() %> --%>
 													<a href="ClassPage?listNum=${cVO.classNum}">
 													<!-- 이미지 머지하고 연결 다시 할 것 - DB문제 -->
-														 <img src="images/class_img/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
+														 <img src="upload/classPage/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
 													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
 													</a>	
 												</font>
