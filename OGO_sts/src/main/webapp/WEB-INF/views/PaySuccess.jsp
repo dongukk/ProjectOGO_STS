@@ -12,10 +12,11 @@
   <jsp:include page="common/navBar/nav.jsp" flush="true"/>
   <title>Document</title>
   
-  <meta http-equiv="refresh" content="10; url=loginCheck/paymentlog?userId=admin"> 
+  <!-- <meta http-equiv="refresh" content="10; url=loginCheck/paymentlog?userId=admin">  -->
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="css/pay/payment.css">
+  
 </head>
 <body>
 <br>
@@ -45,9 +46,32 @@
       </tr>
       </c:forEach>
 </table>
-<span id="redCount"> *10초뒤 결제 내역페이지로 이동합니다. </span> 
+	<input type="text" id="userid" value="${ list[0].userid}">
+	  <span id="countdown" style="color: red;">10</span> <span style="color: red;">초 뒤 페이지 이동</span>
     <br>
 </section>
 
+
+<script type="text/javascript">
+
+  let time = 10;
+
+  const countDown = document.getElementById('countdown');
+  
+
+  setInterval(updateCountDown,1000)
+  setTimeout(function(){
+	  const userid = document.getElementById('userid').value;
+    location.href='loginCheck/paymentlog?userId='+userid;
+  },11000);
+  function updateCountDown() {
+
+    let seconds = time;
+
+    countDown.innerHTML = seconds;
+    time--;
+  }
+  
+  </script>
 </body>
 </html>

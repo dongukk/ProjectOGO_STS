@@ -1,7 +1,7 @@
 .scheduleOverflow{
-	overflow: scroll; 
-	width: 5px;
-	height: 5px;
+	/* overflow: scroll;  */
+	width: 20px;
+	height: 20px;
 }
 
 section{
@@ -15,20 +15,5 @@ section{
 	color: black;
 }
 
-.Pschedule{
-	width: 20px;
-	height: 5px;
-}
-
-.Pprice{
-	width: 20px;
-	height: 5px;
-}
-
-.Pdate{
-	width: 20px;
-	height: 5px;
-}
 .title{
 	border: 700px;
-}
