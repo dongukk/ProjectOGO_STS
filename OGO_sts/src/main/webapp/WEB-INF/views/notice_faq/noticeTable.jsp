@@ -8,14 +8,23 @@
 <!DOCTYPE html>
 <html>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">	
+	<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/notice/noticeTable.css">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OGO:공지사항&FAQ</title>
 <style type="text/css">
 	#noticeTable{padding-top: 100px;}
 </style>
 </head>
+<div class="intro_header">
+<div class="intro_text">
+<h1>SUPPORT</h1> 
+<h4>편리한 모험을 위해 OGO는 끊임없이 연구합니다</h4>
+</div>
+</div>
+
 <body id="notice_body">
 	<div id="notice_title"  >NOTICE</div>
 	<table id="notice_table1">

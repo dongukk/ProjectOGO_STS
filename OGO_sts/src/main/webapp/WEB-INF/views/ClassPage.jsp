@@ -13,6 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">	
+
 <title>클래스 신청</title>
 <link rel="stylesheet" href="css/classPage/classPage.css">
 <link rel="stylesheet" href="css/classPage/classPageTab.css">
@@ -211,6 +214,12 @@
 </script>
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
+
+<div class="intro_header">
+<div class="intro_text">
+<h1>행성클래스로 모험을 떠나보세요</h1> 
+</div>
+</div>
 <body>
 
 <div class="wrap">
