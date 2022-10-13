@@ -20,7 +20,9 @@ header {
   background-repeat: no-repeat;
   background-position: center;
 }
-
+section a{
+	text-decoration: none;
+} 
 /* a{
 text-decoration: none;
 } 

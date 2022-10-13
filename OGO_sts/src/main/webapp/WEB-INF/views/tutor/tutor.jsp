@@ -5,7 +5,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
- <link rel="stylesheet"  href="../css/tour/indextutor.css" />
+ <link rel="stylesheet"  href="../css/tour/indextutor.css?after" />
      <link rel="shortcut icon" href="../images/logo/favicon.ico" type="image/x-icon">
 <%-- <jsp:include page="NavBar.html" flush="true"></jsp:include>
 <jsp:include page="LoginBar.jsp" flush="true" />--%>
@@ -128,10 +128,10 @@ text-decoration: underline;
         <div class="side_bar">
           <p><a href="/ogo/loginCheck/Mypage">프로필 관리</a></p>
           <p><a href="/ogo/hearts">My 찜</a></p>
-          <p><a href="#">수강내역</a></p>
-          <p><a href="/ogo/tutor/register">튜터 등록</a></p>
+          <p><a href="paymentlog?userId=${ login.userId }">결제 내역</a></p>
+          <p><a href="/ogo/loginCheck/register">튜터 등록</a></p>
         </div>
-      </aside>  
+      </aside>     
         <main>
         <h1>튜터 등록</h1>
  
@@ -148,7 +148,7 @@ text-decoration: underline;
         </div>
 
 	
-	<form action="../tutor/register" method="post" enctype="multipart/form-data"><!-- 이거 수정함 -->
+	<form action="../loginCheck/register" method="post" enctype="multipart/form-data"><!-- 이거 수정함 -->
 		<input type="file" name="tutorimg" class="real-upload" accept="image/*">
 
 

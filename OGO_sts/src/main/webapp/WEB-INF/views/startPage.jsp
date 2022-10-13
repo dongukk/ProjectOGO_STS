@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${ dto }
+<jsp:include page="../../startPage/mainPage/Page.jsp"></jsp:include>
 </body>
 </html>

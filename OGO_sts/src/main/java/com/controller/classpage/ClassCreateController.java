@@ -49,7 +49,7 @@ public class ClassCreateController {
 		if (mDTO!=null) {
 			return "ClassCreateForm";
 		} else {
-			return "redirect:MainForm";
+			return "redirect:home2";
 		}
 	}
 	

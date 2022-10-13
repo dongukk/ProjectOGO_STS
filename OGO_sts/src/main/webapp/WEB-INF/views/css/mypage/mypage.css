@@ -91,6 +91,7 @@ aside {
   gap: 20px;
   border-radius: 15%;
   position: fixed;
+  z-index: 999;
 }
 
 .side_bar > p {

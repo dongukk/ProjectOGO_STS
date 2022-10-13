@@ -110,8 +110,7 @@ public class memberAdd {
 		
 // 취미배열 string타입으로 변형
 		if(hobby == null) {	// 취미가 없으면 null값입력
-			String hobbys = "";
-			dto.setHobby(hobbys);
+			dto.setHobby("");
 		} else {	// 취미가 있으면 사이에 ,삽입(하나있으면 콤마삽입안함.)
 			String hobbys = String.join(",", hobby);
 			dto.setHobby(hobbys);

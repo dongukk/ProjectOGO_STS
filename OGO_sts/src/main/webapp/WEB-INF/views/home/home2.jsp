@@ -9,9 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/classlist/home2.css">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">	
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <style type="text/css"> 
@@ -20,12 +18,11 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 
 <meta charset="UTF-8">
 
-<title>OGO : 행성 카테고리</title>
-<style type="text/css">
-	section{padding-top: 100px;}
-</style>
+<title>OGO:어디로든 비행</title>
+<link rel="stylesheet" type="text/css" href="css/classlist/home2.css">
 <jsp:include page="../common/navBar/nav.jsp" flush="true"/>
 </head>
+
 <body>
 <section>
 <jsp:include page="/WEB-INF/views/classPage/classApplication/classOpenLogin.jsp"></jsp:include>
@@ -80,107 +77,14 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 	<!-- 버튼 요소 -->
 		<a href="home2" style="color:red; text-decoration:none">전체보기</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<p>
-		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new" style="text-decoration:none">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?priceasc" data-value="asc" style="text-decoration:none">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?pricedesc" data-value="desc" style="text-decoration:none">높은 가격</a> 
+		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new" style="text-decoration:none; color:#787878;">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="ClassListCategoryServlet?priceasc" data-value="asc" style="text-decoration:none; color:#787878;">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="ClassListCategoryServlet?pricedesc" data-value="desc" style="text-decoration:none; color:#787878;">높은 가격</a> 
 	</div> 
 	</div>
 	
-	
-
-<!-- 상품 목록 3개씩 정렬 -->
-<div class=classlist>
-	<table width="100%" cellspacing="0" cellpadding="0">
-		
-			<tr>
-				<td>
-					<table style="margin-left:auto; margin-right:auto; border-collapse:separate">
-						<tr>
-							<td height="5"></td>
-						</tr>
-						<tr>
-							<td height="1" colspan="8" bgcolor="CECECE"></td>
-						</tr>
-						<tr>
-							<td height="10"></td>
-						</tr>
-		
-						<tr>
-						
-		
-						
-						<c:forEach var="cVO" items="${classlist}" varStatus="status">
-							${cVO.subcategory}
-					
-						 <td>
-						 	<table style=padding:15px >
-										<tr>
-											<td>
-												
-											</td>
-										</tr>
-										<tr>
-										
-											<td height="10">
-										</tr>
-										<tr>
-											<td class= "td_default" align ="center">
-												<a class= "a_black" href=""> 
-												<br>
-												</a>
-												<font color="gray">
-												<!-- 이미지연결  -->
-													 					<%-- <%=listDTO.get(i).getClassNum() %> --%>
-													<a href="ClassPage?listNum=${cVO.classNum}">
-
-													<!-- 이미지 머지하고 연결 다시 할 것 - DB문제 -->
-														 <img src="upload/classPage/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
-													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
-													</a>	
-												</font>
-											</td>
-											
-										</tr>
-										<tr>
-											<td height="10">
-										</tr>
-										<tr>
-											<td class="td_name" align ="center" width='220px' height='45px' style="word-break:break-all">
-											<strong>${cVO.className}<%-- <%= listDTO.get(i).getClassName() %> --%></strong>
-											</td>
-										</tr>
-										<tr>
-											<td height="10">
-										</tr>
-										<tr>
-											<td class="td_price" align ="center">
-												<font color="red">
-													${cVO.price}
-													<%-- <%= listDTO.get(i).getPrice() %> --%>	
-												</font>
-											</td>
-										</tr>
-									</table>
-								</td>
-							<!-- 한줄에 3개씩 보여주기 -->	
-						  
-						 <%--  ${status.index} <!-- i역할 --> --%>
-						   <c:if test="${status.count%3==0}">
-						   
-						       <tr>
-						        <td height="30">
-						        </td>
-						        </tr>
-							</c:if> 
-						</c:forEach> <!-- for -->
-					</tr>
-				</table>
-			</td>
-		</tr>				
-	</table>					 
-</div>		
 		<!-- 좌측 검색창-->
-		 <div class="menu">
+	<div class="menu">
 		<div class="searchArea">
 				<form>
 				<input type="search" placeholder="Search">
@@ -226,8 +130,98 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 			</ul>
 		</li>
 		</ul>
-		</div>
-	<!--중간 main_text0 end -->
+	</div>
+	<!--중간 main_text0 end -->	
+
+<!-- 상품 목록 3개씩 정렬 -->
+<div class=classlist>
+	<table width="100%" cellspacing="0" cellpadding="0">
+		
+			<tr>
+				<td>
+					<table style="margin-left:auto; margin-right:auto; border-collapse:separate">
+						<tr>
+							<td height="5"></td>
+						</tr>
+						<tr>
+							<td height="1" colspan="8" bgcolor="CECECE"></td>
+						</tr>
+						<tr>
+							<td height="10"></td>
+						</tr>
+		
+						<tr>
+						
+		
+						
+						<c:forEach var="cVO" items="${classlist}" varStatus="status">
+					
+						 <td>
+						 	<table style=padding:15px >
+										<tr>
+											<td>
+												
+											</td>
+										</tr>
+										<tr>
+										
+											<td height="10">
+										</tr>
+										<tr>
+											<td class= "td_default" align ="center">
+												<a class= "a_black" href=""> 
+												<br>
+												</a>
+												<font color="gray">
+												<!-- 이미지연결  -->
+													<%-- <%=listDTO.get(i).getClassNum() %> --%>
+													<a href="ClassPage?listNum=${cVO.classNum}">
+													<img src="upload/classPage/category/${cVO.id}_${cVO.name}/${cVO.classphoto1}" width="250" height="200">
+													<%-- <%=listDTO.get(i).getId()%>_<%=listDTO.get(i).getName()%>/<%=listDTO.get(i).getClassphoto1()%> --%>
+													</a>	
+												</font>
+											</td>
+											
+										</tr>
+										<tr>
+											<td height="10">
+										</tr>
+										<tr>
+											<td class="td_name" align ="center" width='220px' height='45px' style="word-break:break-all">
+											<strong>${cVO.className}<%-- <%= listDTO.get(i).getClassName() %> --%></strong>
+											</td>
+										</tr>
+										<tr>
+											<td height="10">
+										</tr>
+										<tr>
+											<td class="td_price" align ="center">
+												<font color="#B21EF1">
+													${cVO.price}
+													<%-- <%= listDTO.get(i).getPrice() %> --%>	
+												</font>
+											</td>
+										</tr>
+									</table>
+								</td>
+							<!-- 한줄에 3개씩 보여주기 -->	
+						  
+						 <%--  ${status.index} <!-- i역할 --> --%>
+						   <c:if test="${status.count%3==0}">
+						   
+						       <tr>
+						        <td height="30">
+						        </td>
+						        </tr>
+							</c:if> 
+						</c:forEach> <!-- for -->
+					</tr>
+				</table>
+			</td>
+		</tr>				
+	</table>					 
+</div>		
+
 	
 	<!-- main_text2 클래스 등록하기 시작 -->
 	<div class="create">
@@ -243,6 +237,7 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 		</ul>
 	</div>
 </section>
+
 	<!-- footer html 현재 기능 아무것도 없음-->
 	<footer>
 		<div class="container">
@@ -267,9 +262,9 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 					<li class="depth1">
 					<p class="tit">SUPPORT</p>
 						<ul class="depth2">
-							<li><a href="#" target="_blank" style="color:#fff;">FAQ</a></li>
+							<li><a href="../notice" target="_blank" style="color:#fff;">FAQ</a></li>
 							<br>
-							<li><a href="#" target="_blank" style="color:#fff;">공지사항</a></li>
+							<li><a href="../notice" target="_blank" style="color:#fff;">공지사항</a></li>
 						</ul>	
 					</li>
 					<li class="depth1">
@@ -288,7 +283,7 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 			<div class="f_info" style="color:#fff">
 				<p>상호:(주)오고  |  주소 : 서울특별시 강남구 테헤란로 70 5층  |  사업자등록번호 : 123-45-67890  |  대표자명 : 김취준</p>
 				<p>(주)오고는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 (주)오고는 튜터가 등록한 상품·클래스정보 및 거래에 관한
-	의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
+의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
 				<br>
 				<p>Copyright ⓒ2022 ogo inc, ltd. All rights reserved</p>
 			</div>
