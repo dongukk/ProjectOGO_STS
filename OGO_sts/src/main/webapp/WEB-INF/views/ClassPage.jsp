@@ -229,7 +229,7 @@
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 
-<!-- <div class="intro_header">
+<div class="intro_header">
 <div class="intro_text">
 <h1>행성클래스로 모험을 떠나보세요</h1> 
 </div>
