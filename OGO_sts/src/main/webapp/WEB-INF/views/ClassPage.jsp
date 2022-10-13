@@ -94,6 +94,10 @@
 			var scheduleChoice =$("#scheduleChoice");
 			
 			var idx= selectSchedule.substring(0, 1);
+			var idx2= selectSchedule.substring(0, 2); //10회차의 경우 substring(0,1)하면 1회차와 구별이 안됨
+			if (idx2==10) {
+				idx=10;
+			}
 			
 			if (idxArr.indexOf(idx, 0)== -1) { //idx가 idxArr에 존재하지 않는 경우
 				idxArr.push(idx); //idxArr에 추가
