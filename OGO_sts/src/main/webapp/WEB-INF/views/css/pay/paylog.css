@@ -9,11 +9,14 @@ section{
 }
 
 .Pname{
-	width: 200px;
+	width: 450px;
 	height: 5px;
 	text-decoration: none;
 	color: black;
 }
+.Pschedule{width: 200px;}
+.Pprice{width: 100px;}
+.Pdate{width: 200px;}
 
 .title{
 	border: 700px;
