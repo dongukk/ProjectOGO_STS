@@ -38,7 +38,7 @@
 	      <h4>  회원님의 아이디는 <%=userId%> 입니다</h4> 
 	     </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" class="btn btn-dark" value="로그인" onClick="location.href='MainForm'"/>
+ 		    <input type="button" id="btnLogin" class="btn btn-dark" value="로그인" onClick="location.href='home2'"/>
        	</div>
        </div>
       <%

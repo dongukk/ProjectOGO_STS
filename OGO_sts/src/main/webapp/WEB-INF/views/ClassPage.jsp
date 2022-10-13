@@ -209,7 +209,8 @@
 			}//else
 				
 			});//button.click
-		
+		  
+      /* 스크롤바를 이용한 사이드바 자동 숨김 */
 		    $(window).on("scroll", function(){
 		    	
 		    	var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -228,7 +229,7 @@
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 
-<div class="intro_header">
+<!-- <div class="intro_header">
 <div class="intro_text">
 <h1>행성클래스로 모험을 떠나보세요</h1> 
 </div>
