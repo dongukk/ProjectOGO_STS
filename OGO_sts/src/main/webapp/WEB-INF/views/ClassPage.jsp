@@ -219,11 +219,11 @@
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 
-<div class="intro_header">
+<!-- <div class="intro_header">
 <div class="intro_text">
 <h1>행성클래스로 모험을 떠나보세요</h1> 
 </div>
-</div>
+</div> -->
 <body>
 
 <div class="wrap">
@@ -269,7 +269,7 @@
 		
 		
 		<!-- 결제버튼 -->
-		<button id="Pay_button1" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">결제</button>
+		<button id="Pay_button1" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="visibility: hidden; ">결제</button>
 		
 		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 		  <div class="offcanvas-header">

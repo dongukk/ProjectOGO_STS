@@ -34,8 +34,8 @@ public class ClassCommentService {
 		return n;
 	}
 	
-	public ClassCommentPageDTO viewPage(int curpage) {
-		ClassCommentPageDTO dto = dao.viewPage(curpage);
+	public ClassCommentPageDTO viewPage(int curpage, int classNum) {
+		ClassCommentPageDTO dto = dao.viewPage(curpage,classNum);
 		return dto;
 	}
 
