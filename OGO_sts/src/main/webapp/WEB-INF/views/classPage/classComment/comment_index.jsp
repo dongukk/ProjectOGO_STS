@@ -46,29 +46,27 @@
 		})		
 		
 		/* notice==null에 따른 img,hr 제외  */
-		if($(".notice1>#notice_detail").val()==null){
+		if( $.trim($(".notice1>#notice_detail").text())==""){
 			$(".img1").css("display","none");
 			$(".cmt_line2").css("display","none");
 		}else{
 			$(".img1").show();
 			$(".cmt_line2").show();
 		}
-		if($(".notice2>#notice_detail").val()==null){
+		if($.trim($(".notice2>#notice_detail").text())==""){
 			$(".img2").css("display","none");
 			$(".cmt_line3").css("display","none");
 		}else{
 			$(".img2").show();
 			$(".cmt_line3").show();
 		}
-		if($(".notice3>#notice_detail").val()==null){
+		if($.trim($(".notice3>#notice_detail").text())==""){
 			$(".img3").css("display","none");
 			$(".cmt_line4").css("display","none");
 		}else{
 			$(".img3").show();
 			$(".cmt_line4").show();
 		}
-		
-		
 		
 	}) //end funtion 
  
@@ -103,16 +101,16 @@
 
 	
 	        <div class="notice1"><br>
-	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp ${cmtpagedto.list[0].comment_notice}</b></p></p>
+	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp${cmtpagedto.list[0].comment_notice}</b></p></p>
 	        </div> <!--임시 text DB연동-->
 
 	        <div class="notice2"><br>
-	        	<p id="notice_detail"><b>&nbsp&nbsp ${cmtpagedto.list[1].comment_notice}</b></p>
+	        	<p id="notice_detail"><b>&nbsp&nbsp${cmtpagedto.list[1].comment_notice}</b></p>
 	        </div> <!--임시 text DB연동-->
 
 	
 	        <div class="notice3"><br>
-	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp ${cmtpagedto.list[2].comment_notice}</b></p></p>
+	        	<p><p id="notice_detail"><b>&nbsp&nbsp&nbsp&nbsp${cmtpagedto.list[2].comment_notice}</b></p></p>
 	        </div> <!--임시 text DB연동-->
  
 
@@ -124,22 +122,22 @@
 				
 				
 			
-		
+				
 				<c:forEach varStatus="status" begin="1" end="${ cmtpagedto.totalPage/cmtpagedto.perPage }" >
-					<c:if test="${ cmtpagedto.curPage  == status.index }">
+					<c:if  test="${ cmtpagedto.curPage  == status.index }">
 							&nbsp&nbsp${ status.index }&nbsp&nbsp
 					</c:if> 
 					
 					<c:if test="${ cmtpagedto.curPage  != status.index }">
-					<a href="ClassPage?listNum=${classDTO.classNum}&curpage=${ status.index }">&nbsp${ status.index }&nbsp</a>  
+					<a class="cmt_page" href="ClassPage?listNum=${classDTO.classNum}&curpage=${ status.index }">&nbsp${ status.index }&nbsp</a>  
 					</c:if> 
 				</c:forEach>
 				
 				<c:if test="${ cmtpagedto.totalPage%cmtpagedto.perPage >0 }">
-					<a href="ClassPage?listNum=${classDTO.classNum}&curpage=<fmt:parseNumber var="i" integerOnly="true" value="${cmtpagedto.totalPage/cmtpagedto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${cmtpagedto.totalPage/cmtpagedto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
+					<a class="cmt_page" href="ClassPage?listNum=${classDTO.classNum}&curpage=<fmt:parseNumber var="i" integerOnly="true" value="${cmtpagedto.totalPage/cmtpagedto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${cmtpagedto.totalPage/cmtpagedto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
 				</c:if>
-		
-				
+				<br>
+				<br>
 			</td>
 		</tr>
 		</table>
