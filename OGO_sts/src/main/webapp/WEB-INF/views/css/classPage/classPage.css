@@ -1,10 +1,13 @@
 @charset "UTF-8";
-/* .intro_header{
+.intro_header{
 	background:black;
 	height:575px;
 	width:100%;
 	border-radius: 0px 0px 80px 80px / 0px 0px 80px 80px;
 	margin:auto;
+	float: rigtht;
+	z-index: 11;
+	position: absolute;
 }
 
 .intro_text{
@@ -22,8 +25,13 @@
 	font-family: 'Black Han Sans', sans-serif;
 	font-size:84px;
 	text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.66);
-} */
+}
 
+#class_over{
+	position: relative;
+	width: 30%;
+	height: 500px;
+}
 
 /*동욱님 css 만진거 */
 	.nav-item > .nav-link {
@@ -63,9 +71,17 @@
 	.box {
 		border: 3px solid blueviolet;
 		border-radius: 15px 15px 15px 15px;
-		margin: 80px; 
-		position : fixed;
+	    position: fixed;
+	    left: 1240px;
+	    right: 40px;
+	    top: 30%;
+	    z-index: 1;
+	    float: rigtht;
 	}
+	
+	
+	
+	
 	#bigImg{
 		text-align: center;
 	}

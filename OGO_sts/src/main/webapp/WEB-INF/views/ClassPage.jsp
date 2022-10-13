@@ -34,7 +34,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
+		$('#box_display').removeAttr('style');
 		//찜 버튼 클릭
 		$("#heart").on("click", function() {
 			
@@ -209,8 +209,18 @@
 			}//else
 				
 			});//button.click
-		
-		
+		  
+      /* 스크롤바를 이용한 사이드바 자동 숨김 */
+		    $(window).on("scroll", function(){
+		    	
+		    	var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+		    	if(heightTop < 400 ){
+		    	
+		    		$('.box').css('display','none');
+		    		
+		        }else
+		        	$('.box').css('display','');
+			})
 		
 	})//
 	
@@ -219,11 +229,12 @@
 <jsp:include page="common/navBar/nav.jsp" flush="true"/>
 </head>
 
-<!-- <div class="intro_header">
+<div class="intro_header">
 <div class="intro_text">
 <h1>행성클래스로 모험을 떠나보세요</h1> 
 </div>
-</div> -->
+</div>
+<div id="class_over"></div>
 <body>
 
 <div class="wrap">

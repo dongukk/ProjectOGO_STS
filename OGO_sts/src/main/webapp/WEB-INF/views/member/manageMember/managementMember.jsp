@@ -105,6 +105,7 @@
 				PageDTO pDTO = (PageDTO) request.getAttribute("pDTO");
 				String searchName = (String)request.getAttribute("searchName");
 				String searchValue = (String)request.getAttribute("searchValue");
+				String order = (String)request.getAttribute("order");
 				
 				int curPage = pDTO.getCurPage();		// 현재 볼 페이지 번호
 		        int perPage = pDTO.getPerPage();		// 한페이지에 보여질 목록 수 
@@ -117,7 +118,7 @@
 		          	}else{								// RowBound(offset, limit) // 시작 idx, 몇개
 		          		                                //   offset = (원하는 페이지, -1)* perpage
 		          		                                //   limit = purpage
-		          		out.print("<a href='managementMember?curPage="+i+"&searchName="+searchName+"&searchValue="+searchValue+"'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
+		          		out.print("<a href='managementMember?curPage="+i+"&searchName="+searchName+"&searchValue="+searchValue+"&order="+order+"'>"+"&nbsp;"+i+"&nbsp;"+"</a>");
 		          	}
 		        }//end for
 				%>
