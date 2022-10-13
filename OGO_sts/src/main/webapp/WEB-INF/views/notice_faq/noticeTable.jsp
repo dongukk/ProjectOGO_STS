@@ -32,10 +32,10 @@
 		
 		<c:forEach var="NTdto" items="${ Pdto.list }" varStatus="status">
 		<c:if test="${ Pdto.curPage == '1' }">
-			<tr> <td>${status.index +1}</td><td><a id="a1" href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
+			<tr> <td>${status.index +1}</td><td><a class="a1" href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
 		</c:if>
 		<c:if test="${ Pdto.curPage != '1' }">
-		<tr> <td>${((Pdto.curPage-1)*Pdto.perPage + status.index)+1}</td><td><a href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
+		<tr> <td>${((Pdto.curPage-1)*Pdto.perPage + status.index)+1}</td><td><a class="a1" href="noticeContent?nNum=${ NTdto.nNum }">${NTdto.nTitle}</a></td><td>${NTdto.nDate}</td><td>${NTdto.nickName}</td> </tr> 
 		</c:if>
 		</c:forEach>
 		</table>
@@ -60,12 +60,12 @@
 					</c:if> 
 					
 					<c:if test="${ Pdto.curPage  != status.index }">
-					<a href="notice?curpage=${ status.index }">&nbsp${ status.index }&nbsp</a>  
+					<a class="a1" href="notice?curpage=${ status.index }">&nbsp${ status.index }&nbsp</a>  
 					</c:if> 
 				</c:forEach>
 				
 				<c:if test="${ Pdto.totalCount/Pdto.perPage >0 }">
-					<a href="notice?curpage=<fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
+					<a class="a1" href="notice?curpage=<fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/>${i}"><fmt:parseNumber var="i" integerOnly="true" value="${Pdto.totalCount/Pdto.perPage+1}"/> ${i}</a> <!-- 소수점 제거  -->
 				</c:if>
 				</td>
 			</tr>
