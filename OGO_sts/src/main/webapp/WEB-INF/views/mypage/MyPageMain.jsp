@@ -206,6 +206,9 @@ $("#close").click( function(){
 }
 </style>
 </head>
+
+
+
 <body>
  <section>
       <aside>
@@ -364,7 +367,6 @@ $("#close").click( function(){
 </main>
   <aside></aside>
 </section>
-
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js" ></script>
 <script>
