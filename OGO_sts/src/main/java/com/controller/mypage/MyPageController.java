@@ -136,6 +136,7 @@ public class MyPageController {
 			
 		} else {
 			System.out.println("변경할 프로필 없음.");
+			dto.setProfilePhoto(Profile);
 		}
 
 		System.out.println(dto);
