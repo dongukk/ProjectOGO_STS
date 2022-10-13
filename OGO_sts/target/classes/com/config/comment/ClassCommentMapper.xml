@@ -3,20 +3,20 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClassCommentMapper">
-	<select id="view" resultType="ClassCommentDTO">
+	<select id="view" resultType="ClassCommentDTO" parameterType="int">
 	 	select comment_no, comment_notice, comment_date ,USERID, CLASSNUM
-	 	from class_comment
+	 	from class_comment 
 	
 	</select>
 	
-	<select id="viewPage" resultType="ClassCommentDTO">
+	<select id="viewPage" resultType="ClassCommentDTO" parameterType="int">
 		select comment_no, comment_notice, comment_date ,USERID, CLASSNUM
-	 	from class_comment order by comment_date desc
+	 	from class_comment where classnum=#{classNum} order by comment_date desc 
 	</select>
 	
 	<select id="viewTotal" resultType="int"> 
 		select count(*)
-    	from class_comment
+    	from class_comment where classnum =#{classnum}
 	</select>
 	
 	<insert id="cmtAdd" parameterType="ClassCommentDTO">

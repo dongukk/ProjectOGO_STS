@@ -72,7 +72,7 @@ public class ClassPageController {
 /////////////////////////////코멘트 추가하기///////////////////////////////
 		if(curpage == null) { curpage="1"; }
 		System.out.println(curpage);
-		ClassCommentPageDTO cmtpagedto = cmtservice.viewPage(Integer.parseInt(curpage));
+		ClassCommentPageDTO cmtpagedto = cmtservice.viewPage(Integer.parseInt(curpage),classNum);
 		System.out.println("classpageSevlet"+cmtpagedto);
 		
 		//mav.addObject() ->해주세요

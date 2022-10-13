@@ -48,6 +48,7 @@
   <input type="hidden" id="selectSched9" name="selectSched9">
   <input type="hidden" id="selectSched10" name="selectSched10">
   <input type="hidden" id="classPrice" name="classPrice" value="<%=price%>">
+	<div id="box_display">
 	<div class="box">
 	<div class="container">
 	  <div class="row mb-2 mt-2">
@@ -93,6 +94,7 @@
 		  </div>
 	  </div>
 	 
+	</div>
 	</div>
 	</div>
   </form>

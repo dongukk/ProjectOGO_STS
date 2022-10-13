@@ -7,17 +7,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * 
 	from class
 	</select>  -->
-	<select id="selectall" resultType="classlistDTO">
+	<select id="selectallA" resultType="classlistDTO" >
 		select classNum, className, userId, price, schedule1, place, subcategory, cate.id, cate.name, classphoto1 from CLASS 
 	 	class inner join sub_category s_cate on class.subcategory=s_cate.name
 	 	inner join category cate on s_cate.cate_id = cate.id join classimg USING (classnum)
+	 	order by price asc
 	</select>
+	
+	<select id="selectallD" resultType="classlistDTO" >
+		select classNum, className, userId, price, schedule1, place, subcategory, cate.id, cate.name, classphoto1 from CLASS 
+	 	class inner join sub_category s_cate on class.subcategory=s_cate.name
+	 	inner join category cate on s_cate.cate_id = cate.id join classimg USING (classnum)
+	 	order by price desc
+	</select> 
 	
 	<select id="selectcate" parameterType="string" resultType="classlistDTO">
 		select classNum, className, userId ,price, schedule1, place, subcategory,cate.id,cate.name,classphoto1
 	 	from CLASS class inner join sub_category s_cate on class.subcategory= s_cate.name
 	 	inner join category cate on s_cate.cate_id = cate.id join classimg USING (classnum)
 	 	where subcategory = #{subcategory}
+	</select>
+	
+	<select id="selectallnew" parameterType="string" resultType="classlistDTO">
+	select classNum, className, userId, price, schedule1, place, subcategory, cate.id, cate.name, classphoto1 from CLASS 
+	 	class inner join sub_category s_cate on class.subcategory=s_cate.name
+	 	inner join category cate on s_cate.cate_id = cate.id join classimg USING (classnum)
+	 	order by SCHEDULE1 desc
 	</select>
 
 </mapper>

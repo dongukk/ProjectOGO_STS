@@ -29,7 +29,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	HOBBY = #{hobby},
 	PHONE1 =#{phone1},
 	PHONE2 =#{phone2},
-	PHONE3 =#{phone3}	
+	PHONE3 =#{phone3},
+	profilePhoto = #{profilePhoto}	
 	where USERID = #{userId}
 	
 	

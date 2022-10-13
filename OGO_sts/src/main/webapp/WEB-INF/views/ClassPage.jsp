@@ -34,7 +34,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
+		$('#box_display').removeAttr('style');
 		//찜 버튼 클릭
 		$("#heart").on("click", function() {
 			
@@ -97,6 +97,10 @@
 			var scheduleChoice =$("#scheduleChoice");
 			
 			var idx= selectSchedule.substring(0, 1);
+			var idx2= selectSchedule.substring(0, 2); //10회차의 경우 substring(0,1)하면 1회차와 구별이 안됨
+			if (idx2==10) {
+				idx=10;
+			}
 			
 			if (idxArr.indexOf(idx, 0)== -1) { //idx가 idxArr에 존재하지 않는 경우
 				idxArr.push(idx); //idxArr에 추가
@@ -205,8 +209,18 @@
 			}//else
 				
 			});//button.click
-		
-		
+		  
+      /* 스크롤바를 이용한 사이드바 자동 숨김 */
+		    $(window).on("scroll", function(){
+		    	
+		    	var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+		    	if(heightTop < 400 ){
+		    	
+		    		$('.box').css('display','none');
+		    		
+		        }else
+		        	$('.box').css('display','');
+			})
 		
 	})//
 	
@@ -258,7 +272,7 @@
 		
 		
 		<!-- 결제버튼 -->
-		<button id="Pay_button1" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">결제</button>
+		<button id="Pay_button1" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="visibility: hidden; ">결제</button>
 		
 		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 		  <div class="offcanvas-header">

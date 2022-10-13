@@ -29,22 +29,22 @@ public class ClassCommentDAO {
 		return template.delete("ClassCommentMapper.cmtDelete",cmt_dto);
 	}
 
-	public ClassCommentPageDTO viewPage(int curpage) {
+	public ClassCommentPageDTO viewPage(int curpage, int classNum) {
 		ClassCommentPageDTO cmtpagedto = new ClassCommentPageDTO();
 		int perpage = cmtpagedto.getPerPage();
 		int offset = (curpage - 1) * perpage; //index 번호
 		
-		
-		List<ClassCommentDTO> listcmtdto = template.selectList("ClassCommentMapper.viewPage",null,new RowBounds(offset,perpage));
+		System.out.println("클래스넘버 dao : "+ classNum);
+		List<ClassCommentDTO> listcmtdto = template.selectList("ClassCommentMapper.viewPage",classNum,new RowBounds(offset,perpage));
 		System.out.println("dao: "+listcmtdto);
 		cmtpagedto.setCurPage(curpage);
 		cmtpagedto.setList(listcmtdto);
-		cmtpagedto.setTotalPage( totalcount() );
+		cmtpagedto.setTotalPage( totalcount(classNum) );
 		return cmtpagedto;
 	}
 
-	private int totalcount() {
-		int total = template.selectOne("ClassCommentMapper.viewTotal");
+	private int totalcount(int classNum) {
+		int total = template.selectOne("ClassCommentMapper.viewTotal" ,classNum);
 		return total;
 	}
 

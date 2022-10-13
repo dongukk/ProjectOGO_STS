@@ -48,7 +48,7 @@
 
 
 .img1{
-    background-image: url("../css/classComment/comment_img/OGO_favicon.png");
+    background-image: url("../comment_img/OGO_favicon.png");
     background-size: 60px;
     background-position: 15px 30px;
     background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 }
 
 .img2{
-    background-image: url("../css/classComment/comment_img/OGO_favicon.png");
+    background-image: url("../comment_img/OGO_favicon.png");
     background-size: 60px;
     background-position: 15px 30px;
     background-repeat: no-repeat;
@@ -66,7 +66,7 @@
 }
 
 .img3{
-    background-image: url("css/classComment/comment_img/OGO_favicon.png");
+    background-image: url("../comment_img/OGO_favicon.png");
     background-size: 60px;
     background-position: 15px 30px;
     background-repeat: no-repeat;
@@ -157,26 +157,30 @@
 	grid-area: button1;
 	position :absolute;
 	width : 80px;
-	height :40px;
-    top: 70%;
+	height :50px;
+    top: 50%;
     left: 84%;
     font-family:  'Nanum Gothic', sans-serif;
     font-weight: 700;
     font-size: 23px;
     color: rgb(159, 129, 192);
+    border-radius: 30px;
+    margin-left: 230px;
 }
 
 #cmt_button2{
 	grid-area: button2;
 	position :absolute;
 	width : 80px;
-	height :40px;
-    top: 70%;
+	height :50px;
+    top: 50%;
     left: 84%;
     font-family:  'Nanum Gothic', sans-serif;
     font-weight: 700;
     font-size: 23px;
     color: rgb(159, 129, 192);
+    border-radius: 30px;
+    margin-left: 170px;
 	
 }
 
@@ -184,12 +188,16 @@
 #cmt_button1{
     grid-area: button3;
     position :absolute;
-    top: 70%;
+    top: 50%;
     left: 84%;
+    width : 80px;
+	height :50px;
     font-family:  'Nanum Gothic', sans-serif;
     font-weight: 700;
     font-size: 23px;
     color: rgb(159, 129, 192);
+    border-radius: 30px;
+    align-items:center; 
     
 }
 #cmt_button1:hover{
@@ -201,6 +209,17 @@
     color: rgb(168, 131, 197);
 }
 #cmt_button1:active{
+    color: rgb(183, 148, 179);
+}
+#cmt_button2:hover{
+
+    background: -webkit-linear-gradient( rgb(23, 6, 42), rgb(114, 75, 154));
+    background: -moz-linear-gradient(rgb(23, 6, 42), rgb(114, 75, 154));
+    background: -o-linear-gradient(rgb(23, 6, 42), rgb(114, 75, 154));
+    background: linear-gradient(rgb(23, 6, 42) rgb(114, 75, 154));
+    color: rgb(168, 131, 197);
+}
+#cmt_button2:active{
     color: rgb(183, 148, 179);
 }
 
@@ -222,3 +241,7 @@
 	text-align: center;
 }
 
+.cmt_page{
+	font-family:  'Nanum Gothic', sans-serif;
+	font-size: 23px;
+}

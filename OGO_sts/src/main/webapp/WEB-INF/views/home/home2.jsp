@@ -72,9 +72,9 @@
 	<!-- 버튼 요소 -->
 		<a href="home2" style="color:#787878; text-decoration:none">전체보기</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<p>
-		<a href="ClassListCategoryServlet?listsortdate=desc" data-value="new" style="text-decoration:none; color:#787878;">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?priceasc" data-value="asc" style="text-decoration:none; color:#787878;">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-		<a href="ClassListCategoryServlet?pricedesc" data-value="desc" style="text-decoration:none; color:#787878;">높은 가격</a> 
+		<a href="home2?mesg=new"  style="text-decoration:none; color:#787878;">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="home2?mesg=asc"  style="text-decoration:none; color:#787878;">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="home2?mesg=desc" style="text-decoration:none; color:#787878;">높은 가격</a> 
 	</div> 
 	</div>
 </div>
