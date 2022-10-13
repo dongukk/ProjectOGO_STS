@@ -80,8 +80,8 @@
 	padding: 8px;
 	overflow: auto;
 	overflow-x: hidden;
-	font-family: 'Dongle', sans-serif;
-	font-size: 28px;
+	font-family: 'Jua', sans-serif;
+	font-size: 16px;
 }
 
 .classpage_tab1-1n{
@@ -111,6 +111,7 @@
 	overflow: auto;
 	overflow-x: hidden;
 	font-family: 'Jua', sans-serif; 
+	font-size: 16px;
 	
 }
 .classpage_tab2-1n{
@@ -140,8 +141,8 @@
 	padding: 8px;
 	overflow: auto;
 	overflow-x: hidden;
-	font-family: 'Dongle', sans-serif;
-	font-size: 30px;
+	font-family: 'Jua', sans-serif;
+	font-size: 20px;
 }
 
 .tab_menu{
