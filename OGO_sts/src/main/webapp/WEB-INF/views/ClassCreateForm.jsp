@@ -70,19 +70,19 @@
 				alert("주소를 입력해주세요");
 				event.preventDefault();
 				$("#post").focus();
-			}else if (textClassInfo.length==0) {
+			}else if (con_class.length==0) {
 				alert("클래스 소개를 입력해주세요");
 				event.preventDefault();
 				$("#con_class").focus();
-			}else if (textTutorInfo.length==0) {
+			}else if (con_tutor.length==0) {
 				alert("튜터 소개를 입력해주세요");
 				event.preventDefault();
 				$("#con_tutor").focus();
-			}else if (textNotice.length==0) {
+			}else if (con_notice.length==0) {
 				alert("클래스 공지사항을 입력해주세요");
 				event.preventDefault();
 				$("#con_notice").focus();
-			}else if (textAttention.length==0) {
+			}else if (con_attention.length==0) {
 				alert("클래스 유의사항을 입력해주세요");
 				event.preventDefault();
 				$("#con_attention").focus();
