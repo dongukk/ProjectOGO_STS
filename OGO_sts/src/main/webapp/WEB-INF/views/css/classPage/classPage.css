@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* .intro_header{
+.intro_header{
 	background:black;
 	height:575px;
 	width:100%;
@@ -25,7 +25,7 @@
 	font-family: 'Black Han Sans', sans-serif;
 	font-size:84px;
 	text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.66);
-} */
+}
 
 #class_over{
 	position: relative;
