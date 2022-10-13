@@ -33,7 +33,7 @@
 		event.preventDefault(); 
 		location.href="deleteMember?userId="+n;		
 	}
-	
+
 </script>
 <style type="text/css">
 	#ManageMember {padding-top: 100px; padding-bottom: 10px;}
@@ -59,7 +59,7 @@
 						<option value="nickname" <c:if test="${empty searchName}">selected="selected"</c:if>>닉네임</option>
 						<option value="address"  <c:if test="${searchName eq 'address'}">selected="selected"</c:if> >주소</option>
 					</select> 
-					<input type="text" name="searchValue" value="${searchValue}">	
+					<input type="text" name="searchValue" value="${searchValue}">
 					<input type="radio" value="asc" name="order" <c:if test="${order eq 'asc'}"> checked="checked"</c:if>>오름차순
 					<input type="radio" value="desc" name="order" <c:if test="${order eq 'desc'}"> checked="checked"</c:if>>내림차순 
 					<input type="submit" id="searcBtn" value="검색">
@@ -105,6 +105,7 @@
 				PageDTO pDTO = (PageDTO) request.getAttribute("pDTO");
 				String searchName = (String)request.getAttribute("searchName");
 				String searchValue = (String)request.getAttribute("searchValue");
+				if(searchValue == null){searchValue="";}
 				String order = (String)request.getAttribute("order");
 				
 				int curPage = pDTO.getCurPage();		// 현재 볼 페이지 번호
