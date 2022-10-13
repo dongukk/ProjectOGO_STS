@@ -12,10 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">	
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
-<style type="text/css"> 
-a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
-</style> 
-
 <meta charset="UTF-8">
 
 <title>OGO:어디로든 비행</title>
@@ -63,11 +59,10 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 	<!-- amount end -->
 	
 	<!-- 본문 시작 -->
-	<div class="main">
+<div class="main">
 	<div class="main_text0" id="link_main_text0">
 		<h1>CLASS LIST</h1>
 		<div class="contents1">필터링 기능으로 원하는 행성을 찾으세요</div>
-		</div>
 		</div>
 	
 	
@@ -75,22 +70,24 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 	<div class=filter>
 	<div style="display:flex; justify-content:center; ">
 	<!-- 버튼 요소 -->
-		<a href="home2" style="color:red; text-decoration:none">전체보기</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+		<a href="home2" style="color:#787878; text-decoration:none">전체보기</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<p>
 		<a href="home2?mesg=new"  style="text-decoration:none; color:#787878;">최신순</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<a href="home2?mesg=asc"  style="text-decoration:none; color:#787878;">낮은 가격</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
 		<a href="home2?mesg=desc" style="text-decoration:none; color:#787878;">높은 가격</a> 
 	</div> 
 	</div>
-	
-		<!-- 좌측 검색창-->
+</div>
+		
+	<!-- 좌측 검색창-->
+<div class="main_section">	
 	<div class="menu">
 		<div class="searchArea">
 				<form>
 				<input type="search" placeholder="Search">
 				<span>검색</span>
 				</form>
-				</div> 
+	</div> 
 		<!-- 좌측 카테고리 -->
 	    <ul class="category">
 		<li>
@@ -131,7 +128,6 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 		</li>
 		</ul>
 	</div>
-	<!--중간 main_text0 end -->	
 
 <!-- 상품 목록 3개씩 정렬 -->
 <div class=classlist>
@@ -139,7 +135,7 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 		
 			<tr>
 				<td>
-					<table style="margin-left:auto; margin-right:auto; border-collapse:separate">
+					<table style="margin-left:72px; margin-right:auto; border-collapse:separate">
 						<tr>
 							<td height="5"></td>
 						</tr>
@@ -221,7 +217,7 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 		</tr>				
 	</table>					 
 </div>		
-
+</div>
 	
 	<!-- main_text2 클래스 등록하기 시작 -->
 	<div class="create">
@@ -229,8 +225,10 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 			<li>
 			<div><h1>클래스 등록</h1></div>
 			<div>어떤 분야든 전문성을 갖고있다면, 지금 바로 클래스를 등록해주세요</div>
-			<div class="more2"><a href="loginCheck/ClassCreate" style="color:#fff; text-decoration:none"">
-			클래스 등록하기</a>
+			<div class="more2">
+				<button class="btn button" onclick="location.href = 'loginCheck/ClassCreate'" style="color:#fff; text-decoration:none;">
+				클래스 등록하기
+				</button>
 			</div>
 			</li>
 			<li></li>
@@ -246,33 +244,29 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 					<li class="depth1">
 					<p class="tit">COMPANY</p>
 						<ul class="depth2">
-							<li><a href="#" target="_blank" style="color:#fff;">회사 소개</a></li>
-							<br>
-							<li><a href="#" target="_blank" style="color:#fff;">언론 보도</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;">회사 소개</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;">언론 보도</a></li>
 						</ul>	
 					</li>
 					<li class="depth1">
 					<p class="tit">POLICIES</p>
 						<ul class="depth2">
-							<li><a href="#" target="_blank" style="color:#fff;">이용약관</a></li>
-							<br>
-							<li><a href="#" target="_blank" style="color:#fff;">개인정보처리방침</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;">이용약관</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;">개인정보처리방침</a></li>
 						</ul>	
 					</li>
 					<li class="depth1">
 					<p class="tit">SUPPORT</p>
 						<ul class="depth2">
-							<li><a href="../notice" target="_blank" style="color:#fff;">FAQ</a></li>
-							<br>
-							<li><a href="../notice" target="_blank" style="color:#fff;">공지사항</a></li>
+							<li><a href="NoticeMain.jsp" target="_blank" style="color:#fff; text-decoration:none;">FAQ</a></li>
+							<li><a href="NoticeMain.jsp" target="_blank" style="color:#fff; text-decoration:none;">공지사항</a></li>
 						</ul>	
 					</li>
 					<li class="depth1">
 					<p class="tit">B2B</p>
 						<ul class="depth2">
-							<li><a href="#" target="_blank" style="color:#fff;">기업교육</a></li>
-							<br>
-							<li><a href="#" target="_blank" style="color:#fff;">브랜드제휴</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;" >기업교육</a></li>
+							<li><a href="#" target="_blank" style="color:#fff; text-decoration:none;">브랜드제휴</a></li>
 						</ul>	
 					</li>
 				</ul>
@@ -283,8 +277,7 @@ a { text-decoration:none } /*하이퍼링크 밑줄 제거*/
 			<div class="f_info" style="color:#fff">
 				<p>상호:(주)오고  |  주소 : 서울특별시 강남구 테헤란로 70 5층  |  사업자등록번호 : 123-45-67890  |  대표자명 : 김취준</p>
 				<p>(주)오고는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 (주)오고는 튜터가 등록한 상품·클래스정보 및 거래에 관한
-의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
-				<br>
+					의무와 책임을 지지 않습니다. 단, (주)오고가 튜터로 등록, 판매한 클래스는 튜터로서 의무와 책임을 부담합니다.</p>
 				<p>Copyright ⓒ2022 ogo inc, ltd. All rights reserved</p>
 			</div>
 		</div>

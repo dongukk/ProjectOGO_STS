@@ -1,4 +1,8 @@
 @charset "UTF-8";
+*{
+	list-style:none;
+}
+
 /* 검정 인트로 css 시작*/
 .intro_bg{
 	background:black;
@@ -67,6 +71,11 @@ h4 {
 }
 
 /*main css 시작*/
+.main {
+/* 	position:fixed;
+ */	z-index:180;
+}
+
 .main_text0{
 	width:100%;
 	height:240px; /* classlist 본문 길이 */
@@ -83,32 +92,30 @@ h4 {
 .main_text0 > .contents1 {
 	text-align:center;
 }
+
+/*상위 의미없는 div로 묶어서 가로 정렬 시작*/
+.main_section {
+	display:flex;
+}
+
 	
 /* 필터링 메뉴바 css 시작 */	
 .filter {
 	font-family:'NanumSquare';
 }
 
-
-/*클래스 목록 css 시작*/
-.classlist{
-	border-collapse:separate !important;
-	font-family:'NanumSquarebold';
-	margin-top:-25vh;
-	/*position:stikcy를 쓰면 menu영역 높이가 인식되어서 공백이 생기기때문에 classlist의 margin-top값을 빼서 공백을 줄여줌*/
-}
-
-
 /* 검색창 css 시작*/
 .menu {
-	width:170px;
+	/* width:170px; */
 	height:auto;
 	position:stikcy;
 	top:35px; left:35px;
+	margin-left:24px;
+	flex:10%;
 }
 
 .searchArea{
-	width:170px;
+	width:190px;
 	height:40px;
 	background:rgba(0,0,0,0.2);
 	border-radius:5px;
@@ -119,7 +126,7 @@ h4 {
 
 .searchArea > form > input{
 	border:none;
-	width:120px;
+	width:140px;
 	height:40px;
 	background:rgba(0,0,0,0.2);
 	color:#fff;
@@ -128,12 +135,12 @@ h4 {
 
 .searchArea > form > span{
 	display:inline-block;
-	width:40px;
-	background-color:#eee;
+	width:42px;
+	background:#eee;
 	color:#000;
 	font-family: 'NanumSquare';
 	font-weight: bold;
-	font-size:10px;
+	font-size:12px;
 	cursor:pointer;
 	text-align:center;
 }
@@ -141,7 +148,7 @@ h4 {
 
 /* 좌측 카테고리 바 css시작 */
 .category{
-	width:170px;
+	width:190px;
 	overflow:hidden;
 	margin:10px auto;
 	padding-left:0px;
@@ -189,6 +196,7 @@ h4 {
 
 .category > li:hover {
 	background-color:#B750EA;
+	font-color:black;
 	/* transition-duration:0.5s; */
 }
 
@@ -198,14 +206,22 @@ h4 {
 }
 
 
+/*클래스 목록 css 시작*/
+.classlist{
+	border-collapse:separate !important;
+	font-family:'NanumSquarebold';
+/* 	margin-top:-25vh;
+ */	flex:100%;
+	position:relative;
+	/*position:stikcy를 쓰면 menu영역 높이가 인식되어서 공백이 생기기때문에 classlist의 margin-top값을 빼서 공백을 줄여줌*/
+}
 
 /* 클래스 등록하기 css 시작 */
 .create {
 	width:100%;
 	height:400px;	
-	background:gray;
-	/*css bg 이미지 안먹음 대체 왜일까*/
-	/* background-image: url("ClassList_img/footer04.png" center no-repeat); */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+	url("main2_1.png");
 	object-fit: cover;
 	font-family:'NanumSquarelignt';
 }
@@ -224,9 +240,10 @@ h4 {
 .create > ul > li > div > h1,
 .create > ul > li > div {
 	color:#fff;
+	font-family:'NanumSquare';
 }
 
-.more2 {
+/* .more2 {
 	width:220px;
 	height:40px;
 	border:1px solid #fff;
@@ -234,51 +251,76 @@ h4 {
 	cursor: pointer;
 	margin: 16px auto;
 	font-family:'NanumSquare';
+} */
+
+.more2 {
+        width:200px; 
+        height:40px; 
+        line-height:40px; 
+        border:1px solid #fff;
+        margin:16px auto; 
+        text-align:center; 
+        cursor: pointer;  
+		font-family:'NanumSquare';
+        color:#fff; 
+        transition:all 0.9s, color 0.3;  
 }
 
+
+/*footer css 시작*/
 footer {
 	display:flex;
 	background:#1f1f1f;
-	pdding:30px;
+	padding:30px;
+	vertical-align: middle;
 }
 
 footer .container {
 	width:880px;
 	height:170px;
-
+	vertical-align: middle;
 }
 
 .f_top{margin-bottom:5px;}
 .f_top > ul{display:flex;}
 .f_nav .depth1 .tit {
 	padding:0 110px 20px 0;
-	font-weight: 500;
-	font-size:24px;
+	font-weight:500;
+	font-size:16px;
 	color:#fff;
 	letter-spacing: -0.4px;
-	font-family:'NanumSquare';
+	font-family:'NanumSquarebold';
 }
+
+.f_nav .depth2{
+	padding-left:0; 
+	marign:0px;
+}
+
+
 .f_nav .depth2 li {
-	margin-bottom: 10px;
+	margin-bottom:10px;
 	line-height:20px;
-	font-size:18px;
+	font-size:12px;
 	color:inherit #fff;
 	letter-spacing: -0.35px;
-	list-style:none;
+	padding-left:0; 
+	marign:0px;
 }
+
 .f_nav .depth2 li:last-child{
 	margin-bottom:0;
 	color:#fff;
-	list-style:none;
-	}
+}
 
 .container2 {display:flex}
 	
 
 .container2 .f_info{
-	width: calc(100% - 320px); 
+	width: calc(100% - 100px); 
 	margin-right: 29px;
 	font-family: 'NanumSquarelight';
+	vertical-align: middle;
 	}
 
 .container2 .f_info p{
