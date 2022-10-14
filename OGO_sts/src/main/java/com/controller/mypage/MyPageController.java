@@ -74,7 +74,7 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value = "/loginCheck/MemberUpdate")
-	public String MemberUpdate(MultipartHttpServletRequest multi ) {
+	public String MemberUpdate(MultipartHttpServletRequest multi) {
 		
 		String userId = multi.getParameter("userId");
 		String userPasswd = multi.getParameter("userPasswd");
@@ -114,7 +114,8 @@ public class MyPageController {
 			System.out.println("변경할 프로필이미지가 있습니다.");
 			fileDelete(userId);
 			
-			String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
+//			String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
+			String realPath = "C:\\Users\\qkdnv\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
 			System.out.println("realPath : " + realPath);
 			String root = realPath + "\\upload\\member";
 			File file = new File(root);
@@ -141,6 +142,8 @@ public class MyPageController {
 
 		System.out.println(dto);
 		service.MemberUpdate(dto);
+		HttpSession session = multi.getSession();
+		session.setAttribute("mesg",nickname+"님 정보가 변경되었습니다.");
 		return "redirect:../loginCheck/Mypage?userId="+userId+"&userPasswd="+userPasswd;
 	}
 	
@@ -173,8 +176,9 @@ public class MyPageController {
 		// 파일의 경로 + 파일명
 		String fileName = Mservice.fileName(userId);		
 		System.out.println(">>>>>>>>>>>fileName : "+fileName);
-        String filePath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views\\upload\\member\\"+fileName;
-        System.out.println(">>>>>>>>>>>filePath : "+filePath);
+ //     String filePath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views\\upload\\member\\"+fileName;
+		String filePath = "C:\\Users\\qkdnv\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views\\upload\\member\\"+fileName;
+		System.out.println(">>>>>>>>>>>filePath : "+filePath);
         File deleteFile = new File(filePath);
  
         // 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false

@@ -145,7 +145,7 @@ public class memberController {
 		System.out.println("newPw 업데이트 갯수"+n);
 
 		session.setAttribute("mesg", "비밀번호가 변경되었습니다.");
-		return "MainForm";
+		return "home2";
 	}
 	
 // 회원가입

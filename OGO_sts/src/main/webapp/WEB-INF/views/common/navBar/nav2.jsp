@@ -213,7 +213,7 @@ $(".nav-item").find("a").each(function() {
                     saveToDos(response.access_token)  // 로그인 성공하면 사용자 엑세스 토큰 sessionStorage에 저장
                     window.Kakao.API.request({ // 사용자 정보 가져오기 
                         url: '/v2/user/me',
-                        success: (res) => {
+                        success: (res) = {
                             var kakao_account = res.kakao_account;
                             var email = kakao_account.email;
                             var nickname = kakao_account.profile.nickname;

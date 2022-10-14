@@ -131,7 +131,7 @@ public class ClassCreateController {
 		ClassImgDTO iDTO= new ClassImgDTO();
 		iDTO.setClassNum(classNum);
 		String[] photoArr= new String[5];
-		String realPath="C:\\Users\\sohyeon\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views\\upload\\classPage\\category";
+		String realPath="C:\\Users\\qkdnv\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views\\upload\\classPage\\category";
 		//카테고리 별 파일저장 경로 설정
 		String sCategory=(String) session.getAttribute("sCategory");
 		session.removeAttribute("sCategory"); //세션에서 remove
