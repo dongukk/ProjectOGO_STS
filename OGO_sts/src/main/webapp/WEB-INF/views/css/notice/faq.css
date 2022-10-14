@@ -3,6 +3,12 @@
 	background: #8041D9;
 	color: #FFFFFF;
 	} */
+	#faq_block{
+	position: relative;
+	width: 30%;
+	height: 200px;
+	}
+	
 	#faq_flexbox{
 	display: flex; 
 	position:resize; 

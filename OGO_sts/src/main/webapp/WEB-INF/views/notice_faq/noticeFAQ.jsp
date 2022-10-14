@@ -60,7 +60,7 @@
 		</c:forEach>
 		</div>
 	</div> <!-- end flex -->
-	
+	<div id="faq_block"></div>
 	<!-- footer html 현재 기능 아무것도 없음-->
 	<footer>
 		<div class="container">

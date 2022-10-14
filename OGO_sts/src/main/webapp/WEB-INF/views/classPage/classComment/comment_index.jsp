@@ -18,7 +18,6 @@
 	 $(function() {
 		 /* create button */
 		$("#cmt_submit1").click(function() {
-			alert("Create_CommentServlet");
 			
 			$("textarea").remove("#cmt_textarea2");
 			$("#cmt_submit1").attr("type", "submit");
@@ -28,7 +27,6 @@
 		
 		/* update button */
 		$("#cmt_submit2").click(function() {
-			alert("Update_CommentSerlvet");
 			
 			$("textarea").remove("#cmt_textarea");
 			$("#cmt_submit2").attr("type", "submit");
@@ -36,7 +34,6 @@
 		})		
 		/* delete button */
 		$("#cmt_button3").click(function() {
-			//alert("Delete_CommentServlet");
 			
 			$("textarea").remove("#cmt_textarea");
 			$("textarea").remove("#cmt_textarea2");
