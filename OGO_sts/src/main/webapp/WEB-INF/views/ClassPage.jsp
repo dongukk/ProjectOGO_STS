@@ -327,7 +327,7 @@
           orderId: CorderNum.value,
           orderName: Cname.innerText,
           customerName: Cusername.value,
-          successUrl:'http://localhost:7069/ogo/PaySuccess',
+          successUrl:'http://localhost:8097/ogo/PaySuccess',
           failUrl: 'http://localhost:8097/Pay/fail.jsp',
         })
       })

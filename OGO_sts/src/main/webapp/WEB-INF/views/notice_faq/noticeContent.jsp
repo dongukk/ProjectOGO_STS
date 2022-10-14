@@ -17,7 +17,6 @@
 			
 			<tr id="noticeContent_tr3" > 
 				<td id="noticeContent_btn">
-					<input type="button" class="nbtn" value="목록으로" onclick="location.href='http://localhost:7069/ogo/notice'">
 					<c:if test="${ admin != null }">
 					<input type="button" class="nbtn" value="수정" onclick="location.href='loginCheck/NoticeUpdate1?nNum=${NoticeDTO.nNum}'">
 					<input type="button" class="nbtn" value="삭제" onclick="location.href='loginCheck/NoticeDelete?nNum=${NoticeDTO.nNum}'">
