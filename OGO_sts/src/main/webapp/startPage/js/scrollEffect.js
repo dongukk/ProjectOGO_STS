@@ -205,7 +205,7 @@ window.onload = function() {
 			},500)
 
       setTimeout(function(){
-        location.href='http://localhost:8097/OGO/home2'
+        location.href='http://localhost:8097/ogo/home2'
       },3000);
 
 		}else if(SVGPercent < 100 && isPlay){

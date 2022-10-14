@@ -69,7 +69,8 @@ public class memberAdd {
 
 		// 2. 저장할 경로 가져오기
 //		String path = request.getSession().getServletContext().getRealPath("views");
-		String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
+//		String realPath = "C:\\Users\\UserK\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
+		String realPath = "C:\\Users\\qkdnv\\git\\ProjectOGO_STS\\OGO_sts\\src\\main\\webapp\\WEB-INF\\views";
 		System.out.println("realPath : " + realPath);
 		String root = realPath + "\\upload\\member";
 		
@@ -125,8 +126,8 @@ public class memberAdd {
 			session.setAttribute("mesg",nickname+"님 회원가입을 환영합니다.");
 			session.setAttribute("login",dto);
 			session.setMaxInactiveInterval(60*30);
-			return "MainForm";
+			return "home2";
 		}	
-		return "MainForm";
+		return "home2";
 	}
 }
