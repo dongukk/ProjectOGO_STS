@@ -15,7 +15,6 @@
 	<link rel='stylesheet' href='css/classComment/comment.css'>
 <!-- 값없을 시 제외 -->
 <script type="text/javascript">
-
 	 $(function() {
 		 /* create button */
 		$("#cmt_submit1").click(function() {
@@ -74,9 +73,7 @@
  	if(mesg != null){
  %>
 	alert("<%= mesg %>");
-
 <%} session.removeAttribute("mesg"); %> 
-
 </script>
     <form action="" id="cmt_form" method="get" >
 

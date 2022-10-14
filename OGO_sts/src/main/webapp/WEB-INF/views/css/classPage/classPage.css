@@ -1,5 +1,39 @@
 @charset "UTF-8";
+.intro_header{
+	background:black;
+	height:575px;
+	width:100%;
+	border-radius: 0px 0px 80px 80px / 0px 0px 80px 80px;
+	margin:auto;
+	float: rigtht;
+	z-index: 11;
+	position: absolute;
+}
 
+.intro_text{
+	width:100%;
+	margin:231px auto 231px auto;
+	text-align:left;
+	color:#fff;
+	background:black;
+	margin:auto;
+	padding-top:280px;
+	padding-left:50px;
+}	
+
+.intro_text > h1{
+	font-family: 'Black Han Sans', sans-serif;
+	font-size:84px;
+	text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.66);
+}
+
+#class_over{
+	position: relative;
+	width: 30%;
+	height: 500px;
+}
+
+/*동욱님 css 만진거 */
 	.nav-item > .nav-link {
 		color: black;
 	}
@@ -7,7 +41,7 @@
 		min-width: 768px;
 		margin-left: 150px;
 		margin-right: 150px;
-		margin-top: 30px;
+		margin-top: 100px;
 	}
 	
 	.nav-tabs .nav-item a:hover{
@@ -37,7 +71,12 @@
 	.box {
 		border: 3px solid blueviolet;
 		border-radius: 15px 15px 15px 15px;
-
+	    position: fixed;
+	    left: 1240px;
+	    right: 40px;
+	    top: 30%;
+	    z-index: 1;
+	    float: rigtht;
 	}
 	
 	
